@@ -55,6 +55,11 @@ window._wfx_settings.apply_page_settings = function () {
         }
     });
 
+//if(window.location.hash.startsWith("#action:npt.overview")){
+    $('[class="WFEMGM"]').css('z-index','1000005');
+    $('[class="WFEMHL"]').css('z-index','1000005');
+//}
+
 
     //Portfolios flow.
     //Adding custom classes to elements...
@@ -68,8 +73,8 @@ window._wfx_settings.apply_page_settings = function () {
 
         $('[onclick*="pfm.portfolioCreateSubmit"]').addClass("portfolio_save_return");
     }
-
-
+    //$('[id="ppm_nav_app_menu"]').attr('style',"min-width: 67px; display: none; top: 29.5714px; left: 51.571px; height: auto;");
+    $('[title = "Portfolios"]').addClass('port').css('z-index','1000000');
     //Change Request Flow
     if (window.location.hash.startsWith("#action:projmgr") && $('[title="Project Indicators"]').length && $('h1[title*="Dashboard"]').length) {
         $('[title="Risks/Issues/Changes"]').addClass("project_ric_click");
@@ -78,14 +83,17 @@ window._wfx_settings.apply_page_settings = function () {
     if (window.location.hash.startsWith("#action:itl.riskList") && $('h1[title*="Project"]').length) {
         $('[title="Risks/Issues/Changes"]').addClass("project_ric_hover");
     }
-    
-    if (window.location.hash.includes("changeList")){
+
+    if (window.location.hash.includes("changeList")) {
         $('[onclick*="action=itl.changeObject"]').addClass("changereq_new");
     }
 
     // Relook for buttons periodically as PPM is deleting buttons at times.
     window.setTimeout(function () {
         window._wfx_settings.apply_page_settings();
+        
+        //style="height: auto; min-width: 67px; display: none; top: 29.5714px; left: 51.5799px; z-index: 1000002;"
+
     }, 1000);
 
 
@@ -102,14 +110,15 @@ window._wfx_settings['203a5610-7f64-11e6-9479-04013d24cd02'] = function (event) 
     if (window.location.hash.startsWith("#action:pfm.portfolioList")) {
         potential_step = 2;
 
-   
-
-    if (potential_step && event.step < potential_step) {
-        return {
-            "position": potential_step
-        };
-    }
 
 
+        if (potential_step && event.step < potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
 
-};
+
+
+    };
+}
