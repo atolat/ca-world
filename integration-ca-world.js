@@ -55,10 +55,12 @@ window._wfx_settings.apply_page_settings = function () {
         }
     });
 
-//if(window.location.hash.startsWith("#action:npt.overview")){
-    $('[class="WFEMGM"]').css('z-index','1000005');
-    $('[class="WFEMHL"]').css('z-index','1000005');
-//}
+    //if(window.location.hash.startsWith("#action:npt.overview")){
+
+    //}
+
+    $('[class="WFEMGM"]').css('z-index', '1000099');
+    $('[class="WFEMHL"]').css('z-index', '1000099');
 
 
     //Portfolios flow.
@@ -74,7 +76,7 @@ window._wfx_settings.apply_page_settings = function () {
         $('[onclick*="pfm.portfolioCreateSubmit"]').addClass("portfolio_save_return");
     }
     //$('[id="ppm_nav_app_menu"]').attr('style',"min-width: 67px; display: none; top: 29.5714px; left: 51.571px; height: auto;");
-    $('[title = "Portfolios"]').addClass('port').css('z-index','1000000');
+    $('[title = "Portfolios"]').addClass('port').css('z-index', '1000000');
     //Change Request Flow
     if (window.location.hash.startsWith("#action:projmgr") && $('[title="Project Indicators"]').length && $('h1[title*="Dashboard"]').length) {
         $('[title="Risks/Issues/Changes"]').addClass("project_ric_click");
@@ -91,7 +93,7 @@ window._wfx_settings.apply_page_settings = function () {
     // Relook for buttons periodically as PPM is deleting buttons at times.
     window.setTimeout(function () {
         window._wfx_settings.apply_page_settings();
-        
+
         //style="height: auto; min-width: 67px; display: none; top: 29.5714px; left: 51.5799px; z-index: 1000002;"
 
     }, 1000);
@@ -106,6 +108,12 @@ window._wfx_settings.apply_page_settings();
 //How to create a portfolio
 window._wfx_settings['203a5610-7f64-11e6-9479-04013d24cd02'] = function (event) {
     var potential_step;
+
+
+
+    if (window.location.hash.startsWith("#action:home") && event.step == 0) {
+        potential_step = 1;
+    }
 
     if (window.location.hash.startsWith("#action:pfm.portfolioList")) {
         potential_step = 2;
