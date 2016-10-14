@@ -33,9 +33,6 @@ window._wfx_settings.onBeforeShow = function (event) {
 };
 
 
-
-
-
 //Setting up the object for adding buttons at page level.
 window._wfx_settings['page_settings'] = {};
 
@@ -55,12 +52,13 @@ window._wfx_settings.apply_page_settings = function () {
         }
     });
 
-    //if(window.location.hash.startsWith("#action:npt.overview")){
 
-    //}
 
     $('[class="WFEMGM"]').css('z-index', '1000099');
     $('[class="WFEMHL"]').css('z-index', '1000099');
+
+
+
 
 
     //Portfolios flow.
@@ -94,7 +92,6 @@ window._wfx_settings.apply_page_settings = function () {
     window.setTimeout(function () {
         window._wfx_settings.apply_page_settings();
 
-        //style="height: auto; min-width: 67px; display: none; top: 29.5714px; left: 51.5799px; z-index: 1000002;"
 
     }, 1000);
 
@@ -106,27 +103,54 @@ window._wfx_settings.apply_page_settings();
 
 //Handling flows in the middle
 //How to create a portfolio
+
+window.bool_port = [0,0,0];
+window.onhashchange = function () {
+    console.log(window.bool_port);
+    if ($.inArray(true, [
+            (window.location.hash.startsWith('#action:npt.overview') && (window.bool_port[0] != 1))
+            
+            , (window.location.hash.startsWith('#action:pfm.portfolioList') && (window.bool_port[1] != 1))
+            
+            , (window.location.hash.startsWith('#action:pfm.portfolioCreate')) && (window.bool_port[2] != 1)]) == -1) {
+
+        window._wfx_close_live && window._wfx_close_live();
+
+        console.log("Exit");
+        window.bool_port = [0, 0, 0];
+    }
+
+};
+
 window._wfx_settings['203a5610-7f64-11e6-9479-04013d24cd02'] = function (event) {
+
+
+    window.bool_port[0] = 1;
+
     var potential_step;
 
+    console.log(event.step);
+    console.log(event.flow_id);
 
 
     if (window.location.hash.startsWith("#action:home") && event.step == 0) {
         potential_step = 1;
+        window.bool_port[0]++;
     }
 
     if (window.location.hash.startsWith("#action:pfm.portfolioList")) {
         potential_step = 2;
+        window.bool_port[1]++;
+    }
 
+    if (window.location.hash.startsWith("#action:pfm.portfolioCreate")) {
+        potential_step = 3;
+        window.bool_port[2]++;
+    }
 
-
-        if (potential_step && event.step < potential_step) {
-            return {
-                "position": potential_step
-            };
-        }
-
-
-
-    };
-}
+    if (potential_step && event.step < potential_step) {
+        return {
+            "position": potential_step
+        };
+    }
+};
