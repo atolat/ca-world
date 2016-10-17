@@ -129,7 +129,19 @@
     var how_to_create_a_role_step = 0;
     /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 	
+	/* variable for How to Create a Project */
 	
+	 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+    var how_to_create_a_project_triggerReady = false;
+    var how_to_create_a_project_step = 0;
+    /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+    
+    /* variable for How to Create a Project from a template */
+	
+	 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+    var how_to_create_a_project_from_a_template_triggerReady = false;
+    var how_to_create_a_project_from_a_template_step = 0;
+    /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
     
     //Based on Hash Change this function runs
     
@@ -446,7 +458,7 @@
      how_to_create_a_role_triggerReady = false;
  }
 				
-				//1. For step number 2
+				// For step number 2
             if (how_to_create_a_role_step == 2 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_odf')) {
                 how_to_create_a_role_step = 0;
                 window._wfx_close_live();
@@ -459,7 +471,7 @@
             }
 			
 			//for step number 8
-            if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.editResource&resourceType')) {
+            if (how_to_create_a_role_step == 7 && !window.location.hash.includes('#action:projmgr.editResource&resourceType')) {
                 how_to_create_a_role_step = 0;
                 window._wfx_close_live();
             }
@@ -494,7 +506,7 @@
          }
 		 
           if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
-             how_to_create_a_role_step = 8;
+             how_to_create_a_role_step = 7;
              how_to_create_a_role_triggerReady = false;
          }
 				
@@ -527,9 +539,151 @@
 	}
 
 }
-			
-			  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Create a Role <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Create a Role <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
            
+           
+   
+             /* ******************************************************how to create a Project***************************************************/
             
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+           
+            if (how_to_create_a_project_triggerReady) {
+     window._wfx_close_live();
+     how_to_create_a_project_triggerReady = false;
+ }
+ 
+        // For step number 2
+            if (how_to_create_a_project_step == 2 && !window.location.hash.includes('#action:projmgr.projectNew&partition')) {
+                how_to_create_a_project_step = 0;
+                window._wfx_close_live();
+            }
+            
+            // For step number 11
+            if (how_to_create_a_project_step == 11 && !window.location.hash.includes('#action:projmgr.projectDashboard')) {
+                how_to_create_a_project_step = 0;
+                window._wfx_close_live();
+            }
+
+         if (window._wfx_is_live()) {
+     window._wfx_settings['87329a20-8186-11e6-ae8d-04013d24cf02'] = function(event) {
+         potential_step = 0;
+           
+            //new button Projects page
+		 if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+             how_to_create_a_project_step = 2;
+             how_to_create_a_project_triggerReady = false;
+         }
+           
+           //create project page
+           if ((event.step >=3 && event.step <12) && (window.location.hash.includes("#action:projmgr.projectNew&partition"))) {
+          how_to_create_a_project_triggerReady = true;
+         }
+           
+           //create project page - save and return button
+            if ((event.step == 11) && (window.location.hash.includes("#action:projmgr.projectNew&partition"))) {
+             how_to_create_a_project_step = 11;
+             how_to_create_a_project_triggerReady = false;
+         }
+           
+           
+           
+           /*jump steps */
+         if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+             potential_step = 2;
+
+         }
+		 
+		 if ((window.location.hash.includes("#action:projmgr.projectNew&partition"))) {
+             potential_step = 3;
+
+         }
+         
+		  if (potential_step && event.step <= potential_step) {
+             return {
+                 "position": potential_step
+             };
+         }
+       }
+         
+   }
+           
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Create a Project <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+           
+           
+             /* ******************************************************how to create a Project from a template***************************************************/
+            
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            
+            
+             if (how_to_create_a_project_from_a_template_triggerReady) {
+     window._wfx_close_live();
+     how_to_create_a_project_from_a_template_triggerReady = false;
+ }
+ 
+  // For step number 2
+            if (how_to_create_a_project_from_a_template_step == 2 && !window.location.hash.includes('#action:projmgr.selectProjectTemplate&cancelAction')) {
+                how_to_create_a_project_from_a_template_step = 0;
+                window._wfx_close_live();
+            }
+ 
+  // For step number 4
+            if (how_to_create_a_project_from_a_template_step == 4 && !window.location.hash.includes('#action:projmgr.projectNew&templat')) {
+                how_to_create_a_project_from_a_template_step = 0;
+                window._wfx_close_live();
+            }
+            
+// For step number 6
+            if (how_to_create_a_project_from_a_template_step == 6 && !window.location.hash.includes('#action:dashboardProjectStatu')) {
+                how_to_create_a_project_from_a_template_step = 0;
+                window._wfx_close_live();
+            }
+ 
+ if (window._wfx_is_live()) {
+     window._wfx_settings['4be97380-84b0-11e6-a247-04013d24cc02'] = function(event) {
+         potential_step = 0;
+         
+         //new from template button on Projects page
+         
+          if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project")))
+              {
+             how_to_create_a_project_from_a_template_step = 2;
+             how_to_create_a_project_from_a_template_triggerReady = false;
+          }
+         
+         
+         //select template project
+          if ((event.step >=3 && event.step <4) && (window.location.hash.includes("#action:projmgr.selectProjectTemplate&cancelAction"))) {
+          how_to_create_a_project_from_a_template_triggerReady = true;
+         }
+         
+         // select template project - next button
+            if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.selectProjectTemplate&cancelAction"))) {
+             how_to_create_a_project_from_a_template_step = 4;
+             how_to_create_a_project_from_a_template_triggerReady = false;
+         }
+         
+         //Project Template: Application COTS Template - Create Project
+          if ((event.step >=5 && event.step <6) && (window.location.hash.includes("#action:projmgr.projectNew&template"))) {
+          how_to_create_a_project_from_a_template_triggerReady = true;
+         }
+         
+         
+         //Project Template: Application COTS Template - Create Project -- save button
+          if ((event.step == 6) && (window.location.hash.includes("#action:projmgr.projectNew&template"))) {
+             how_to_create_a_project_from_a_template_step = 6;
+             how_to_create_a_project_from_a_template_triggerReady = false;
+         }
+         
+     }
+         
+ }
+ 
+ 
+ 
+            
+            
+            
+              /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Create a Project from a template <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+           
         })
         /*Killing flow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
