@@ -97,26 +97,42 @@
     };
 
 
-    /*Sleep Funtion >>>>>>>>>>>>>>>>>>>>> Beign*/
-    window._wfx_settings.apply_page_settings();
-
-    function sleep(milliseconds) {
-        var start = new Date().getTime();
-        for (var i = 0; i < 1e7; i++) {
-            if ((new Date().getTime() - start) > milliseconds) {
-                break;
-            }
-        }
-    }
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-
     /* Below code is for killing the flow by when user go out of the flow >>>>>>>>>>>>>>>>>>>>>>>>>>>> Begin >>>>>>>>>>>>>>>>>>>>>>>..*/
 
     //To close the balloon on url change
+    /* variable for how_to_create_a_portfolio */
+    
+    /*<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<<<<<<*/
     var how_to_create_a_portfolio_triggerReady = false;
     var how_to_create_a_portfolio_step = 0;
+    /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+    
+    /* variable for  how_to_create_an_issue */
+    
+    /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+    var how_to_create_an_issue_triggerReady = false;
+    var how_to_create_an_issue_step = 0;
+    /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+    
+	
+	 /* variable for  how_to_create_a_program */
+	 
+	 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+    var how_to_create_a_program_triggerReady = false;
+    var how_to_create_a_program_step = 0;
+    /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+    
+	/* variable for How to Create a Role */
+	
+	 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+    var how_to_create_a_role_triggerReady = false;
+    var how_to_create_a_role_step = 0;
+    /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+	
+	
+    
     //Based on Hash Change this function runs
+    
     $(window).hashchange(function () {
 
             /* Below code is for How to Create a Portfolio >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Begin >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -153,6 +169,8 @@
                 window._wfx_close_live();
             }
 
+            /* this condition checks weather the flow is live or not*/
+            /*for each flow change the step number (event.step) and match corresponding hash*/
             if (window._wfx_is_live()) {
                 console.log('Live Workflow');
                 potential_step = 0;
@@ -236,7 +254,282 @@
                     }
 
                     console.log(how_to_create_a_portfolio_triggerReady);
-                } /* Jump Step <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+                } /* Jump Step <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a Portfolio <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
             }
+            
+            /* ******************************************************how to create an issue***************************************************/
+            
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            
+             if (how_to_create_an_issue_triggerReady) {
+     window._wfx_close_live();
+     how_to_create_an_issue_triggerReady = false;
+ }
+ //for step number 2
+ if (how_to_create_an_issue_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTa')) {
+     how_to_create_an_issue_step = 0;
+     window._wfx_close_live();
+ }
+
+ //for step number 3
+ if (how_to_create_an_issue_step == 3 && !window.location.hash.includes('#action:itl.riskList')) {
+     console.log('step 3');
+     how_to_create_an_issue_step = 0;
+     window._wfx_close_live();
+ }
+
+//for step number 4
+ if (how_to_create_an_issue_step == 4 && !window.location.hash.includes('#action:itl.issueList')) {
+     how_to_create_an_issue_step = 0;
+     window._wfx_close_live();
+ }
+
+ //for step number 6
+ if (how_to_create_an_issue_step == 6 && !window.location.hash.includes('#action:itl.issueObject&')) {
+     how_to_create_an_issue_step = 0;
+     window._wfx_close_live();
+ }
+
+ //for step number 10
+ if (how_to_create_an_issue_step == 10 && !window.location.hash.includes('#action:itl.issueObject&odf_pk')) {
+     how_to_create_an_issue_step = 0;
+     window._wfx_close_live();
+ }
+
+ if (window._wfx_is_live()) {
+     window._wfx_settings['2c7450c0-8496-11e6-ae8d-04013d24cf02'] = function(event) {
+         potential_step = 0;
+         if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+             how_to_create_an_issue_step = 2;
+             how_to_create_an_issue_triggerReady = false;
+         }
+         if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+             console.log('step 3 correct');
+             how_to_create_an_issue_step = 3;
+             how_to_create_an_issue_triggerReady = false;
+         }
+         if ((event.step == 4) && (window.location.hash.includes("#action:itl.riskList"))) {
+             how_to_create_an_issue_step = 4;
+             how_to_create_an_issue_triggerReady = false;
+         }
+
+
+         if ((event.step >= 5 && event.step < 7) && window.location.hash.includes('#action:itl.issueList')) {
+             how_to_create_an_issue_triggerReady = true;
+         }
+         if ((event.step == 6)) {
+             how_to_create_an_issue_step = 6;
+             how_to_create_an_issue_triggerReady = false;
+         }
+
+         if ((event.step >= 7 && event.step < 10) && window.location.hash.includes('#action:itl.issueObject')) {
+             how_to_create_an_issue_triggerReady = true;
+         }
+
+         if ((event.step == 10)) {
+             how_to_create_an_issue_step = 10;
+             how_to_create_an_issue_triggerReady = false;
+         }
+
+         /*jump steps */
+         if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+             potential_step = 2;
+
+         }
+
+         if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+
+             potential_step = 3;
+         }
+
+         if ((window.location.hash.includes("#action:itl.riskList"))) {
+
+             potential_step = 4;
+         }
+         if (window.location.hash.includes('#action:itl.issueList')) {
+             potential_step = 4;
+         }
+		
+		 if ((window.location.hash.includes('#action:itl.issueObject'))) {
+             potential_step = 7;
+         }
+         if (potential_step && event.step <= potential_step) {
+             return {
+                 "position": potential_step
+             };
+         }
+     }
+ }
+
+            
+            
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create an Issue <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+            
+             /* ******************************************************how to create a Program***************************************************/
+            
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            
+            
+				   if (how_to_create_a_program_triggerReady) {
+     window._wfx_close_live();
+     how_to_create_a_program_triggerReady = false;
+ }
+				
+			//1. For step number 2
+            if (how_to_create_a_program_step == 2 && !window.location.hash.includes('#action:projmgr.programNew&partition_code=NIKU.ROOT&newProject')) {
+                how_to_create_a_program_step = 0;
+                window._wfx_close_live();
+            }
+			
+			//1. For step number 6
+            if (how_to_create_a_program_step == 6 && !window.location.hash.includes('#action:projmgr.projectPropertie')) {
+                how_to_create_a_program_step = 0;
+                window._wfx_close_live();
+            }
+			
+				
+				if (window._wfx_is_live()) {
+     window._wfx_settings['bd1dfc60-8965-11e6-a787-04013d24cf02'] = function(event) {
+         potential_step = 0;
+				
+				  if ((event.step == 2) && (window.location.hash.includes("#action:projmgr.programs"))) {
+             how_to_create_a_program_step = 2;
+             how_to_create_a_program_triggerReady = false;
+         }
+				
+				 if ((event.step >=3 && event.step <6) && (window.location.hash.includes("#action:projmgr.programNew&partition_code=NIKU.ROOT&newProject"))) {
+          how_to_create_a_program_triggerReady = true;
+         }
+		 
+		  if ((event.step == 6) && (window.location.hash.includes("#action:projmgr.programNew&partition_code=NIKU.ROOT&newProject"))) {
+             how_to_create_a_program_step = 6;
+             how_to_create_a_program_triggerReady = false;
+         }
+				
+				
+				
+				
+		    /*jump steps */
+         if ((window.location.hash.includes("#action:projmgr.programs"))) {
+             potential_step = 2;
+
+         }
+		 
+		 if ((window.location.hash.includes("#action:projmgr.programNew&partition_code=NIKU.ROOT&newProject"))) {
+             potential_step = 3;
+
+         }
+		 
+		  if (potential_step && event.step <= potential_step) {
+             return {
+                 "position": potential_step
+             };
+         }
+		 
+				
+	 }
+}
+				
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a Program <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+           
+            
+            
+			
+			
+             /* ******************************************************How to Create a Role***************************************************/
+            
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+			
+			
+			 if (how_to_create_a_role_triggerReady) {
+     window._wfx_close_live();
+     how_to_create_a_role_triggerReady = false;
+ }
+				
+				//1. For step number 2
+            if (how_to_create_a_role_step == 2 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_odf')) {
+                how_to_create_a_role_step = 0;
+                window._wfx_close_live();
+            }
+			
+			//for step number 4
+			  if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.newResource&isRole')) {
+                how_to_create_a_role_step = 0;
+                window._wfx_close_live();
+            }
+			
+			//for step number 8
+            if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.editResource&resourceType')) {
+                how_to_create_a_role_step = 0;
+                window._wfx_close_live();
+            }
+            
+            
+			if (window._wfx_is_live()) {
+     window._wfx_settings['deb84cd0-89f2-11e6-a787-04013d24cf02'] = function(event) {
+         potential_step = 0;
+		 
+		 //new button on resource  list page
+		 if ((event.step == 2) && (window.location.hash.includes("#action:projmgr.getResources"))) {
+             how_to_create_a_role_step = 2;
+             how_to_create_a_role_triggerReady = false;
+         }
+		 
+		 
+		 //Select reource type page
+		  if ((event.step >=3 && event.step <5) && (window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
+          how_to_create_a_program_triggerReady = true;
+         }
+		 
+		 //Next button on Select reource type page
+		 if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
+             how_to_create_a_role_step = 4;
+             how_to_create_a_role_triggerReady = false;
+         }
+		 
+		 
+		  //Create Role Labor page
+		  if ((event.step >=5 && event.step <8) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+          how_to_create_a_program_triggerReady = true;
+         }
+		 
+          if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+             how_to_create_a_role_step = 8;
+             how_to_create_a_role_triggerReady = false;
+         }
+				
+         
+		   /*jump steps */
+         if ((window.location.hash.includes("#action:projmgr.getResources"))) {
+             potential_step = 2;
+
+         }
+		 
+		 if ((window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
+             potential_step = 3;
+
+         }
+         
+         if ((window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+             potential_step = 5;
+
+         }
+         
+		 
+		  if (potential_step && event.step <= potential_step) {
+             return {
+                 "position": potential_step
+             };
+         }
+		 
+		 
+		 
+	}
+
+}
+			
+			  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Create a Role <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+           
+            
         })
         /*Killing flow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
