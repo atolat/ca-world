@@ -33,6 +33,10 @@
         "self_help": {}
     };
 
+// Whatfix setting change to let the tip come over menu.
+//balloons to appear over pop ups and for 2nd step in general.
+window._wfx_settings.z_refresh = true;
+
     window._wfx_settings.apply_page_settings = function () {
         var self_help_applied;
         $.each(window._wfx_settings['page_settings'], function (name, settings) {
@@ -71,7 +75,7 @@
         if ($('[title="Create Portfolio"]').length && window.location.hash.startsWith("#action:pfm.portfolioCreate")) {
             $('[onclick=\"optionSelectAll(\'pagex\',\'owner\');optionSelectAll(\'pagex\',\'stakeholder\');submitForm(\'pagex\',\'pfm.portfolioCreateSave\',\'redirect_action=pfm.portfolioProperties\');\"]').addClass("portfolio_save");
             //3.Custom class added to Save 7 Return button
-            $('[onclick*="pfm.portfolioCreateSubmit"]').addClass("portfolio_save_return");
+            $('[onclick*="pfm.portfolioCreateSubmit"]').addClass("portfolio_save_return"); 
         }
         //4.Custome class added to show the ballon for 2nd step only for Portfolio
         $('[title = "Portfolios"]').addClass('port').css('z-index', '1000099');
@@ -143,6 +147,15 @@
     var how_to_create_a_project_from_a_template_step = 0;
     /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
     
+	/* variable for How to change an ETC value */
+	
+	 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+    var how_to_change_an_etc_value_triggerReady = false;
+    var how_to_change_an_etc_value_triggerReady_step = 0;
+    /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+    
+	
+	
     //Based on Hash Change this function runs
     
     $(window).hashchange(function () {
@@ -674,16 +687,83 @@
              how_to_create_a_project_from_a_template_triggerReady = false;
          }
          
+         /*jump steps */
+         if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+             potential_step = 2;
+
+         }
+		 
+		 if ((window.location.hash.includes("#action:projmgr.selectProjectTemplate&cancelAction"))) {
+             potential_step = 3;
+
+         }
+         if ((window.location.hash.includes("#action:projmgr.projectNew&template"))) {
+             potential_step = 5;
+        }
+         
+		  if (potential_step && event.step <= potential_step) {
+             return {
+                 "position": potential_step
+             };
+         }
+         
      }
          
  }
- 
- 
- 
-            
-            
-            
               /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Create a Project from a template <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
            
+		   
+		     /* ******************************************************how to change an ETC value***************************************************/
+            
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+		   
+		   
+		     if (how_to_change_an_etc_value_triggerReady) {
+			 window._wfx_close_live();
+			 how_to_change_an_etc_value_triggerReady = false;
+		}
+		   
+		    // For step number 3
+            if (how_to_change_an_etc_value_triggerReady_step == 3 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
+                how_to_change_an_etc_value_triggerReady_step = 0;
+                window._wfx_close_live();
+            }
+		   
+		   
+		   if (window._wfx_is_live()) {
+     window._wfx_settings['8988bfb0-8948-11e6-b370-04013d24cc02'] = function(event) {
+         potential_step = 0;
+         
+		  //Timesheets page
+		  if ((event.step >=1 && event.step <3) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+          how_to_change_an_etc_value_triggerReady = true;
+         }
+		 
+		 //Timesheets page Save Button
+		 if ((event.step == 3) && (window.location.hash.includes("#action:timeadmin.editTimesheet")))
+         {
+             how_to_change_an_etc_value_triggerReady_step = 3;
+             how_to_change_an_etc_value_triggerReady = false;
+         }
+		  
+		  //Timesheets page
+		  if ((event.step >=4 && event.step <6) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+          how_to_change_an_etc_value_triggerReady = true;
+         }
+		  
+		   /*jump steps */
+         if ((window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+             potential_step = 1;
+		 }
+		 
+		 if (potential_step && event.step <=potential_step) {
+             return {
+                 "position": potential_step
+             };
+        }
+	}
+}
+		    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how to change an ETC value <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+		   
         })
         /*Killing flow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
