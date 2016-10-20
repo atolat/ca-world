@@ -170,6 +170,17 @@ var how_to_create_a_risk_triggerReady = false;
 var how_to_create_a_risk_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+
+/* variable for How to Modify a Posted Timesheet*/
+
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_idea_triggerReady = false;
+var how_to_create_idea_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function () {
@@ -1012,10 +1023,10 @@ $(window).hashchange(function () {
                 if (window.location.hash.includes("&ui.page.space=mainnav.work&return_to=itl.riskList")) {
                     potential_step = 11;
                 }
-                 if (window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id")) {
+                if (window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id")) {
                     potential_step = 13;
                 }
-                if(window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectRisk&id=")){
+                if (window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectRisk&id=")) {
                     potential_step = 15;
                 }
                 if (potential_step && event.step <= potential_step) {
@@ -1029,7 +1040,80 @@ $(window).hashchange(function () {
 
 
 
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to modify a submitted Timesheet <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to create a Risk <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+
+
+
+
+
+
+        /* *********************************************How to Create an Idea?****************************************** */
+
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+
+
+        if (how_to_create_idea_triggerReady) {
+            window._wfx_close_live();
+            how_to_create_idea_triggerReady = false;
+        }
+
+        //For last step on every page
+        // For step number 2
+        if (how_to_create_idea_step == 2 && !window.location.hash.includes('#action:pma.ideaList')) {
+            how_to_create_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 13
+        if (how_to_create_idea_step == 13 && !window.location.hash.includes('#action:pma.ideaCreate&partition_code')) {
+            how_to_create_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+        if (window._wfx_is_live()) {
+            potential_step = 0;
+            window._wfx_settings['d0a36250-8499-11e6-ae8d-04013d24cf02'] = function (event) {
+                potential_step = 0;
+                console.log("here::" + how_to_create_idea_triggerReady+" "+event.step);
+                
+
+
+                if ((event.step == 2) && window.location.hash.includes("#action:pma.ideaCreate&partition_code")) {
+                    how_to_create_idea_step = 2;
+                    how_to_create_idea_triggerReady = false;
+                }
+                
+
+                // For step number 4 to 13
+                if ((event.step >= 3 && event.step < 14) && window.location.hash.includes('#action:pma.ideaCreate&partition_code')) {
+                    how_to_create_idea_triggerReady = true;
+                }
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:pma.ideaList"))) {
+                    potential_step = 2;
+                }
+
+                if ((window.location.hash.includes("#action:pma.ideaCreate&partition_code"))) {
+                    potential_step = 3;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+            }
+        }
+
+
+
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to create an Idea <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
 
