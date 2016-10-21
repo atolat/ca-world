@@ -248,6 +248,21 @@ var how_to_create_a_copy_of_cost_plan_step = 0;
 
 
 
+/*How to Create a Benefit Plan*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_a_benefit_plan_triggerReady = false;
+var how_to_create_a_benefit_plan_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+/*How to Reject an Idea*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_reject_an_idea_triggerReady = false;
+var how_to_reject_an_idea_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function () {
@@ -2050,10 +2065,215 @@ $(window).hashchange(function () {
 				
   /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a copy of cost plan<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   
+ 
   
+  		/* ******************************************** How to Create a Benefit Plan? ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				 //not working
+				 if (how_to_create_a_benefit_plan_triggerReady) {
+                window._wfx_close_live();
+                how_to_create_a_benefit_plan_triggerReady = false;
+				console.log('default');
+            }
+			
+			// For step number 2
+            if (how_to_create_a_benefit_plan_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+                how_to_create_a_benefit_plan_step = 0;
+                window._wfx_close_live();
+				console.log('step 2');
+            }
+			
+			// For step number 3
+            if (how_to_create_a_benefit_plan_step == 3 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
+                how_to_create_a_benefit_plan_step = 0;
+                window._wfx_close_live();
+				console.log('step 3');
+            }
+			
+			// For step number 5
+            if (how_to_create_a_benefit_plan_step == 5 && !window.location.hash.includes('#action:revmgr.benefitplanList&')) {
+                how_to_create_a_benefit_plan_step = 0;
+                window._wfx_close_live();
+				console.log('step 5');
+            }
+				
+				// For step number 6
+            if (how_to_create_a_benefit_plan_step == 6 && !window.location.hash.includes('#action:revmgr.benefitplanLis')) {
+                how_to_create_a_benefit_plan_step = 0;
+				console.log('step 6');
+                window._wfx_close_live();
+            }
+			
+			// For step number 10
+            if (how_to_create_a_benefit_plan_step == 10 && !window.location.hash.includes('#action:revmgr.benefitplanProperties')) {
+                how_to_create_a_benefit_plan_step = 0;
+                window._wfx_close_live();
+				console.log('step 10');
+            }
+				
+			
+				if (window._wfx_is_live()) {
+                        window._wfx_settings['5dac4a20-83cf-11e6-ba2f-04013d24cd02'] = function (event) {
+                            potential_step = 0;
+							
+							
+							//select project
+								if ((event.step == 2) && window.location.hash.includes("#action:mainnav.work&classCode=project")) {
+                            how_to_create_a_benefit_plan_step = 2;
+                            how_to_create_a_benefit_plan_triggerReady = false;
+                        }
+						
+						//click on financial tab
+								if ((event.step == 3) && window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
+                            how_to_create_a_benefit_plan_step = 3;
+                            how_to_create_a_benefit_plan_triggerReady = false;
+                        }
+						
+						
+						//hover on financial tab and click benefit plan
+						 if ((event.step >= 4 && event.step < 5) && (window.location.hash.includes("#action:revmgr.costplanList.projec"))) {
+                        how_to_create_a_project_triggerReady = true;
+						}
+							
+							
+						//click on benefit plan
+						if ((event.step == 5) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
+                            how_to_create_a_benefit_plan_step = 5;
+                            how_to_create_a_benefit_plan_triggerReady = false;
+                        }	
+						
+						
+						//click new button
+						if ((event.step == 6) && window.location.hash.includes("#action:revmgr.benefitplanList&")) {
+                            how_to_create_a_benefit_plan_step = 6;
+                            how_to_create_a_benefit_plan_triggerReady = false;
+                        }	
+						
+						//create benefit plan
+				 if ((event.step >= 7 && event.step < 11) && (window.location.hash.includes("#action:revmgr.benefitplanProperties"))) {
+                        how_to_create_a_project_triggerReady = true;
+						}
+							
+							//save button
+							if ((event.step == 10) && window.location.hash.includes("#action:revmgr.benefitplanProperties")) {
+                            how_to_create_a_benefit_plan_step = 10;
+                            how_to_create_a_benefit_plan_triggerReady = false;
+                        }	
+							
+							
+							
+							 /*jump steps */
+                        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                            potential_step = 2;
+                        }
+
+                        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+                            potential_step = 3;
+                        }
+
+                        if (window.location.hash.includes("#action:revmgr.costplanList.projec")) {
+                            potential_step = 4;
+                        }
+						 if (window.location.hash.includes("#action:revmgr.benefitplanList&")) {
+                            potential_step = 6;
+                        }
+						
+						 if (window.location.hash.includes("#action:revmgr.benefitplanProperties")) {
+                            potential_step = 7;
+                        }
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+						
+							
+							
+							
+							
+							
+			}
+						
+	}
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Create a Benefit Plan?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   
-  
-  
+  	
+		/* ******************************************** How to Reject an Idea? ****************************************** */
+
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+				
+				 if (how_to_reject_an_idea_triggerReady) {
+                window._wfx_close_live();
+                how_to_reject_an_idea_triggerReady = false;
+            }
+            
+			
+			  // For step number 2
+            if (how_to_reject_an_idea_step == 2 && !window.location.hash.includes('#action:pma.ideaProperties&return')) {
+                how_to_reject_an_idea_step = 0;
+                window._wfx_close_live();
+            }
+			
+			// For step number 6
+            if (how_to_reject_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaList')) {
+                how_to_reject_an_idea_step = 0;
+                window._wfx_close_live();
+            }
+			
+			if (window._wfx_is_live()) {
+                        window._wfx_settings['2ff9dbb0-855f-11e6-ba2f-04013d24cd02'] = function (event) {
+                            potential_step = 0;
+							
+							
+							if ((event.step == 2) && window.location.hash.includes("#action:pma.ideaList")) {
+                            how_to_reject_an_idea_step = 2;
+                            how_to_reject_an_idea_triggerReady = false;
+                        }
+							
+							
+							
+							 if ((event.step >= 3 && event.step < 7) && (window.location.hash.includes("#action:pma.ideaProperties&return"))) {
+                        how_to_create_a_project_triggerReady = true;
+                    }
+							
+							if ((event.step == 6) && window.location.hash.includes("#action:pma.ideaProperties&return")) {
+                            how_to_reject_an_idea_step = 6;
+                            how_to_reject_an_idea_triggerReady = false;
+                        }
+							
+							 /*jump steps */
+                        if ((window.location.hash.includes("#action:pma.ideaList"))) {
+                            potential_step = 2;
+                        }
+
+                        if ((window.location.hash.includes("#action:pma.ideaProperties&return"))) {
+                            potential_step = 3;
+                        }
+
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+						
+							
+							
+							
+							
+						}
+			}
+				
+				
+				
+				
+				
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Reject an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   
   
   
