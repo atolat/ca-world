@@ -278,6 +278,12 @@ var how_to_add_a_team_to_an_idea_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/*How to create a status report?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_a_status_report_triggerReady = false;
+var how_to_create_a_status_report_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function() {
@@ -2414,6 +2420,127 @@ $(window).hashchange(function() {
 
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to add a team to an idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+        /* ******************************************** How to create a status report? ****************************************** */
+
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+        if (how_to_create_a_status_report_triggerReady) {
+            window._wfx_close_live();
+            how_to_create_a_status_report_triggerReady = false;
+        }
+
+        // For step number 2
+        if (how_to_create_a_status_report_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+            how_to_create_a_status_report_step = 0;
+            window._wfx_close_live();
+        }
+
+
+        // For step number 3
+        if (how_to_create_a_status_report_step == 3 && !window.location.hash.includes('#action:projmgr.projectProperties&')) {
+            how_to_create_a_status_report_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 4
+        if (how_to_create_a_status_report_step == 4 && !window.location.hash.includes('#action:projmgr.projectProperties&odf_view=projectCreate.subObjList')) {
+            how_to_create_a_status_report_step = 0;
+            window._wfx_close_live();
+        }
+
+
+        // For step number 5
+        if (how_to_create_a_status_report_step == 5 && !window.location.hash.includes('#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt&parent_odf_view=projec')) {
+            how_to_create_a_status_report_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 7
+        if (how_to_create_a_status_report_step == 7 && !window.location.hash.includes('#action:projmgr.projectProperties&odf_vi')) {
+            how_to_create_a_status_report_step = 0;
+            window._wfx_close_live();
+        }
+
+
+        if (window._wfx_is_live()) {
+            window._wfx_settings['12f0f050-847c-11e6-ae8d-04013d24cf02'] = function(event) {
+                potential_step = 0;
+
+
+
+                //select a project
+                if ((event.step == 2) && window.location.hash.includes("#action:mainnav.work&classCode=project")) {
+                    how_to_create_a_status_report_step = 2;
+                    how_to_create_a_status_report_triggerReady = false;
+                }
+
+                //click on properties
+                if ((event.step == 3) && window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
+                    how_to_create_a_status_report_step = 3;
+                    how_to_create_a_status_report_triggerReady = false;
+                }
+
+                //click on status report
+                if ((event.step == 4) && window.location.hash.includes("#action:projmgr.projectProperties&")) {
+                    how_to_create_a_status_report_step = 3;
+                    how_to_create_a_status_report_triggerReady = false;
+                }
+
+                //click on new button
+                if ((event.step == 5) && window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectCreate.subObjList")) {
+                    how_to_create_a_status_report_step = 5;
+                    how_to_create_a_status_report_triggerReady = false;
+                }
+
+
+                if ((event.step >= 6 && event.step < 7) && (window.location.hash.includes("#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt&parent_odf_view=proj"))) {
+                    how_to_create_a_project_triggerReady = true;
+                }
+
+                //save and return button
+                if ((event.step == 7) && window.location.hash.includes("#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt&parent_odf_view=proj")) {
+                    how_to_create_a_status_report_step = 7;
+                    how_to_create_a_status_report_triggerReady = false;
+                }
+
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    potential_step = 2;
+                }
+
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+                    potential_step = 3;
+                }
+
+                if (window.location.hash.includes("#action:projmgr.projectProperties&")) {
+                    potential_step = 3;
+                }
+                if (window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectCreate.subObjList")) {
+                    potential_step = 5;
+                }
+                if (window.location.hash.includes("#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt&parent_odf_view=proj")) {
+                    potential_step = 6;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+
+
+
+            }
+        }
+
+
+
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a Status Report??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
 
