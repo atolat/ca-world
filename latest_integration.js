@@ -291,6 +291,13 @@ var how_to_create_an_incident_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/*How to add document to a Resource?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_add_document_to_a_resource_triggerReady = false;
+var how_to_add_document_to_a_resource_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function() {
@@ -2549,97 +2556,202 @@ $(window).hashchange(function() {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a Status Report??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-	
-	/* ******************************************** How to create an Incident?? ****************************************** */
 
-	/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-				
-				if (how_to_create_an_incident_triggerReady) {
-                window._wfx_close_live();
-                how_to_create_an_incident_triggerReady = false;
-            }
-				
-				
-				 // For step number 2
-            if (how_to_create_an_incident_step == 2 && !window.location.hash.includes('#action:itl.incidentObject&partition_code')) {
-                how_to_create_an_incident_step = 0;
-                window._wfx_close_live();
-            }
-			
-			
-				 // For step number 11
-            if (how_to_create_an_incident_step == 11 && !window.location.hash.includes('#action:itl.incidentList&incidentListT')) {
-                how_to_create_an_incident_step = 0;
-                window._wfx_close_live();
-            }
-			
-			// For step number 12
-            if (how_to_create_an_incident_step == 12 && !window.location.hash.includes('#action:itl.incidentList&incidentListT')) {
-                how_to_create_an_incident_step = 0;
-                window._wfx_close_live();
-            }
-				
-				
-				
-				if (window._wfx_is_live()) {
-                        window._wfx_settings['463c1f00-8636-11e6-b370-04013d24cc02'] = function (event) {
-                            potential_step = 0;
-							
-							
-							if ((event.step == 2) && window.location.hash.includes("#action:itl.incidentList")) {
-                            how_to_create_an_incident_step = 2;
-                            how_to_create_an_incident_triggerReady = false;
-                        }
-							
-							//create incident
-							 if ((event.step >= 3 && event.step < 11) && (window.location.hash.includes("#action:itl.incidentObject&partition_code"))) {
-                        how_to_create_an_incident_triggerReady = true;
-                    }
-							
-							//save and return
-							if ((event.step == 11) && window.location.hash.includes("#action:itl.incidentObject&partition_code")) {
-                            how_to_create_an_incident_step = 11;
-                            how_to_create_an_incident_triggerReady = false;
-                        }
-						
-						
-						//last step 
-							if ((event.step == 12) && window.location.hash.includes("#action:itl.incidentList&incidentListT")) {
-                            how_to_create_an_incident_step = 12;
-                            how_to_create_an_incident_triggerReady = false;
-                        }
-							
-							
-							
-							
-							/*jump steps */
-                        if ((window.location.hash.includes("#action:itl.incidentList"))) {
-                            potential_step = 2;
-                        }
+        /* ******************************************** How to create an Incident?? ****************************************** */
 
-                        if ((window.location.hash.includes("#action:itl.incidentObject&partition_code"))) {
-                            potential_step = 3;
-                        }
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-                        if (window.location.hash.includes("#action:itl.incidentList&incidentListT")) {
-                            potential_step = 12;
-                        }
+        if (how_to_create_an_incident_triggerReady) {
+            window._wfx_close_live();
+            how_to_create_an_incident_triggerReady = false;
+        }
 
-                        if (potential_step && event.step <= potential_step) {
-                            return {
-                                "position": potential_step
-                            };
-                        }
-							
-				}
-			}
-				
-				
-				
-  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create an Incident??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-		
-		
-		
+
+        // For step number 2
+        if (how_to_create_an_incident_step == 2 && !window.location.hash.includes('#action:itl.incidentObject&partition_code')) {
+            how_to_create_an_incident_step = 0;
+            window._wfx_close_live();
+        }
+
+
+        // For step number 11
+        if (how_to_create_an_incident_step == 11 && !window.location.hash.includes('#action:itl.incidentList&incidentListT')) {
+            how_to_create_an_incident_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 12
+        if (how_to_create_an_incident_step == 12 && !window.location.hash.includes('#action:itl.incidentList&incidentListT')) {
+            how_to_create_an_incident_step = 0;
+            window._wfx_close_live();
+        }
+
+
+
+        if (window._wfx_is_live()) {
+            window._wfx_settings['463c1f00-8636-11e6-b370-04013d24cc02'] = function(event) {
+                potential_step = 0;
+
+
+                if ((event.step == 2) && window.location.hash.includes("#action:itl.incidentList")) {
+                    how_to_create_an_incident_step = 2;
+                    how_to_create_an_incident_triggerReady = false;
+                }
+
+                //create incident
+                if ((event.step >= 3 && event.step < 11) && (window.location.hash.includes("#action:itl.incidentObject&partition_code"))) {
+                    how_to_create_an_incident_triggerReady = true;
+                }
+
+                //save and return
+                if ((event.step == 11) && window.location.hash.includes("#action:itl.incidentObject&partition_code")) {
+                    how_to_create_an_incident_step = 11;
+                    how_to_create_an_incident_triggerReady = false;
+                }
+
+
+                //last step 
+                if ((event.step == 12) && window.location.hash.includes("#action:itl.incidentList&incidentListT")) {
+                    how_to_create_an_incident_step = 12;
+                    how_to_create_an_incident_triggerReady = false;
+                }
+
+
+
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:itl.incidentList"))) {
+                    potential_step = 2;
+                }
+
+                if ((window.location.hash.includes("#action:itl.incidentObject&partition_code"))) {
+                    potential_step = 3;
+                }
+
+                if (window.location.hash.includes("#action:itl.incidentList&incidentListT")) {
+                    potential_step = 12;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+            }
+        }
+        k
+
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create an Incident??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+        /* ********************************************How to add document to a Resource? ****************************************** */
+
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+
+
+        if (how_to_add_document_to_a_resource_triggerReady) {
+            window._wfx_close_live();
+            how_to_add_document_to_a_resource_triggerReady = false;
+        }
+
+
+        // For step number 2
+        if (how_to_add_document_to_a_resource_step == 2 && !window.location.hash.includes('#action:projmgr.editResource&odf_return_to=projmgr.get')) {
+            how_to_add_document_to_a_resource_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 3
+        if (how_to_add_document_to_a_resource_step == 3 && !window.location.hash.includes('#action:dms.ResourcesFileManager&')) {
+            how_to_add_document_to_a_resource_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 4
+        if (how_to_add_document_to_a_resource_step == 4 && !window.location.hash.includes('#action:dms.ResourcesaddMultipleFiles&uitk.navigation.')) {
+            how_to_add_document_to_a_resource_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 6
+        if (how_to_add_document_to_a_resource_step == 6 && !window.location.hash.includes('#action:dms.ResourcesFileManager&taskID=&cancelAction=dms')) {
+            how_to_add_document_to_a_resource_step = 0;
+            window._wfx_close_live();
+        }
+
+        if (window._wfx_is_live()) {
+            window._wfx_settings['08929ba0-9781-11e6-836b-04013d24cc02'] = function(event) {
+                potential_step = 0;
+
+
+                //resource list
+                if ((event.step == 2) && window.location.hash.includes("#action:projmgr.getResources&rel")) {
+                    how_to_add_document_to_a_resource_step = 2;
+                    how_to_add_document_to_a_resource_triggerReady = false;
+                }
+
+
+
+                //click on document manager
+                if ((event.step == 3) && window.location.hash.includes("#action:projmgr.editResource&odf_return_to=projmgr.get")) {
+                    how_to_add_document_to_a_resource_step = 3;
+                    how_to_add_document_to_a_resource_triggerReady = false;
+                }
+
+                //select add documents from drop down
+                if ((event.step == 4) && window.location.hash.includes("#action:dms.ResourcesFileManager&")) {
+                    how_to_add_document_to_a_resource_step = 4;
+                    how_to_add_document_to_a_resource_triggerReady = false;
+                }
+
+                //choose and upload document
+                if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes("#action:dms.ResourcesaddMultipleFile"))) {
+                    how_to_add_document_to_a_resource_triggerReady = true;
+                }
+                //ADD button
+                if ((event.step == 6) && window.location.hash.includes("#action:dms.ResourcesaddMultipleFile")) {
+                    how_to_add_document_to_a_resource_step = 6;
+                    how_to_add_document_to_a_resource_triggerReady = false;
+                }
+
+
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:projmgr.getResources&rel"))) {
+                    potential_step = 2;
+                }
+
+                if ((window.location.hash.includes("#action:projmgr.editResource&odf_return_to=projmgr.get"))) {
+                    potential_step = 3;
+                }
+
+                if (window.location.hash.includes("#action:dms.ResourcesFileManager&")) {
+                    potential_step = 4;
+                }
+
+                if (window.location.hash.includes("#action:dms.ResourcesaddMultipleFile")) {
+                    potential_step = 5;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+
+
+            }
+        }
+
+
+
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to add document to a Resource?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
 
 
     })
