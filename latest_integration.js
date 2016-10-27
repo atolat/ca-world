@@ -284,6 +284,13 @@ var how_to_create_a_status_report_triggerReady = false;
 var how_to_create_a_status_report_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+/*How to create an Incident?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_an_incident_triggerReady = false;
+var how_to_create_an_incident_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function() {
@@ -2542,7 +2549,97 @@ $(window).hashchange(function() {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a Status Report??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+	
+	/* ******************************************** How to create an Incident?? ****************************************** */
 
+	/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+				if (how_to_create_an_incident_triggerReady) {
+                window._wfx_close_live();
+                how_to_create_an_incident_triggerReady = false;
+            }
+				
+				
+				 // For step number 2
+            if (how_to_create_an_incident_step == 2 && !window.location.hash.includes('#action:itl.incidentObject&partition_code')) {
+                how_to_create_an_incident_step = 0;
+                window._wfx_close_live();
+            }
+			
+			
+				 // For step number 11
+            if (how_to_create_an_incident_step == 11 && !window.location.hash.includes('#action:itl.incidentList&incidentListT')) {
+                how_to_create_an_incident_step = 0;
+                window._wfx_close_live();
+            }
+			
+			// For step number 12
+            if (how_to_create_an_incident_step == 12 && !window.location.hash.includes('#action:itl.incidentList&incidentListT')) {
+                how_to_create_an_incident_step = 0;
+                window._wfx_close_live();
+            }
+				
+				
+				
+				if (window._wfx_is_live()) {
+                        window._wfx_settings['463c1f00-8636-11e6-b370-04013d24cc02'] = function (event) {
+                            potential_step = 0;
+							
+							
+							if ((event.step == 2) && window.location.hash.includes("#action:itl.incidentList")) {
+                            how_to_create_an_incident_step = 2;
+                            how_to_create_an_incident_triggerReady = false;
+                        }
+							
+							//create incident
+							 if ((event.step >= 3 && event.step < 11) && (window.location.hash.includes("#action:itl.incidentObject&partition_code"))) {
+                        how_to_create_an_incident_triggerReady = true;
+                    }
+							
+							//save and return
+							if ((event.step == 11) && window.location.hash.includes("#action:itl.incidentObject&partition_code")) {
+                            how_to_create_an_incident_step = 11;
+                            how_to_create_an_incident_triggerReady = false;
+                        }
+						
+						
+						//last step 
+							if ((event.step == 12) && window.location.hash.includes("#action:itl.incidentList&incidentListT")) {
+                            how_to_create_an_incident_step = 12;
+                            how_to_create_an_incident_triggerReady = false;
+                        }
+							
+							
+							
+							
+							/*jump steps */
+                        if ((window.location.hash.includes("#action:itl.incidentList"))) {
+                            potential_step = 2;
+                        }
+
+                        if ((window.location.hash.includes("#action:itl.incidentObject&partition_code"))) {
+                            potential_step = 3;
+                        }
+
+                        if (window.location.hash.includes("#action:itl.incidentList&incidentListT")) {
+                            potential_step = 12;
+                        }
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+							
+				}
+			}
+				
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create an Incident??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+		
+		
+		
 
 
     })
