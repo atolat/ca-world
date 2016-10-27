@@ -77,7 +77,8 @@ window._wfx_settings.apply_page_settings = function() {
         $('[onclick*="pfm.portfolioCreateSubmit"]').addClass("portfolio_save_return");
     }
     //4.Custome class added to show the ballon for 2nd step only for Portfolio
-    $('[title = "Portfolios"]').addClass('port').css('z-index', '1000099');
+    //we don't need this anymore
+    //$('[title = "Portfolios"]').addClass('port').css('z-index', '1000099');
 
     /*How to create Protfolio <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End*/
 
@@ -296,6 +297,28 @@ var how_to_create_an_incident_step = 0;
 var how_to_add_document_to_a_resource_triggerReady = false;
 var how_to_add_document_to_a_resource_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
+/*How to Add a Note for a Time Entry??*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_add_a_note_for_a_time_entry_triggerReady = false;
+var how_to_add_a_note_for_a_time_entry_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for  how_to_submit_an_idea_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_submit_an_idea_triggerReady = false;
+var how_to_submit_an_idea_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+/* variable for How to Add a Non-project Investment Row? */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_add_a_non_project_investment_row_triggerReady = false;
+var how_to_add_a_non_project_investment_row_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
 
 
 //Based on Hash Change this function runs
@@ -2753,6 +2776,268 @@ $(window).hashchange(function() {
 
 
 
+
+        /* ******************************************** How to Add a Note for a Time Entry?? ****************************************** */
+
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+
+        if (how_to_add_a_note_for_a_time_entry_triggerReady) {
+            window._wfx_close_live();
+            how_to_add_a_note_for_a_time_entry_triggerReady = false;
+        }
+
+
+        // For step number 2
+        if (how_to_add_a_note_for_a_time_entry_step == 2 && !window.location.hash.includes('#action:timeadmin.editTimesheet&re')) {
+            how_to_add_a_note_for_a_time_entry_step = 0;
+            window._wfx_close_live();
+        }
+        // For step number 5
+        if (how_to_add_a_note_for_a_time_entry_step == 5 && !window.location.hash.includes('#action:timeadmin.editTimesheet&re')) {
+            how_to_add_a_note_for_a_time_entry_step = 0;
+            window._wfx_close_live();
+        }
+
+        if (window._wfx_is_live()) {
+            window._wfx_settings['ce45b450-895c-11e6-85ad-04013d24cd02'] = function(event) {
+                potential_step = 0;
+
+                //add a note
+                if ((event.step == 1) && window.location.hash.includes("#action:timeadmin.editTimesheet&re")) {
+                    how_to_add_a_note_for_a_time_entry_step = 2;
+                    how_to_add_a_note_for_a_time_entry_triggerReady = false;
+                }
+
+                //save 
+                if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.editTimesheet&re")) {
+                    how_to_add_a_note_for_a_time_entry_step = 5;
+                    how_to_add_a_note_for_a_time_entry_triggerReady = false;
+                }
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:timeadmin.editTimesheet&re"))) {
+                    potential_step = 1;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+
+
+
+            }
+        }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Add a Note for a Time Entry??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+		
+		 /* ******************************************** How to Add a Non-project Investment Row?? ****************************************** */
+
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+        if (how_to_add_a_non_project_investment_row_triggerReady) {
+            window._wfx_close_live();
+            how_to_add_a_non_project_investment_row_triggerReady = false;
+        }
+
+        // For step number 2
+        if (how_to_add_a_non_project_investment_row_step == 1 && !window.location.hash.includes('#action:timeadmin.selectTimesheetInvestmentO')) {
+            how_to_add_a_non_project_investment_row_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 3
+        if (how_to_add_a_non_project_investment_row_step == 3 && !window.location.hash.includes('#action:timeadmin.editTimesheet&i')) {
+            how_to_add_a_non_project_investment_row_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 4
+        if (how_to_add_a_non_project_investment_row_step == 4 && !window.location.hash.includes('#action:timeadmin.editTimeshee')) {
+            how_to_add_a_non_project_investment_row_step = 0;
+            window._wfx_close_live();
+        }
+
+
+        if (window._wfx_is_live()) {
+            window._wfx_settings['8b7295b0-8945-11e6-a787-04013d24cf02'] = function(event) {
+                potential_step = 0;
+
+                if ((event.step == 1) && window.location.hash.includes("#action:timeadmin.editTimesheet&r")) {
+                    how_to_add_a_non_project_investment_row_step = 1;
+                    how_to_add_a_non_project_investment_row_triggerReady = false;
+                }
+
+
+
+                if ((event.step >= 2 && event.step < 4) && (window.location.hash.includes("#action:timeadmin.selectTimesheetInvestmentO"))) {
+                    how_to_add_a_non_project_investment_row_triggerReady = true;
+                }
+
+                //add button
+                if ((event.step == 3) && window.location.hash.includes("#action:timeadmin.selectTimesheetInvestmentO")) {
+                    how_to_add_a_non_project_investment_row_step = 3;
+                    how_to_add_a_non_project_investment_row_triggerReady = false;
+                }
+
+                //save button
+                if ((event.step == 4) && window.location.hash.includes("#action:timeadmin.editTimesheet&i")) {
+                    how_to_add_a_non_project_investment_row_step = 4;
+                    how_to_add_a_non_project_investment_row_triggerReady = false;
+                }
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:timeadmin.editTimesheet&r"))) {
+                    potential_step = 1;
+                }
+
+                if ((window.location.hash.includes("#action:timeadmin.selectTimesheetInvestmentO"))) {
+                    potential_step = 2;
+                }
+
+                if (window.location.hash.includes("#action:timeadmin.editTimesheet&i")) {
+                    potential_step = 4;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+
+
+
+            }
+
+        }
+
+
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Add a Non-project Investment Row??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+		
+		
+		
+        /* ******************************************** How to submit an Idea? ****************************************** Rishi */
+
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+        if (how_to_submit_an_idea_triggerReady) {
+            window._wfx_close_live();
+            how_to_submit_an_idea_triggerReady = false;
+        }
+
+        // For step number 2
+        if (how_to_submit_an_idea_step == 2 && !window.location.hash.includes('#action:pma.ideaList')) {
+            how_to_submit_an_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+
+        // For step number 3
+        if (how_to_submit_an_idea_step == 3 && !window.location.hash.includes('#action:pma.ideaList')) {
+            how_to_submit_an_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 4
+        if (how_to_submit_an_idea_step == 4 && !window.location.hash.includes('#action:pma.ideaList')) {
+            how_to_submit_an_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 5
+        if (how_to_submit_an_idea_step == 5 && !window.location.hash.includes('#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt&parent_odf_view=projec')) {
+            how_to_submit_an_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 6
+        if (how_to_submit_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaProperties&return_to=pma.ideaList')) {
+            how_to_submit_an_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 7
+        if (how_to_submit_an_idea_step == 7 && !window.location.hash.includes('#action:pma.ideaProperties&return_to=pma.ideaList')) {
+            how_to_submit_an_idea_step = 0;
+            window._wfx_close_live();
+        }
+
+
+        if (window._wfx_is_live()) {
+            window._wfx_settings['d55289f0-8964-11e6-85ad-04013d24cd02'] = function(event) {
+                potential_step = 0;
+
+
+
+                //Click on plus icon
+                if ((event.step == 2) && window.location.hash.includes("#action:pma.ideaList")) {
+                    how_to_submit_an_idea_step = 2;
+                    how_to_submit_an_idea_triggerReady = false;
+                }
+
+                //Select Status as Unapproved
+                if ((event.step == 3) && window.location.hash.includes("#action:pma.ideaList")) {
+                    how_to_submit_an_idea_step = 3;
+                    how_to_submit_an_idea_triggerReady = false;
+                }
+
+                //Click on Filter button
+                if ((event.step == 4) && window.location.hash.includes("#action:pma.ideaList")) {
+                    how_to_submit_an_idea_step = 4;
+                    how_to_submit_an_idea_triggerReady = false;
+                }
+
+                //Click on any Idea
+                if ((event.step == 5) && window.location.hash.includes("#action:pma.ideaList")) {
+                    how_to_submit_an_idea_step = 5;
+                    how_to_submit_an_idea_triggerReady = false;
+                }
+
+                //Select Status as Submitted for Approval
+                if ((event.step >= 6 && event.step < 7) && (window.location.hash.includes("#action:pma.ideaProperties&return_to=pma.ideaList"))) {
+                    how_to_submit_an_idea_triggerReady = true;
+                }
+
+                //save and return button
+                if ((event.step == 7) && window.location.hash.includes("#action:pma.ideaProperties&return_to=pma.ideaList")) {
+                    how_to_submit_an_idea_step = 7;
+                    how_to_submit_an_idea_triggerReady = false;
+                }
+
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:pma.ideaList"))) {
+                    potential_step = 2;
+                }
+                if (window.location.hash.includes("#action:pma.ideaProperties&return_to=pma.ideaList")) {
+                    potential_step = 6;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+
+
+
+            }
+        }
+
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to submit an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+       
 
     })
     /*Killing flow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
