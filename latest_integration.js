@@ -320,6 +320,12 @@ var how_to_add_a_non_project_investment_row_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/* variable for How to convert an Incident to a Project? */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_convert_an_incident_to_a_project_triggerReady = false;
+var how_to_convert_an_incident_to_a_project_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
 
 //Based on Hash Change this function runs
 
@@ -1683,6 +1689,114 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Allocate Resource from Estimates?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		
+		
+		
+	/* ******************************************** How to convert an Incident to a Project? ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+				if (how_to_convert_an_incident_to_a_project_triggerReady) {
+                window._wfx_close_live();
+                how_to_convert_an_incident_to_a_project_triggerReady = false;
+            }
+			
+			// For step number 2
+            if (how_to_convert_an_incident_to_a_project_step == 2 && !window.location.hash.includes('#action:itl.incidentObject&odf_p')) {
+                how_to_convert_an_incident_to_a_project_step = 0;
+                window._wfx_close_live();
+            }
+			
+			// For step number 3
+            if (how_to_convert_an_incident_to_a_project_step == 3 && !window.location.hash.includes('#action:itl.selectConvertType&odf_pk')) {
+                how_to_convert_an_incident_to_a_project_step = 0;
+                window._wfx_close_live();
+            }
+			
+			// For step number 4
+            if (how_to_convert_an_incident_to_a_project_step == 4 && !window.location.hash.includes('#action:projmgr.projectNew&return_to=itl')) {
+                how_to_convert_an_incident_to_a_project_step = 0;
+                window._wfx_close_live();
+            }
+			
+			// For step number 6
+            if (how_to_convert_an_incident_to_a_project_step == 6 && !window.location.hash.includes('#action:projmgr.projectDashboa')) {
+                how_to_convert_an_incident_to_a_project_step = 0;
+                window._wfx_close_live();
+            }
+			
+				if (window._wfx_is_live()) {
+                        window._wfx_settings['634f9870-912f-11e6-b370-04013d24cc02'] = function (event) {
+                            potential_step = 0;
+				
+				
+				//incident list
+				if ((event.step == 2) && window.location.hash.includes("#action:itl.incidentList")) {
+                            how_to_convert_an_incident_to_a_project_step = 2;
+                            how_to_convert_an_incident_to_a_project_triggerReady = false;
+                        }
+						
+						
+						//convert to project button
+				if ((event.step == 3) && window.location.hash.includes("#action:itl.incidentObject&odf_p")) {
+                            how_to_convert_an_incident_to_a_project_step = 3;
+                            how_to_convert_an_incident_to_a_project_triggerReady = false;
+                        }
+						
+						//next button
+				if ((event.step == 4) && window.location.hash.includes("#action:itl.selectConvertType&odf_pk")) {
+                            how_to_convert_an_incident_to_a_project_step = 4;
+                            how_to_convert_an_incident_to_a_project_triggerReady = false;
+                        }
+				
+				//create project page
+				 if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes("how_to_convert_an_incident_to_a_project_triggerReady"))) {
+                        how_to_convert_an_incident_to_a_project_triggerReady = true;
+                    }
+				
+				
+				//save button
+				if ((event.step == 6) && window.location.hash.includes("how_to_convert_an_incident_to_a_project_triggerReady")) {
+                            how_to_convert_an_incident_to_a_project_step = 6;
+                            how_to_convert_an_incident_to_a_project_triggerReady = false;
+                        }
+				
+				/*jump steps */
+                        if ((window.location.hash.includes("#action:itl.incidentList"))) {
+                            potential_step = 2;
+                        }
+
+                        if ((window.location.hash.includes("#action:itl.incidentObject&odf_p"))) {
+                            potential_step = 3;
+                        }
+
+                        if (window.location.hash.includes("#action:itl.selectConvertType&odf_pk")) {
+                            potential_step = 4;
+                        }
+						 if (window.location.hash.includes("how_to_convert_an_incident_to_a_project_triggerReady")) {
+                            potential_step = 5;
+                        }
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+				
+				
+				
+						}
+				}
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to convert an Incident to a Project?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+		
+		
+		
+		
+		
+		
         /* ******************************************** How to create a plan ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
@@ -3036,6 +3150,7 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to submit an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		
 
        
 
