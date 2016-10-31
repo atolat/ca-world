@@ -327,6 +327,13 @@ var how_to_convert_an_incident_to_a_project_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/* variable for How to populate your timesheet */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_populate_your_timesheet_triggerReady = false;
+var how_to_populate_your_timesheet_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function() {
@@ -882,6 +889,106 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Create a Project from a template <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+						/* ******************************************** How to Populate your Timesheet ? ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+					 if (how_to_populate_your_timesheet_triggerReady) {
+                window._wfx_close_live();
+                how_to_populate_your_timesheet_triggerReady = false;
+            }
+			 // For step number 1
+            if (how_to_populate_your_timesheet_step == 1 && !window.location.hash.includes('#action:timeadmin.confirmAction&ts_')) {
+                how_to_populate_your_timesheet_step = 0;
+                window._wfx_close_live();
+            }
+			
+			 // For step number 2
+            if (how_to_populate_your_timesheet_step == 2 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
+                how_to_populate_your_timesheet_step = 0;
+                window._wfx_close_live();
+            }
+			
+			
+			// For step number 3
+            if (how_to_populate_your_timesheet_step == 3 && !window.location.hash.includes('#action:timeadmin.editTimesheet')) {
+                how_to_populate_your_timesheet_step = 0;
+                window._wfx_close_live();
+            }
+			
+			
+			
+			
+				if (window._wfx_is_live()) {
+                        window._wfx_settings['0b9bf480-895e-11e6-85ad-04013d24cd02'] = function (event) {
+                            potential_step = 0;
+					
+					
+							
+				if ((event.step == 1) && window.location.hash.includes("#action:timeadmin.editTimesheet&resid=1&t")) {
+                            how_to_populate_your_timesheet_step = 1;
+                            how_to_populate_your_timesheet_triggerReady = false;
+                        }
+						
+						//alert message
+						if ((event.step == 2) && window.location.hash.includes("#action:timeadmin.confirmAction&ts_")) {
+                            how_to_populate_your_timesheet_step = 2;
+                            how_to_populate_your_timesheet_triggerReady = false;
+                        }
+						
+						//save button
+						
+							if ((event.step == 3) && window.location.hash.includes("#action:timeadmin.editTimesheet&")) {
+                            how_to_populate_your_timesheet_step = 3;
+                            how_to_populate_your_timesheet_triggerReady = false;
+                        }
+						
+						
+						
+						 /*jump steps */
+                        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid=1&t"))) {
+                            potential_step = 1;
+                        }
+
+                        if ((window.location.hash.includes("#action:timeadmin.confirmAction&ts_"))) {
+                            potential_step = 2;
+                        }
+
+                       
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+					
+
+
+						}
+
+				}
+				
+				
+				
+				
+				
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Populate your Timesheet ?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+  
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
         /* ******************************************************how to change an ETC value***************************************************/
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
