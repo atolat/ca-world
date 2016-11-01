@@ -357,6 +357,13 @@ var how_to_add_an_indirect_row_step = 0;
 
 
 
+/* How to set a portfolio plan as the plan of record?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
+var how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
 
 
 
@@ -483,9 +490,114 @@ $(window).hashchange(function() {
                 }
 
                 console.log(how_to_create_a_portfolio_triggerReady);
-            } /* Jump Step <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a Portfolio <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
+            } 
+		}
+		/* Jump Step <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a Portfolio <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        
 
+								
+						/* ******************************************** how_to_set_a_portfolio_plan_as_the_plan_of_record ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+				
+				 if (how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady) {
+                window._wfx_close_live();
+                how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
+            }
+			
+			// For step number 2
+            if (how_to_set_a_portfolio_plan_as_the_plan_of_record_step == 2 && !window.location.hash.includes('#action:pfm.planList&odf_return_to=pfm.')) {
+                how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
+                window._wfx_close_live();
+            }
+				
+				// For step number 4
+            if (how_to_set_a_portfolio_plan_as_the_plan_of_record_step == 4&& !window.location.hash.includes('#action:pfm.planList&i')) {
+                how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
+                window._wfx_close_live();
+            }
+			
+			
+			// For step number 6
+            if (how_to_set_a_portfolio_plan_as_the_plan_of_record_step == 6&& !window.location.hash.includes('#action:pfm.portfolioList')) {
+                how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
+                window._wfx_close_live();
+            }
+				
+			if (window._wfx_is_live()) {
+                        window._wfx_settings['caa38560-863d-11e6-a787-04013d24cf02'] = function (event) {
+                            potential_step = 0;
+				
+				//click on icon
+				if ((event.step == 2) && window.location.hash.includes("#action:pfm.portfolioList")) {
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 2;
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
+                        }
+				
+				
+				//select any plan and click set plan of record button
+				
+				 if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm."))) {
+                        how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = true;
+                    }
+				
+				//set plan of record button
+				
+				if ((event.step == 4) && window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm.")) {
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 4;
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
+                        }
+				
+				
+				
+					//go back to portfolios
+				
+				 if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes("#action:pfm.planList&i"))) {
+                        how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = true;
+                    }
+				
+				
+				//click on portfolios link
+				
+				if ((event.step == 6) && window.location.hash.includes("#action:pfm.planList&i")) {
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 6;
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
+                        }
+				
+				
+				
+				
+				 if ((event.step >= 7 && event.step < 11) && (window.location.hash.includes("#action:pfm.planList&i"))) {
+                        how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = true;
+                    }
+					
+					//save button
+					
+				if ((event.step == 10) && window.location.hash.includes("#action:pfm.planList&i")) {
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 10;
+                            how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
+                        }
+						
+				
+						}
+						
+			}
+			
+			
+				
+				
+				
+				
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how_to_set_a_portfolio_plan_as_the_plan_of_record<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+  
+		
+		
+		
+		
         /* ******************************************************how to create an issue***************************************************/
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
