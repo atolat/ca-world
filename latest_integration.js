@@ -334,6 +334,32 @@ var how_to_populate_your_timesheet_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+
+/* variable for How to add an incident row?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_add_an_incident_row_triggerReady = false;
+var how_to_add_an_incident_row_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+/*How to Return your Submitted Timesheet?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_return_your_submitted_timesheet_triggerReady = false;
+var how_to_return_your_submitted_timesheet_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+/* How to modify a Posted Timesheet?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_modify_a_posted_timesheet_triggerReady = false;
+var how_to_modify_a_posted_timesheet_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
+
+
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function() {
@@ -568,6 +594,13 @@ $(window).hashchange(function() {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create an Issue <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+		
+		
+		
+		
+		
+		
+		
         /* ******************************************************how to create a Program***************************************************/
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -1142,6 +1175,9 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to modify a submitted Timesheet <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		
+		
+		
 
 
         /* *********************************************How to Create a Risk?****************************************** */
@@ -1358,7 +1394,28 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to create an Idea <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		
+		
+				/* ******************************************** How to How to modify a Posted Timesheet?****************************************** */
 
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+					 if (how_to_modify_a_posted_timesheet_triggerReady) {
+                window._wfx_close_live();
+                how_to_modify_a_posted_timesheet_triggerReady = false;
+            }
+				
+				
+				
+
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to modify a Posted Timesheet?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+
+		
+		
+		
 
         /* *********************************************Idea for Approval?****************************************** */
 
@@ -2679,6 +2736,111 @@ $(window).hashchange(function() {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to add a team to an idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+		
+		/* ********************************************How to add an incident row? ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+				 if (how_to_add_a_non_project_investment_row_triggerReady) {
+                window._wfx_close_live();
+                how_to_add_a_non_project_investment_row_triggerReady = false;
+            }
+				
+				// For step number 1
+            if (how_to_add_a_non_project_investment_row_step == 1 && !window.location.hash.includes('#action:timeadmin.selectTimesheetInciden')) {
+                how_to_add_a_non_project_investment_row_step = 0;
+				
+                window._wfx_close_live();
+            }
+				
+				
+				// For step number 2
+				if (how_to_add_a_non_project_investment_row_step == 2 && !window.location.hash.includes('#action:timeadmin.selectTimesheetIncident&sortColum')) {
+                how_to_add_a_non_project_investment_row_step = 0;
+                window._wfx_close_live();
+				}
+			
+			
+			
+			// For step number 4
+            if (how_to_add_a_non_project_investment_row_step == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
+                how_to_add_a_non_project_investment_row_step = 0;
+                window._wfx_close_live();
+            }
+				
+				//step 5
+				if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.editTimesheet")) {
+				how_to_add_a_non_project_investment_row_step = 0;
+                window._wfx_close_live();                    
+				}
+				
+				
+				
+				
+				if (window._wfx_is_live()) {
+                        window._wfx_settings['e1f46340-86f8-11e6-a787-04013d24cf02'] = function (event) {
+                            potential_step = 0;
+			
+				if ((event.step == 1) && window.location.hash.includes("#action:timeadmin.editTimesheet")) {
+                            how_to_add_a_non_project_investment_row_step = 1;
+                            how_to_add_a_non_project_investment_row_triggerReady = false;
+							console.log('1');
+                        }
+				
+				
+				//show all button
+					if ((event.step == 2) && window.location.hash.includes("#action:timeadmin.selectTimesheetInciden")) {
+                            how_to_add_a_non_project_investment_row_step = 2;
+                            how_to_add_a_non_project_investment_row_triggerReady = false;
+                        }
+				
+					//incident selection
+			 if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColum"))) {
+                        how_to_add_a_non_project_investment_row_triggerReady = true;
+                    }
+				
+			
+				if ((event.step == 4) && window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColum")) {
+                            how_to_add_a_non_project_investment_row_step = 4;
+                            how_to_add_a_non_project_investment_row_triggerReady = false;
+                        }
+				
+				
+				//save button
+				if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.editTimesheet&")) {
+                            how_to_add_a_non_project_investment_row_step = 5;
+                            how_to_add_a_non_project_investment_row_triggerReady = false;
+                        }
+						
+						 /*jump steps */
+                        if ((window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+                            potential_step = 1;
+                        }
+
+                        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetInciden"))) {
+                            potential_step = 2;
+                        }
+
+                        if (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColum")) {
+                            potential_step = 3;
+                        }
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+					
+					}
+				}
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to add an incident row?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+  
+		
+		
+		
 
         /* ******************************************** How to create a status report? ****************************************** */
 
@@ -2789,17 +2951,123 @@ $(window).hashchange(function() {
                     };
                 }
 
-
-
-
             }
         }
 
-
-
-
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a Status Report??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+		
+		
+		
+		/* ******************************************** How to Return your Submitted Timesheet? ****************************************** */
+
+		/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+			
+				 if (how_to_return_your_submitted_timesheet_triggerReady) {
+                window._wfx_close_live();
+                how_to_return_your_submitted_timesheet_triggerReady = false;
+            }
+			// For step number 3
+            if (how_to_return_your_submitted_timesheet_step == 3 && !window.location.hash.includes('#action:timeadmin.timesheetBrowser&sortColumn=FULL_NAME&sortDirecti')) {
+                how_to_return_your_submitted_timesheet_step = 0;
+                window._wfx_close_live();
+            }
+			// For step number 5
+            if (how_to_return_your_submitted_timesheet_step == 5 && !window.location.hash.includes('#action:timeadmin.timesheetBrowserReturn')) {
+                how_to_return_your_submitted_timesheet_step = 0;
+                window._wfx_close_live();
+            }
+			
+			// For step number 7
+            if (how_to_return_your_submitted_timesheet_step == 7 && !window.location.hash.includes('#action:timeadmin.timesheetBrowser&sortColumn=FULL_NAME&s')) {
+                how_to_return_your_submitted_timesheet_step = 0;
+                window._wfx_close_live();
+            }
+			
+			// For step number 8
+            if (how_to_return_your_submitted_timesheet_step == 8 && !window.location.hash.includes('#action:timeadmin.timesheetBrowser&sortColumn=FULL_')) {
+                how_to_return_your_submitted_timesheet_step = 0;
+                window._wfx_close_live();
+            }
+			
+			
+			if (window._wfx_is_live()) {
+                        window._wfx_settings['f5530a50-895e-11e6-b370-04013d24cc02'] = function (event) {
+                            potential_step = 0;
+							
+							
+							//filter and return
+								if ((event.step >= 2 && event.step < 4) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
+                        how_to_return_your_submitted_timesheet_triggerReady = true;
+                    }
+					
+					//filter button
+					if ((event.step == 3) && window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn")) {
+                            how_to_return_your_submitted_timesheet_step = 3;
+                            how_to_return_your_submitted_timesheet_triggerReady = false;
+                        }
+						
+						
+							//select timesheet you want to return
+					if ((event.step >= 4 && event.step < 5) && (window.location.hash.includes("#action:timeadmin.timesheetBrowser&sortColumn=FULL_NAME&sortDirecti"))) {
+                        how_to_return_your_submitted_timesheet_triggerReady = true;
+                    }
+					
+					//return timesheet button
+					if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.timesheetBrowser&sortColumn=FULL_NAME&sortDirecti")) {
+                            how_to_return_your_submitted_timesheet_step = 5;
+                            how_to_return_your_submitted_timesheet_triggerReady = false;
+                        }
+					
+							
+							//timesheet browser 
+					if ((event.step >= 6 && event.step < 7) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
+                        how_to_return_your_submitted_timesheet_triggerReady = true;
+                    }
+							
+							//filter button
+					if ((event.step == 7) && window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn")) {
+                            how_to_return_your_submitted_timesheet_step = 7;
+                            how_to_return_your_submitted_timesheet_triggerReady = false;
+                        }
+						
+							//seeing the returned timesheet
+						
+					if ((event.step == 8) && window.location.hash.includes("#action:timeadmin.timesheetBrowser&sortColumn=FULL_NAME&sortD")) {
+                            how_to_return_your_submitted_timesheet_step = 8;
+                            how_to_return_your_submitted_timesheet_triggerReady = false;
+                        }
+							
+							
+							 /*jump steps */
+                        if ((window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
+                            potential_step = 2;
+                        }
+
+                        if ((window.location.hash.includes("#action:timeadmin.timesheetBrowser&sortColumn=FULL_NAME&sortDirecti"))) {
+                            potential_step = 4;
+                        }
+
+                       
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+							
+						}
+			}
+				
+				
+				
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Return your Submitted Timesheet?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+		
+		
 
         /* ******************************************** How to create an Incident?? ****************************************** */
 
@@ -2884,7 +3152,7 @@ $(window).hashchange(function() {
 
             }
         }
-        k
+        
 
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create an Incident??<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
