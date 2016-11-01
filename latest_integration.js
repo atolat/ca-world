@@ -349,10 +349,10 @@ var how_to_return_your_submitted_timesheet_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
-/* How to modify a Posted Timesheet?*/
+/* How to add an Indirect row*/
 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
-var how_to_modify_a_posted_timesheet_triggerReady = false;
-var how_to_modify_a_posted_timesheet_step = 0;
+var how_to_add_an_indirect_row_triggerReady = false;
+var how_to_add_an_indirect_row_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
@@ -403,7 +403,7 @@ $(window).hashchange(function() {
         if (window._wfx_is_live()) {
             console.log('Live Workflow');
             potential_step = 0;
-            window._wfx_settings['203a5610-7f64-11e6-9479-04013d24cd02'] = function(event) {
+            window._wfx_settings['d4009dc0-96c6-11e6-836b-04013d24cc02'] = function(event) {
                 potential_step = 0;
                 console.log('current' + event.step);
                 console.log('current potential_step' + potential_step);
@@ -1396,24 +1396,7 @@ $(window).hashchange(function() {
 
 		
 		
-				/* ******************************************** How to How to modify a Posted Timesheet?****************************************** */
-
-                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 				
-					 if (how_to_modify_a_posted_timesheet_triggerReady) {
-                window._wfx_close_live();
-                how_to_modify_a_posted_timesheet_triggerReady = false;
-            }
-				
-				
-				
-
-				
-				
-  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to modify a Posted Timesheet?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  
-
-		
 		
 		
 
@@ -2179,6 +2162,57 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a Baseline<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		
+		
+		
+						/* ********************************************How to add an indirect row? ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+					 if (how_to_add_an_indirect_row_triggerReady && !window.location.hash.includes("#action:timeadmin.editTimesheet") ) {
+                window._wfx_close_live();
+                how_to_add_an_indirect_row_triggerReady = false;
+            }
+				
+			
+				
+				
+					if (window._wfx_is_live()) {
+                        window._wfx_settings['f5afd310-912f-11e6-85ad-04013d24cd02'] = function (event) {
+                            potential_step = 0;
+						
+                        
+				if ((event.step == 1)) {
+                        how_to_add_an_indirect_row_triggerReady = true;
+                    }
+				
+				
+				
+									
+					 /*jump steps */
+                        if ((window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+                            potential_step = 1;
+                        }
+
+                       
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+				
+				
+				
+				
+				}
+			}
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to add an indirect row?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+		
+		
+		
+		
 
         /* ******************************************** How to create a resource? ****************************************** */
 
