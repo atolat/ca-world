@@ -819,7 +819,7 @@ $(window).hashchange(function() {
         }
 
         //for step number 8
-        if (how_to_create_a_role_step == 7 && !window.location.hash.includes('#action:projmgr.editResource&resourceType')) {
+        if (how_to_create_a_role_step == 7 && !window.location.hash.includes('#action:projmgr.editResource&reso')) {
             how_to_create_a_role_step = 0;
             window._wfx_close_live();
         }
@@ -853,7 +853,7 @@ $(window).hashchange(function() {
                     how_to_create_a_program_triggerReady = true;
                 }
 
-                if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+                if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole"))) {
                     how_to_create_a_role_step = 7;
                     how_to_create_a_role_triggerReady = false;
                 }
@@ -2255,13 +2255,13 @@ $(window).hashchange(function() {
                 }
 
                 //hover properties  tab and click baseline
-                if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:projmgr.projectProperti"))) {
+                if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:projmgr.projectDefaultTa"))) {
                     how_to_create_a_baseline_triggerReady = true;
                 }
 
 
                 //click baseline
-                if ((event.step == 4) && window.location.hash.includes("#action:projmgr.projectProperti")) {
+                if ((event.step == 4) && window.location.hash.includes("#action:projmgr.projectDefaultTa")) {
                     how_to_create_a_baseline_step = 4;
                     how_to_create_a_baseline_triggerReady = false;
                 }
@@ -2374,8 +2374,9 @@ $(window).hashchange(function() {
 
 
         if (how_to_create_a_resource_triggerReady) {
-            window._wfx_close_live();
+          
             how_to_create_a_resource_triggerReady = false;
+			  window._wfx_close_live();
         }
 
         // For step number 2
@@ -2414,7 +2415,7 @@ $(window).hashchange(function() {
                 }
 
 
-                if ((event.step >= 4 && event.step < 8) && (window.location.hash.includes("#action:projmgr.newResource&isRole=0&superSecretTokenKey"))) {
+                if ((event.step >= 4 && event.step < 8) && (window.location.hash.includes("#action:projmgr.newResource&isRol"))) {
                     how_to_create_a_project_triggerReady = true;
                 }
 
