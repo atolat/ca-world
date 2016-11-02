@@ -305,6 +305,12 @@ var how_to_add_document_to_a_resource_triggerReady = false;
 var how_to_add_document_to_a_resource_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+/* variable for how_to_create_change_request_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_change_request_triggerReady = false;
+var how_to_create_change_request_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
 
 
 /*How to Add a Note for a Time Entry??*/
@@ -2385,7 +2391,7 @@ $(window).hashchange(function() {
         }
 
         // For step number 8
-        if (how_to_create_a_resource_step == 8 && !window.location.hash.includes('#action:projmgr.editResource&resourceTy')) {
+        if (how_to_create_a_resource_step == 8 && !window.location.hash.includes('#action:projmgr.editResource&resour')) {
             how_to_create_a_resource_step = 0;
             window._wfx_close_live();
         }
@@ -2413,7 +2419,7 @@ $(window).hashchange(function() {
                 }
 
                 //save button
-                if ((event.step == 8) && window.location.hash.includes("#action:projmgr.newResource&isRole=0&superSecretTokenKey")) {
+                if ((event.step == 8) && window.location.hash.includes("#action:projmgr.newResource&isRol")) {
                     how_to_create_a_resource_step = 8;
                     how_to_create_a_resource_triggerReady = false;
                 }
@@ -2683,6 +2689,138 @@ $(window).hashchange(function() {
 
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Create a Benefit Plan?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+		
+		
+/* ******************************************************how_to_create_change_request***************************************************/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+	if (how_to_create_change_request_triggerReady)
+	{
+		window._wfx_close_live();
+		how_to_create_change_request_triggerReady = false;
+	}
+
+	// For step number 2
+	if (how_to_create_change_request_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
+	{
+		how_to_create_change_request_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 3
+	if (how_to_create_change_request_step == 3 && !window.location.hash.includes('#action:itl.riskList')) 
+	{
+		how_to_create_change_request_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 5
+	if (how_to_create_change_request_step == 5 && !window.location.hash.includes('#action:itl.changeList')) 
+	{
+		how_to_create_change_request_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 6
+	if (how_to_create_change_request_step == 6 && !window.location.hash.includes('#action:itl.changeObject')) 
+	{
+		how_to_create_change_request_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 16
+	if (how_to_create_change_request_step == 16 && !window.location.hash.includes('#act')) 
+	{
+		how_to_create_change_request_step = 0;
+		window._wfx_close_live();
+	}
+
+
+
+	if (window._wfx_is_live()) 
+	{
+		window._wfx_settings['c0dd8dc0-8154-11e6-9479-04013d24cd02'] = function (event) 
+	{
+		potential_step = 0;
+
+
+			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work'))) 
+			{
+				how_to_create_change_request_step = 2
+				how_to_create_change_request_triggerReady = false;
+			}
+
+			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
+			{
+				how_to_create_change_request_step = 3
+				how_to_create_change_request_triggerReady = false;
+			}
+
+			if ((event.step >= 4 && event.step < 5) && (window.location.hash.includes('c'))) 
+			{
+				how_to_create_change_request_triggerReady = true;
+			}
+
+			if ((event.step==5) && (window.location.hash.includes('same'))) 
+			{
+				how_to_create_change_request_step = 5
+				how_to_create_change_request_triggerReady = false;
+			}
+
+			if ((event.step==6) && (window.location.hash.includes('#action:itl.changeList'))) 
+			{
+				how_to_create_change_request_step = 6
+				how_to_create_change_request_triggerReady = false;
+			}
+
+			if ((event.step >= 7 && event.step < 16) && (window.location.hash.includes('#action:itl.changeObject'))) 
+			{
+				how_to_create_change_request_triggerReady = true;
+			}
+
+			if ((event.step==16) && (window.location.hash.includes('#action:itl.changeObject'))) 
+			{
+				how_to_create_change_request_step = 16
+				how_to_create_change_request_triggerReady = false;
+			}
+
+
+/*jump steps */
+			if ((window.location.hash.includes('#action:mainnav.work'))) 
+			{
+				potential_step = 2;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
+			{
+				potential_step = 3;
+			}
+
+			if ((window.location.hash.includes('#action:itl.riskList'))) 
+			{
+				potential_step = 4;
+			}
+
+			if ((window.location.hash.includes('#action:itl.changeList'))) 
+			{
+				potential_step = 6;
+			}
+
+			if ((window.location.hash.includes('#action:itl.changeObject'))) 
+			{
+				potential_step = 7;
+			}
+
+			if (potential_step && event.step <= potential_step) 
+			{
+				return {
+				"position": potential_step
+				};
+			}
+		}
+	}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_create_change_request<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
         /* ******************************************** How to Reject an Idea? ****************************************** */
@@ -3617,19 +3755,19 @@ $(window).hashchange(function() {
         }
 
         // For step number 4
-        if (how_to_submit_an_idea_step == 4 && !window.location.hash.includes('#action:pma.ideaList')) {
+        if (how_to_submit_an_idea_step == 4 && !window.location.hash.includes('#action:pma.ideaList&page_pma.ideaList_')) {
             how_to_submit_an_idea_step = 0;
             window._wfx_close_live();
         }
 
         // For step number 5
-        if (how_to_submit_an_idea_step == 5 && !window.location.hash.includes('#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt&parent_odf_view=projec')) {
+        if (how_to_submit_an_idea_step == 5 && !window.location.hash.includes('#action:pma.ideaProperties&return_to=')) {
             how_to_submit_an_idea_step = 0;
             window._wfx_close_live();
         }
 
         // For step number 6
-        if (how_to_submit_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaProperties&return_to=pma.ideaList')) {
+        if (how_to_submit_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaProperties&return_to')) {
             how_to_submit_an_idea_step = 0;
             window._wfx_close_live();
         }
@@ -3666,7 +3804,7 @@ $(window).hashchange(function() {
                 }
 
                 //Click on any Idea
-                if ((event.step == 5) && window.location.hash.includes("#action:pma.ideaList")) {
+                if ((event.step == 5) && window.location.hash.includes("#action:pma.ideaList&page_pma.ideaList")) {
                     how_to_submit_an_idea_step = 5;
                     how_to_submit_an_idea_triggerReady = false;
                 }
