@@ -1767,25 +1767,38 @@ $(window).hashchange(function() {
         //For last step on every page
 
         // For step number 3
-        if (incident_to_task_step == 3 && !window.location.hash.includes('#action:itl.incidentList')) {
+        if (incident_to_task_step == 3 && !window.location.hash.includes('#action:itl.chooseProjectForTask&inciden')) {
             incident_to_task_step = 0;
             window._wfx_close_live();
         }
 
-        // For step number 5
-        if (incident_to_task_step == 5 && !window.location.hash.includes('#action:itl.chooseProjectForTask&incident_id')) {
+        // For step number 4
+        if (incident_to_task_step ==5 && !window.location.hash.includes('#action:projmgr.taskProperties&incident_')) {
             incident_to_task_step = 0;
             window._wfx_close_live();
         }
 
         // For step number 6
-        if (incident_to_task_step == 6 && !window.location.hash.includes('&returnAction=itl.incidentList&projectId')) {
+        if (incident_to_task_step == 6 && !window.location.hash.includes('#action:projmgr.taskPropertiesOpt&')) {
+            incident_to_task_step = 0;
+            window._wfx_close_live();
+        }
+		
+		 // For step number 8
+        if (incident_to_task_step == 8 && !window.location.hash.includes('#action:itl.incidentList')) {
             incident_to_task_step = 0;
             window._wfx_close_live();
         }
 
         // For step number 9
-        if (incident_to_task_step == 9 && !window.location.hash.includes('#action:itl.incidentList')) {
+        if (incident_to_task_step == 9 && !window.location.hash.includes('#action:itl.incidentObject&od')) {
+            incident_to_task_step = 0;
+            window._wfx_close_live();
+        }
+		
+		
+		 // For step number 10
+        if (incident_to_task_step == 10 && !window.location.hash.includes('#action:itl.incidentAssociation')) {
             incident_to_task_step = 0;
             window._wfx_close_live();
         }
@@ -1795,20 +1808,27 @@ $(window).hashchange(function() {
             potential_step = 0;
             window._wfx_settings['becbaa30-8956-11e6-a787-04013d24cf02'] = function(event) {
                 potential_step = 0;
-                console.log("here::" + incident_to_task_triggerReady + " " + event.step);
-
-
-
-                if ((event.step == 3) && window.location.hash.includes("#action:itl.chooseProjectForTask&incident_id")) {
+             
+			 
+				 if ((event.step == 2) && window.location.hash.includes("#action:itl.incidentList")) {
+                    incident_to_task_triggerReady = true;
+					}
+				
+					if ((event.step >= 2 && event.step < 3) && (window.location.hash.includes("#action:itl.incidentList"))) {
+                        incident_to_task_triggerReady = true;
+                    }
+			 
+                if ((event.step == 3) && window.location.hash.includes("#action:itl.incidentList")) {
                     incident_to_task_step = 3;
                     incident_to_task_triggerReady = false;
                 }
 
-                if ((event.step == 2) && window.location.hash.includes("#action:itl.incidentList")) {
-                    how_to_change_an_etc_value_triggerReady = true;
-                }
+               
+				if ((event.step >= 4 && event.step < 5) && (window.location.hash.includes("#action:itl.chooseProjectForTask&inci"))) {
+                        incident_to_task_triggerReady = true;
+                    }
 
-                if ((event.step == 5) && window.location.hash.includes("&returnAction=itl.incidentList&projectId")) {
+                if ((event.step == 5) && window.location.hash.includes("#action:itl.chooseProjectForTask&inci")) {
                     incident_to_task_step = 5;
                     incident_to_task_triggerReady = false;
                 }
@@ -1818,45 +1838,54 @@ $(window).hashchange(function() {
                     incident_to_task_triggerReady = false;
                 }
 
-                if (event.step == 7) {
+                if ((event.step >= 7 && event.step <8)&& window.location.hash.includes('#action:projmgr.taskPropertiesOpt&')) {
                     incident_to_task_triggerReady = true;
                 }
 
-                if ((event.step == 9) && window.location.hash.includes("#action:itl.incidentObject&odf_pk")) {
+				if ((event.step == 8) && window.location.hash.includes("#action:projmgr.taskPropertiesOpt&")) {
+                    incident_to_task_step = 8;
+                    incident_to_task_triggerReady = false;
+                }
+				
+                if ((event.step == 9) && window.location.hash.includes("#action:itl.incidentLis")) {
                     incident_to_task_step = 9;
+                    incident_to_task_triggerReady = false;
+                }
+				
+				 if ((event.step == 10) && window.location.hash.includes("#action:itl.incidentObject&odf")) {
+                    incident_to_task_step = 10;
                     incident_to_task_triggerReady = false;
                 }
 
 
-                //                // For step number 4 to 6
-                //                if ((event.step >= 4 && event.step  < 6) && window.location.hash.includes('#action:projmgr.roster&id')) {
-                //                    how_to_submit_timesheet_triggerReady = true;
-                //                }
+              
 
                 /*jump steps */
-                if ((window.location.hash.includes("#action:itl.incidentList")) && event.step == 2) {
-                    potential_step = 2;
-                }
+				
+				 if ((window.location.hash.includes("#action:itl.incidentList"))) {
+                            potential_step = 2;
+                        }
 
-                if ((window.location.hash.includes("#action:itl.chooseProjectForTask&incident_id")) || window.location.hash.includes("#action:itl.chooseProjectForTaskReturn&incident_id")) {
-                    potential_step = 4;
-                }
+                        if ((window.location.hash.includes("#action:itl.chooseProjectForTask&inci"))) {
+                            potential_step = 4;
+                        }
 
-                if (window.location.hash.includes("#action:projmgr.taskProperties&incident_id")) {
-                    potential_step = 6;
-                }
+                        if (window.location.hash.includes("#action:projmgr.task")) {
+                            potential_step = 6;
+                        }
 
-                if (window.location.hash.includes("#action:projmgr.taskPropertiesOpt&id")) {
-                    potential_step = 7;
-                }
+						if (window.location.hash.includes("#action:projmgr.taskPropertiesOpt&id")) {
+							potential_step = 7;
+						}
 
-                if (window.location.hash.includes("#action:itl.incidentList") && event.step == 9) {
-                    potential_step = 9;
-                }
+						if ((window.location.hash.includes("#action:itl.incidentList")) && event.step == 9) {
+							potential_step = 9;
+						}
 
-                if (window.location.hash.includes("#action:itl.incidentObject&odf_pk")) {
-                    potential_step = 10;
-                }
+						if (window.location.hash.includes("#action:itl.incidentObject&odf_pk")) {
+							potential_step = 10;
+						}
+
 
                 if (potential_step && event.step <= potential_step) {
                     return {
@@ -1974,13 +2003,13 @@ $(window).hashchange(function() {
             }
 			
 			// For step number 3
-            if (how_to_convert_an_incident_to_a_project_step == 3 && !window.location.hash.includes('#action:itl.selectConvertType&odf_pk')) {
+            if (how_to_convert_an_incident_to_a_project_step == 3 && !window.location.hash.includes('#action:itl.selectConvertType&incid')) {
                 how_to_convert_an_incident_to_a_project_step = 0;
                 window._wfx_close_live();
             }
 			
 			// For step number 4
-            if (how_to_convert_an_incident_to_a_project_step == 4 && !window.location.hash.includes('#action:projmgr.projectNew&return_to=itl')) {
+            if (how_to_convert_an_incident_to_a_project_step == 4 && !window.location.hash.includes('#action:projmgr.projectNew&return_to=itl.incidentLis')) {
                 how_to_convert_an_incident_to_a_project_step = 0;
                 window._wfx_close_live();
             }
@@ -2004,25 +2033,25 @@ $(window).hashchange(function() {
 						
 						
 						//convert to project button
-				if ((event.step == 3) && window.location.hash.includes("#action:itl.incidentObject&odf_p")) {
+				if ((event.step == 3) && window.location.hash.includes("#action:itl.incidentList")) {
                             how_to_convert_an_incident_to_a_project_step = 3;
                             how_to_convert_an_incident_to_a_project_triggerReady = false;
                         }
 						
 						//next button
-				if ((event.step == 4) && window.location.hash.includes("#action:itl.selectConvertType&odf_pk")) {
+				if ((event.step == 4) && window.location.hash.includes("#action:itl.selectConvertType&incid")) {
                             how_to_convert_an_incident_to_a_project_step = 4;
                             how_to_convert_an_incident_to_a_project_triggerReady = false;
                         }
 				
 				//create project page
-				 if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes("how_to_convert_an_incident_to_a_project_triggerReady"))) {
+				 if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes("#action:projmgr.projectNew&return_to=itl.in"))) {
                         how_to_convert_an_incident_to_a_project_triggerReady = true;
                     }
 				
 				
 				//save button
-				if ((event.step == 6) && window.location.hash.includes("how_to_convert_an_incident_to_a_project_triggerReady")) {
+				if ((event.step == 6) && window.location.hash.includes("#action:projmgr.projectNew&return_to=itl.in")) {
                             how_to_convert_an_incident_to_a_project_step = 6;
                             how_to_convert_an_incident_to_a_project_triggerReady = false;
                         }
@@ -2036,10 +2065,10 @@ $(window).hashchange(function() {
                             potential_step = 3;
                         }
 
-                        if (window.location.hash.includes("#action:itl.selectConvertType&odf_pk")) {
+                        if (window.location.hash.includes("#action:itl.selectConvertType&inci")) {
                             potential_step = 4;
                         }
-						 if (window.location.hash.includes("how_to_convert_an_incident_to_a_project_triggerReady")) {
+						 if (window.location.hash.includes("#action:projmgr.projectNew&return_to=")) {
                             potential_step = 5;
                         }
 
