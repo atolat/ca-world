@@ -247,6 +247,13 @@ var how_to_create_a_copy_of_cost_plan_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/* variable for  how_to_flag_an_incident_for_conversion */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_flag_an_incident_for_conversion_triggerReady = false;
+var how_to_flag_an_incident_for_conversion_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+ 
+
 
 /*How to Create a Benefit Plan*/
 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
@@ -3671,7 +3678,128 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to submit an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
-		
+		     /* ******************************************** How to Flag an Incident for Conversion? ******************************************Rishi */
+ 
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+ 
+        if (how_to_flag_an_incident_for_conversion_triggerReady) {
+            window._wfx_close_live();
+            how_to_flag_an_incident_for_conversion_triggerReady = false;
+        }
+ 
+        // For step number 2
+        if (how_to_flag_an_incident_for_conversion_step == 2 && !window.location.hash.includes('#action:itl.incidentList')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+ 
+        // For step number 3
+        if (how_to_flag_an_incident_for_conversion_step == 3 && !window.location.hash.includes('#action:itl.incidentList&incidentListType=reportedBy&ui.page.space=itl.incidentList')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+ 
+        // For step number 4
+        if (how_to_flag_an_incident_for_conversion_step == 4 && !window.location.hash.includes('#action:itl.incidentObject')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+ 
+        // For step number 5
+        if (how_to_flag_an_incident_for_conversion_step == 5 && !window.location.hash.includes('#action:itl.incidentObject')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+ 
+        // For step number 6
+        if (how_to_flag_an_incident_for_conversion_step == 6 && !window.location.hash.includes('#action:itl.incidentObject')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+ 
+        // For step number 7
+        if (how_to_flag_an_incident_for_conversion_step == 7 && !window.location.hash.includes('#action:itl.incidentObject')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+        // For step number 8
+        if (how_to_flag_an_incident_for_conversion_step == 8 && !window.location.hash.includes('#action:itl.incidentObject')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+        // For step number 9
+        if (how_to_flag_an_incident_for_conversion_step == 9 && !window.location.hash.includes('#action:itl.incidentObject')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+        // For step number 10
+        if (how_to_flag_an_incident_for_conversion_step == 10 && !window.location.hash.includes('#action:itl.incidentList&id=&id=&id=&incidentListType=reportedBy')) {
+            how_to_flag_an_incident_for_conversion_step = 0;
+            window._wfx_close_live();
+        }
+ 
+        if (window._wfx_is_live()) {
+            window._wfx_settings['9927f260-864b-11e6-a787-04013d24cf02'] = function(event) {
+                potential_step = 0;
+ 
+ 
+ 
+                //Click  the Reported by Me tab
+                if ((event.step == 2) && window.location.hash.includes("#action:itl.incidentList")) {
+                    console.log(2);
+                    how_to_flag_an_incident_for_conversion_step = 2;
+                   how_to_flag_an_incident_for_conversion_triggerReady = false;
+                }
+ 
+                //Click onn required Incident
+                if ((event.step == 3) && window.location.hash.includes("#action:itl.incidentList&incidentListType=reportedBy&ui.page.space=itl.incidentList")) {
+                    how_to_flag_an_incident_for_conversion_step = 3;
+                    how_to_flag_an_incident_for_conversion_triggerReady = false;
+                }
+ 
+                //Select Status as Submitted for Approval
+                if ((event.step >= 4 && event.step < 9) && (window.location.hash.includes("#action:itl.incidentObject"))) {
+                    how_to_flag_an_incident_for_conversion_triggerReady = true;
+                }
+ 
+                //Incident is now flagged for conversion
+                if ((event.step == 10) && window.location.hash.includes("#action:itl.incidentList&id=&incidentListType=reportedBy")) {
+                    how_to_flag_an_incident_for_conversion_step = 10;
+                    how_to_flag_an_incident_for_conversion_triggerReady = false;
+                }
+ 
+ 
+                /*jump steps */
+                if ((window.location.hash.includes("#action:itl.incidentList"))) {
+                    potential_step = 2;
+                }
+                if (window.location.hash.includes("#action:itl.incidentList&incidentListType=reportedBy&ui.page.space=itl.incidentList")) {
+                    potential_step = 3;
+                }
+                if ((event.step >= 4 && event.step < 9) && (window.location.hash.includes("#action:itl.incidentObject"))) {
+                    how_to_create_a_project_triggerReady = true;
+                }
+                if (window.location.hash.includes("#action:itl.incidentList&id=&id=&id=&incidentListType=reportedBy")) {
+                    potential_step = 10;
+                }
+ 
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+ 
+ 
+ 
+ 
+            }
+        }
+ 
+ 
+ 
+ 
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Flag an Incident for Conversion?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Rishi<*/
+ 
 
        
 
