@@ -2133,7 +2133,7 @@ $(window).hashchange(function() {
         }
 
         // For step number 9
-        if (how_to_create_a_plan_step == 9 && !window.location.hash.includes('#action:pfm.planList&')) {
+        if (how_to_create_a_plan_step == 9 && !window.location.hash.includes('#action:pfm.planList&i')) {
             how_to_create_a_plan_step = 0;
             window._wfx_close_live();
         }
@@ -2175,7 +2175,7 @@ $(window).hashchange(function() {
                 }
 
                 //save and return button
-                if ((event.step == 9) && window.location.hash.includes("#action:pfm.portfolioPlanProperti")) {
+                if ((event.step == 9) && window.location.hash.includes("#action:pfm.portfolioPlanPropert")) {
                     how_to_create_a_plan_step = 9;
                     how_to_create_a_plan_triggerReady = false;
                 }
@@ -2185,7 +2185,7 @@ $(window).hashchange(function() {
                     potential_step = 2;
                 }
 
-                if ((window.location.hash.includes("#action:pfm.portfolioDefaultTab&odf_return"))) {
+                if ((window.location.hash.includes("#action:pfm.portfolioDefaultTab&odf_return")) || (window.location.hash.includes('action:pfm.portfolioPropertie'))) {
                     potential_step = 3;
                 }
 
@@ -2224,9 +2224,15 @@ $(window).hashchange(function() {
             how_to_create_a_baseline_step = 0;
             window._wfx_close_live();
         }
+		
+		// For step number 3
+        if (how_to_create_a_baseline_step == 3 && !window.location.hash.includes('#action:projmgr.projectPropertie')) {
+            how_to_create_a_baseline_step = 0;
+            window._wfx_close_live();
+        }
 
         // For step number 4
-        if (how_to_create_a_baseline_step == 4 && !window.location.hash.includes('#action:projmgr.baselineRevisionList&')) {
+        if (how_to_create_a_baseline_step == 4 && !window.location.hash.includes('#action:projmgr.baselineRevisionL')) {
             how_to_create_a_baseline_step = 0;
             window._wfx_close_live();
         }
@@ -2253,15 +2259,17 @@ $(window).hashchange(function() {
                     how_to_create_a_baseline_step = 2;
                     how_to_create_a_baseline_triggerReady = false;
                 }
-
-                //hover properties  tab and click baseline
-                if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:projmgr.projectDefaultTa"))) {
-                    how_to_create_a_baseline_triggerReady = true;
+				
+				   //click on any properties
+                if ((event.step == 3) && window.location.hash.includes("#action:projmgr.projectDefaultTa")) {
+                    how_to_create_a_baseline_step = 3;
+                    how_to_create_a_baseline_triggerReady = false;
                 }
 
 
+
                 //click baseline
-                if ((event.step == 4) && window.location.hash.includes("#action:projmgr.projectDefaultTa")) {
+                if ((event.step == 4) && window.location.hash.includes("#action:projmgr.projectPropertie")) {
                     how_to_create_a_baseline_step = 4;
                     how_to_create_a_baseline_triggerReady = false;
                 }
@@ -2291,13 +2299,19 @@ $(window).hashchange(function() {
                     potential_step = 2;
                 }
 
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTa"))) {
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTa")) || (window.location.hash.includes('#action:projmgr.projectDashboar'))) {
                     potential_step = 3;
                 }
+				
+				  if ((window.location.hash.includes("#action:projmgr.projectProperti"))) {
+                    potential_step = 3;
+                }
+
 
                 if (window.location.hash.includes("#action:projmgr.baselineRevisionList&")) {
                     potential_step = 5;
                 }
+				
 
                 if (window.location.hash.includes("#action:projmgr.baselineRevisionProperties")) {
                     potential_step = 6;
