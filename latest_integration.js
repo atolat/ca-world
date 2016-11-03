@@ -401,6 +401,15 @@ var how_to_convert_idea_to_investment_triggerReady = false;
 var how_to_convert_idea_to_investment_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+
+/* variable for how_to_manage_allocations_of_staff_member_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_manage_allocations_of_staff_member_triggerReady = false;
+var how_to_manage_allocations_of_staff_member_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
 //Based on Hash Change this function runs
 
 $(window).hashchange(function() {
@@ -3130,6 +3139,130 @@ $(window).hashchange(function() {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Request More Information for an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+		/* ******************************************************how_to_manage_allocations_of_staff_member***************************************************/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+	if (how_to_manage_allocations_of_staff_member_triggerReady)
+	{
+		window._wfx_close_live();
+		how_to_manage_allocations_of_staff_member_triggerReady = false;
+	}
+
+	// For step number 2
+	if (how_to_manage_allocations_of_staff_member_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultT')) 
+	{
+		how_to_manage_allocations_of_staff_member_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 3
+	if (how_to_manage_allocations_of_staff_member_step == 3 && !window.location.hash.includes('#action:projmgr.roster')) 
+	{
+		how_to_manage_allocations_of_staff_member_step = 0;
+		window._wfx_close_live();
+	}
+	
+	// For step number 4
+	if (how_to_manage_allocations_of_staff_member_step == 4 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectLis')) 
+	{
+		how_to_manage_allocations_of_staff_member_step = 0;
+		window._wfx_close_live();
+	}
+
+	
+	
+	
+	// For step number 6
+	if (how_to_manage_allocations_of_staff_member_step == 6 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList')) 
+	{
+		how_to_manage_allocations_of_staff_member_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 14
+	if (how_to_manage_allocations_of_staff_member_step == 14 && !window.location.hash.includes('#action:projmgr.teamList')) 
+	{
+		how_to_manage_allocations_of_staff_member_step = 0;
+		window._wfx_close_live();
+	}
+
+	if (window._wfx_is_live()) 
+	{
+		window._wfx_settings['23bc09d0-80c4-11e6-90aa-04013d24cf02'] = function (event) 
+	{
+		potential_step = 0;
+
+
+			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work&classCo'))) 
+			{
+				how_to_manage_allocations_of_staff_member_step = 2
+				how_to_manage_allocations_of_staff_member_triggerReady = false;
+			}
+
+			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefaultT'))) 
+			{
+				how_to_manage_allocations_of_staff_member_step = 3;
+				how_to_manage_allocations_of_staff_member_triggerReady = false;
+			}
+
+			if ((event.step==4) && (window.location.hash.includes('#action:projmgr.roster'))) 
+			{
+				how_to_manage_allocations_of_staff_member_step = 4;
+				how_to_manage_allocations_of_staff_member_triggerReady = false;
+			}
+
+			 if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes("#action:projmgr.getResourceProjectObjec"))) {
+                        how_to_manage_allocations_of_staff_member_triggerReady = true;
+                    }
+			
+
+			if ((event.step==6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjec'))) 
+			{
+				how_to_manage_allocations_of_staff_member_step = 6;
+				how_to_manage_allocations_of_staff_member_triggerReady = false;
+			}
+
+			if ((event.step >= 7 && event.step < 14) && (window.location.hash.includes('#action:projmgr.teamList'))) 
+			{
+				how_to_manage_allocations_of_staff_member_triggerReady = true;
+			}
+			if ((event.step==14) && (window.location.hash.includes('#action:projmgr.teamList'))) 
+			{
+				how_to_manage_allocations_of_staff_member_step = 14;
+				how_to_manage_allocations_of_staff_member_triggerReady = false;
+			}
+
+
+/*jump steps */
+			if ((window.location.hash.includes('#action:mainnav.work&classCo'))) 
+			{
+				potential_step = 2;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.projectDefaultT'))) 
+			{
+				potential_step = 3;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.roster'))) 
+			{
+				potential_step = 4;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.teamList'))) 
+			{
+				potential_step = 7;
+			}
+
+			if (potential_step && event.step <= potential_step) 
+			{
+				return {
+				"position": potential_step
+				};
+			}
+		}
+	}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_manage_allocations_of_staff_member<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
         /* ******************************************** How to add a team to an idea? ****************************************** */
 
