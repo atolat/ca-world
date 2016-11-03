@@ -420,6 +420,62 @@ var how_to_make_collaboration_manager_triggerReady = false;
 var how_to_make_collaboration_manager_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+//GTC
+/*How to Enable a Project Financially */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_enable_project_financially_triggerReady = false;
+var how_to_enable_project_financially_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for  How to add a Participant */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_add_participant_triggerReady = false;
+var how_to_add_participant_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+/* variable for How to create a risk */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_risk__step = 0;
+var how_to_create_risk_triggerReady = false;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for How to create a cost plan from the resource plan */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+var how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for How to change notification settings of a user */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_change_notification_settings_of_a_user_triggerReady = false;
+var how_to_change_notification_settings_of_a_user_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for  How to Enable a resource Financially */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_enable_a_resource_financially_triggerReady = false;
+var how_to_enable_a_resource_financially_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for How to designate proxy for a Resource */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_designate_proxy_for_a_resource_triggerReady = false;
+var how_to_designate_proxy_for_a_resource_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for  How to configure your personal account settings */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_configure_user_personal_information_triggerReady = false;
+var how_to_configure_user_personal_information_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
+
+
+
+
 
 //Based on Hash Change this function runs
 
@@ -4507,7 +4563,772 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Flag an Incident for Conversion?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Rishi<*/
  
 
+       /* GTc*/
+	   
+
+/* ******************************************************<<<How to Enable a Project Financially>>>***************************************************/
+//Author : Arun
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+if (how_to_enable_project_financially_triggerReady) {
+    window._wfx_close_live();
+    how_to_enable_project_financially_triggerReady = false;
+    console.log('closed' + how_to_enable_project_financially_step);
+}
+//for step number 2....... Click on any project for which you to enable financially
+if (how_to_enable_project_financially_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+    how_to_enable_project_financially_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 3....... Click on the properties tab of the project
+if (how_to_enable_project_financially_step == 3 && !window.location.hash.includes("#action:projmgr.projectProperties")) {
+    how_to_enable_project_financially_step = 0;
+    window._wfx_close_live();
+}
+
+
+//for step number 4....... Hover on properties tab click on financial link 
+if (how_to_enable_project_financially_step == 4 && !window.location.hash.includes("#action:projmgr.projectProperties&odf_view=finpropertiesUpdate")) {
+    how_to_enable_project_financially_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 5....... Changing the financial status to open
+if (how_to_enable_project_financially_step == 5 && !window.location.hash.includes('#action:projmgr.projectList&class')) {
+    how_to_enable_project_financially_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 12...... Click on save and return button
+if (how_to_enable_project_financially_step == 12 && !window.location.hash.includes('#action:projmgr.projectList&class')) {
+    how_to_enable_project_financially_step = 0;
+    window._wfx_close_live();
+}
+
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['dad54b20-9778-11e6-914c-04013d24cd02'] = function(event) {
+        potential_step = 0;
+        //Click on any project for which you want to enable financially
+        if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            how_to_enable_project_financially_step = 2;
+            how_to_enable_project_financially_triggerReady = false;
+        }
+        //Click on the properties tab
+        if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+
+            how_to_enable_project_financially_triggerReady = false;
+            how_to_enable_project_financially_step = 3;
+        }
+        //Hover the properties tab, click on financial link
+        if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.projectProperties"))) {
+            how_to_enable_project_financially_step = 4;
+            how_to_enable_project_financially_triggerReady = false;
+        }
+        //Select the financial status link and select open
+        if ((event.step >= 5 && event.step < 13) && (window.location.hash.includes("action:projmgr.projectProperties&odf_view=finpropertiesUpdate"))) {
+            how_to_enable_project_financially_triggerReady = true;
+		}
+        //Click on save and return button
+        if ((event.step == 12) && (window.location.hash.includes("#action:projmgr.projectProperties"))) {
+            how_to_enable_project_financially_triggerReady = true;
+        }
+
+        /*jump steps */
+
+        //Click on any project page
+        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            potential_step = 2;
+
+        }
+        //Click on properties tab page
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+
+            potential_step = 3;
+        }
+        //Hover on propertes tab, click on financial link page
+        if ((window.location.hash.includes("#action:projmgr.projectProperties"))) {
+
+            potential_step = 4;
+        }
+        //Changing the financial status page
+        if ((window.location.hash.includes("#action:projmgr.projectProperties&odf_view=finpropertiesUpdate.projectCreate"))) {
+
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Enable Project Financially <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<How to add a Participant>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/* @Author : Venu; 
+ variable for  How to add a Participant Step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+
+if (how_to_add_participant_triggerReady) {
+    window._wfx_close_live();
+    how_to_add_participant_triggerReady = false;
+}
+//for step number 2...Select any Project to add Participant
+if (how_to_add_participant_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+    how_to_add_participant_step = 0;
+    window._wfx_close_live();
+}
+//for step number 3...Click on Team tab
+if (how_to_add_participant_step == 3 && !window.location.hash.includes('#action:projmgr.roster')) {
+    how_to_add_participant_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 4...Click on Team tab
+if (how_to_add_participant_step == 4 && !window.location.hash.includes('#action:collab.projectPartic')) {
+    how_to_add_participant_step = 0;
+    window._wfx_close_live();
+}
+//for step number 5...Click on Participants link
+if (how_to_add_participant_step == 5 && !window.location.hash.includes('#action:collab.projectParticipants')) {
+    how_to_add_participant_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['fd7d9a20-99bb-11e6-9bb3-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //Select any Project to add Participant
+        if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            how_to_add_participant_step = 2;
+            how_to_add_participant_triggerReady = false;
+        }
+        //Click on Team tab
+        if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+            how_to_add_participant_step = 3;
+            how_to_add_participant_triggerReady = false;
+        }
+		
+		
+		//Click on Team tab
+        if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.roster"))) {
+            how_to_add_participant_step = 4;
+            how_to_add_participant_triggerReady = false;
+        }
+		
+		
+		
        
+        //mouse over on team tab
+        if ((event.step == 5) && (window.location.hash.includes("#action:collab.projectPartici"))) {
+            how_to_add_participant_step = 5;
+            how_to_add_participant_triggerReady = false;
+        }
+       
+
+        /*jump steps */
+        //project list page
+        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            potential_step = 2;
+
+        }
+        //project default page
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+            potential_step = 3;
+
+        }
+        //Team staff page
+        if ((window.location.hash.includes("#action:projmgr.roster"))) {
+            potential_step = 4;
+
+        }
+        //Participants Page
+        if ((window.location.hash.includes("#action:collab.projectParticipants"))) {
+            potential_step = 6;
+
+        }
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF How to add a Participant>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*********************************/
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<How to create a Risk>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*********************************/
+/* @Author : Venu; 
+ variable for  How to Create a Risk */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+
+
+if (how_to_create_risk_triggerReady) {
+    window._wfx_close_live();
+    how_to_create_risk_triggerReady = false;
+}
+//for step number 2...Click on any Project for which you want to create a Risk
+if (how_to_create_risk__step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 3...Click on Risks/Issues/Changes tab
+if (how_to_create_risk__step == 3 && !window.location.hash.includes('#action:itl.riskList&id')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 4...Click on New button
+if (how_to_create_risk__step == 4 && !window.location.hash.includes('#action:itl.riskObject&id')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 5...Create Risk Property section
+if (how_to_create_risk__step == 5 && !window.location.hash.includes('#action:itl.riskObject&odf_pk')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 6...Click on Save button
+if (how_to_create_risk__step == 11 && !window.location.hash.includes('#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 11...Click on Save button
+if (how_to_create_risk__step == 13 && !window.location.hash.includes('#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 13...Click on Save And Return button		
+if (how_to_create_risk__step == 13 && !window.location.hash.includes('#action:projmgr.projectProperties&id')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 14...Click on Properties tab and hover on it
+if (how_to_create_risk__step == 14 && !window.location.hash.includes('#action:projmgr.projectProperties&odf_view=projectRisk&id')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+//for step number 15...Click on Risk/Risk Rating link
+if (how_to_create_risk__step == 15 && !window.location.hash.includes('#action:projmgr.projectProperties&odf_view=projectRisk&id')) {
+    how_to_create_risk__step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['33c53fe0-815f-11e6-90aa-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //for step number 2...Click on any Project for which you want to create a Risk
+        if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            how_to_create_risk__step = 2;
+            how_to_create_risk_triggerReady = false;
+        }
+        //for step number 3...Click on Risks/Issues/Changes tab
+        if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+            how_to_create_risk__step = 3;
+            how_to_create_risk_triggerReady = false;
+        }
+        //for step number 4...Click on New button
+        if ((event.step == 4) && (window.location.hash.includes("#action:itl.riskList&id"))) {
+            how_to_create_risk__step = 4;
+            how_to_create_risk_triggerReady = false;
+        }
+        //for step number 5...Create Risk Property section
+        if ((event.step >= 5 && event.step < 10) && (window.location.hash.includes("#action:itl.riskObject&id"))) {
+            how_to_create_risk_triggerReady = true;
+        }
+
+        if ((event.step == 10) && (window.location.hash.includes("#action:itl.riskObject&id"))) {
+            how_to_create_risk__step = 10;
+            how_to_create_risk_triggerReady = false;
+        }
+        //for step number 11 &12...Click on Save button
+        if ((event.step >= 11 && event.step <= 12) && (window.location.hash.includes("#action:itl.riskObject&odf_pk"))) {
+            how_to_create_risk_triggerReady = true;
+        }
+
+        //Click on Save button
+        if ((event.step == 12) && (window.location.hash.includes("#action:itl.riskObject&odf_pk"))) {
+            how_to_create_risk__step = 12;
+            how_to_create_risk_triggerReady = false;
+        }
+        //for step number 13...Click on Save And Return button		
+        if ((event.step == 13) && (window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id"))) {
+            how_to_create_risk__step = 13;
+            how_to_create_risk_triggerReady = false;
+        }
+
+        //for step number 14...Click on Properties tab and hover on it
+        if ((event.step == 14) && (window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
+            how_to_create_risk__step = 14;
+            how_to_create_risk_triggerReady = false;
+        }
+        //for step number 15...Click on Risk/Risk Rating link
+        if ((event.step == 15) && (window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectRisk&id"))) {
+            how_to_create_risk__step = 15;
+            how_to_create_risk_triggerReady = false;
+        }
+
+        /*jump steps */
+        //project list page
+        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            potential_step = 2;
+        }
+        //project default page
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+            potential_step = 3;
+        }
+        //risk list
+        if ((window.location.hash.includes("#action:itl.riskList&id"))) {
+            potential_step = 4;
+        }
+        //create new risk button
+        if ((window.location.hash.includes("#action:itl.riskObject&odf"))) {
+            potential_step = 5;
+        }
+
+        //click on save button page
+        if ((window.location.hash.includes("#action:itl.riskObject&odf_pk"))) {
+            potential_step = 11;
+        }
+        //Click on Save And Return button page
+        if ((window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id"))) {
+            potential_step = 13;
+        }
+        //Click on Properties tab and hover on it
+        if ((window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
+            potential_step = 14;
+        }
+        //Click on Risk/Risk Rating link
+        if ((window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectRisk&id"))) {
+            potential_step = 15;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<End of How to Create a Risk <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* ******************************************************How to create a cost plan from the resource plan***************************************************/
+
+//Pranavi 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_create_a_cost_plan_from_the_resource_plan_triggerReady) {
+    window._wfx_close_live();
+    how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+}
+//for step number 2
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+//for step number 3
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 3 && !window.location.hash.includes('#action:revmgr.costplanList.project&id')) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+//for step number 4
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 4 && !window.location.hash.includes('#action:revmgr.costplanProperties&id')) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+//for step number 5
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 5 && !window.location.hash.includes('#action:revmgr.costplandetailList&plan_id')) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 10
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 10 && !window.location.hash.includes('#action:revmgr.populateFromResourcePlan&superSecretTokenKey=superSecretTokenValue&plan_id') && (window.location.hash.search("copyoption=Assignments") != -1)) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+//for step number 12
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 12 && !window.location.hash.includes('#action:revmgr.costplanProperties&plan_id')) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+//for step number 13
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 13 && !window.location.hash.includes('#action:revmgr.costplanList&object_code=project&id')) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+//for step number 14
+if (how_to_create_a_cost_plan_from_the_resource_plan_step == 14 && !window.location.hash.includes('#action:revmgr.costplanList&object_code=project&id')) {
+    how_to_create_a_cost_plan_from_the_resource_plan_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['b3a59dd0-84a3-11e6-a247-04013d24cc02'] = function(event) {
+        potential_step = 0;
+
+        if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_step = 2;
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+        }
+
+        if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_step = 3;
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+        }
+        if ((event.step == 4) && (window.location.hash.includes("#action:revmgr.costplanList.project&id"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_step = 4;
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+        }
+        if ((event.step >= 5 && event.step < 9) && (window.location.hash.includes("#action:revmgr.costplanProperties&id"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = true;
+        }
+        if ((event.step == 9) && (window.location.hash.includes("#action:revmgr.costplanProperties&id"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_step = 9;
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+        }
+        if ((event.step >= 10 && event.step < 12) && (window.location.hash.includes("#action:revmgr.costplandetailList&plan_id"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = true;
+        }
+        if ((event.step == 11) && (window.location.hash.includes("#action:revmgr.costplandetailList&plan_id"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_step = 11;
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+        }
+        if ((event.step == 12) && (window.location.hash.includes("#action:revmgr.populateFromResourcePlan&superSecretTokenKey=superSecretTokenValue&plan_id")) && window.location.hash.search('copyoption=Assignments') != -1) {
+            console.log('step no 12' + window.location.hash.search('copyoption=Assignments'));
+            how_to_create_a_cost_plan_from_the_resource_plan_step = 12;
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+        }
+        if ((event.step >= 13 && event.step < 14) && (window.location.hash.includes("#action:revmgr.costplanProperties&plan_id"))) {
+			how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = true;
+        }
+        if ((event.step == 14) && (window.location.hash.includes("#action:revmgr.costplanProperties&plan_id"))) {
+            how_to_create_a_cost_plan_from_the_resource_plan_step = 14;
+            how_to_create_a_cost_plan_from_the_resource_plan_triggerReady = false;
+        }
+        /*jump steps */
+        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+            potential_step = 2;
+
+        }
+
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+
+            potential_step = 3;
+        }
+
+        if ((window.location.hash.includes("#action:revmgr.costplanList.project&id"))) {
+
+            potential_step = 4;
+        }
+        if ((window.location.hash.includes("#action:revmgr.costplanProperties&id"))) {
+
+            potential_step = 5;
+        }
+        if ((window.location.hash.includes("#action:revmgr.costplandetailList&plan_id"))) {
+
+            potential_step = 10;
+        }
+        if ((window.location.hash.includes("#action:revmgr.populateFromResourcePlan&superSecretTokenKey=superSecretTokenValue&plan_id"))) {
+            potential_step = 12;
+        }
+        if ((window.location.hash.includes("#action:revmgr.costplanProperties&plan_id"))) {
+            potential_step = 13;
+        }
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a cost plan from the resource plan <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* ******************************************************How to change notification settings of a user ***************************************************/
+
+//Pranavi 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_change_notification_settings_of_a_user_triggerReady) {
+    window._wfx_close_live();
+    how_to_change_notification_settings_of_a_user_triggerReady = false;
+}
+//for step number 2
+if (how_to_change_notification_settings_of_a_user_step == 2 && !window.location.hash.includes('#action:personal.notifications')) {
+    how_to_change_notification_settings_of_a_user_step = 0;
+    window._wfx_close_live();
+}
+//for step number 3
+if (how_to_change_notification_settings_of_a_user_step == 3 && !window.location.hash.includes('#action:personal.notifications')) {
+    how_to_change_notification_settings_of_a_user_step = 0;
+    window._wfx_close_live();
+}
+//for step number 8
+if (how_to_change_notification_settings_of_a_user_step == 8 && !window.location.hash.includes('#action:personal.notifications')) {
+    how_to_change_notification_settings_of_a_user_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['3a588b80-9b4c-11e6-9b3b-04013d24cd02'] = function(event) {
+        potential_step = 0;
+
+        if ((event.step == 2) && (window.location.hash.includes("#action:personal.settings"))) {
+            how_to_change_notification_settings_of_a_user_step = 2;
+            how_to_change_notification_settings_of_a_user_triggerReady = false;
+        }
+
+        if ((event.step >= 3 && event.step < 7) && (window.location.hash.includes("#action:personal.notifications"))) {
+            how_to_change_notification_settings_of_a_user_triggerReady = true;
+        }
+        if ((event.step == 8) && (window.location.hash.includes("#action:personal.notifications"))) {
+            how_to_change_notification_settings_of_a_user_step = 8;
+            how_to_change_notification_settings_of_a_user_triggerReady = false;
+        }
+
+        /*jump steps */
+        if ((window.location.hash.includes("#action:personal.settings"))) {
+            potential_step = 2;
+
+        }
+
+        if ((window.location.hash.includes("#action:personal.notifications"))) {
+
+            potential_step = 3;
+        }
+
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to change notification settings of a user<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+/* ******************************************************<<<How to Enable a Resource Financially>>>***************************************************/
+//Author : Arun
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+if (how_to_enable_a_resource_financially_triggerReady) {
+    window._wfx_close_live();
+    how_to_enable_a_resource_financially_triggerReady = false;
+    console.log('closed' + how_to_enable_a_resource_financially_step);
+}
+//for step number 2....... Click on any resource for which you to enable financially
+if (how_to_enable_a_resource_financially_step == 2 && !window.location.hash.includes('#action:projmgr.editResource&odf_return_to=projmgr.getResources')) {
+    how_to_enable_a_resource_financially_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 3....... Hover on the properties tab of the project
+if (how_to_enable_a_resource_financially_step == 3 && !window.location.hash.includes("#action:revmgr.resourceFinancials&id")) {
+    how_to_enable_a_resource_financially_step = 0;
+    window._wfx_close_live();
+}
+
+if (how_to_enable_a_resource_financially_step == 4 && !window.location.hash.includes("#action:revmgr.resourceFinancials&id")) {
+    how_to_enable_a_resource_financially_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 4....... Click on financial link 
+if (how_to_enable_a_resource_financially_step == 5 && !window.location.hash.includes("#action:projmgr.editResource&id")) {
+    how_to_enable_a_resource_financially_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 5....... Changing the financial data for resource
+if (how_to_enable_a_resource_financially_step == 18 && !window.location.hash.includes('#action:projmgr.editResource&id')) {
+    how_to_enable_a_resource_financially_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['298e3520-978c-11e6-b5ed-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //Click on any resource for which you want to enable financially
+        if ((event.step == 2) && (window.location.hash.includes("#action:projmgr.getResources&reload=true"))) {
+            how_to_enable_a_resource_financially_step = 2;
+            how_to_enable_a_resource_financially_triggerReady = false;
+        }
+        //Click on the properties tab
+        if ((event.step == 3 && event.step < 5) && (window.location.hash.includes("#action:projmgr.editResource&odf_return_to=projmgr.getResources"))) {
+
+            how_to_enable_a_resource_financially_triggerReady = false;
+            how_to_enable_a_resource_financially_step = 3;
+        }
+        //Hover the properties tab, click on financial link
+        if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.editResource&odf_return_to=projmgr.getResources%26reload%3Dtrue&id"))) {
+            how_to_enable_a_resource_financially_step = 4;
+            how_to_enable_a_resource_financially_triggerReady = false;
+        }
+        //Select the financial data for resource
+        if ((event.step >= 5 && event.step < 18) && (window.location.hash.includes("#action:revmgr.resourceFinancials&id"))) {
+            how_to_enable_a_resource_financially_step = 5;
+            how_to_enable_a_resource_financially_triggerReady = false;
+        }
+        //Click on save and return button
+        if ((event.step == 18) && (window.location.hash.includes("#action:revmgr.resourceFinancials&id"))) {
+            how_to_enable_a_resource_financially_step = 18;
+            how_to_enable_a_resource_financially_triggerReady = false;
+        }
+
+        /*jump steps */
+
+        //Click on any resource page
+        if ((window.location.hash.includes("#action:projmgr.getResources&reload=true"))) {
+            potential_step = 2;
+
+        }
+        //Hover on propertes tab, click on financial link page
+        if ((window.location.hash.includes("#action:projmgr.editResource&odf_return_to=projmgr.getResources%26reload%3Dtrue&id"))) {
+
+            potential_step = 3;
+        }
+        //Changing financial details page
+        if ((window.location.hash.includes("#action:revmgr.resourceFinancials&id"))) {
+
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to Enable Resource Financially <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+/* ******************************************************How to designate proxy for a Resource ***************************************************/
+
+//Pranavi 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_designate_proxy_for_a_resource_triggerReady) {
+    window._wfx_close_live();
+    how_to_designate_proxy_for_a_resource_triggerReady = false;
+}
+//for step number 2
+if (how_to_designate_proxy_for_a_resource_step == 2 && !window.location.hash.includes("#action:personal.proxySettings")) {
+    how_to_designate_proxy_for_a_resource_step = 0;
+    window._wfx_close_live();
+}
+//for step number 3
+if (how_to_designate_proxy_for_a_resource_step == 3 && !window.location.hash.includes("#action:personal.proxySettings")) {
+    how_to_designate_proxy_for_a_resource_step = 0;
+    window._wfx_close_live();
+}
+//for step number 9
+if (how_to_designate_proxy_for_a_resource_step == 9 && !window.location.hash.includes("#action:personal.proxySettings")) {
+    how_to_designate_proxy_for_a_resource_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['5a06a300-9a7e-11e6-9bb3-04013d24cf02'] = function(event) {
+        potential_step = 0;
+
+        if ((event.step == 2) && (window.location.hash.includes("#action:personal.settings"))) {
+            how_to_designate_proxy_for_a_resource_step = 2;
+            how_to_designate_proxy_for_a_resource_triggerReady = false;
+        }
+
+        if ((event.step >= 3 && event.step < 10) && (window.location.hash.includes("#action:personal.proxySettings"))) {
+            how_to_designate_proxy_for_a_resource_triggerReady = true;
+        }
+        if ((event.step == 9) && (window.location.hash.includes("#action:personal.proxySettings"))) {
+            how_to_designate_proxy_for_a_resource_step = 9;
+            how_to_designate_proxy_for_a_resource_triggerReady = false;
+        }
+
+        /*jump steps */
+        if ((window.location.hash.includes("#action:personal.settings"))) {
+            potential_step = 2;
+
+        }
+
+        if ((window.location.hash.includes("#action:personal.proxySettings"))) {
+
+            potential_step = 3;
+        }
+
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to designate proxy for a Resource<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* ******************************************************<<<How to configure your personal account settings >>>***************************************************/
+//Author : Arun
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+if (how_to_configure_user_personal_information_triggerReady) {
+    window._wfx_close_live();
+    how_to_configure_user_personal_information_triggerReady = false;
+    console.log('closed' + how_to_configure_user_personal_information_step);
+}
+//for step number 2....... Change Personal information for user
+if (how_to_configure_user_personal_information_step == 2 && !window.location.hash.includes('#action:personal.settings')) {
+    how_to_configure_user_personal_information_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 5....... Click on Save Button 
+if (how_to_configure_user_personal_information_step == 5 && !window.location.hash.includes("#action:personal.settings")) {
+    how_to_configure_user_personal_information_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['c6638810-9b41-11e6-9bb3-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //Change Personal information for user
+        if ((event.step >= 2 && event.step < 6) && (window.location.hash.includes("#action:personal.settings"))) {
+            how_to_configure_user_personal_information_step = 2;
+            how_to_configure_user_personal_information_triggerReady = false;
+        }
+        //Click on Save Button 
+        if ((event.step == 5) && (window.location.hash.includes("#action:personal.settings"))) {
+
+            how_to_configure_user_personal_information_triggerReady = false;
+            how_to_configure_user_personal_information_step = 3;
+        }
+
+        /*jump steps */
+
+        //Change Personal information for user
+        if ((window.location.hash.includes("#action:personal.settings"))) {
+            potential_step = 2;
+
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to configure your personal account settings <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     })
     /*Killing flow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
