@@ -389,7 +389,17 @@ var how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
 
 
 
+/* variable for how_to_create_benefit_plan_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_benefit_plan_triggerReady = false;
+var how_to_create_benefit_plan_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+/* variable for how_to_convert_idea_to_investment_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_convert_idea_to_investment_triggerReady = false;
+var how_to_convert_idea_to_investment_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 //Based on Hash Change this function runs
 
@@ -2583,6 +2593,7 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a copy of cost plan<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		//1
         /* ******************************************** How to Create a Benefit Plan? ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
@@ -2608,7 +2619,7 @@ $(window).hashchange(function() {
         }
 
         // For step number 5
-        if (how_to_create_a_benefit_plan_step == 5 && !window.location.hash.includes('#action:revmgr.benefitplanList&')) {
+        if (how_to_create_a_benefit_plan_step == 5 && !window.location.hash.includes('#action:revmgr.benefitplanLis')) {
             how_to_create_a_benefit_plan_step = 0;
             window._wfx_close_live();
             console.log('step 5');
@@ -2654,7 +2665,7 @@ $(window).hashchange(function() {
 
 
                 //click on benefit plan
-                if ((event.step == 5) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
+                if ((event.step == 5) && window.location.hash.includes("#action:revmgr.costplanList.project")) {
                     how_to_create_a_benefit_plan_step = 5;
                     how_to_create_a_benefit_plan_triggerReady = false;
                 }
@@ -2715,6 +2726,132 @@ $(window).hashchange(function() {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Create a Benefit Plan?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+		
+		
+/* ******************************************************how_to_convert_idea_to_investment***************************************************/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+	if (how_to_convert_idea_to_investment_triggerReady)
+	{
+		window._wfx_close_live();
+		how_to_convert_idea_to_investment_triggerReady = false;
+	}
+
+	// For step number 2
+	if (how_to_convert_idea_to_investment_step == 2 && !window.location.hash.includes('#action:pma.ideaProperties')) 
+	{
+		how_to_convert_idea_to_investment_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 4
+	if (how_to_convert_idea_to_investment_step == 4 && !window.location.hash.includes('#action:pma.ideaConvert')) 
+	{
+		how_to_convert_idea_to_investment_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 6
+	if (how_to_convert_idea_to_investment_step == 6 && !window.location.hash.includes('#action:projmgr.projectNew&idea_id')) 
+	{
+		how_to_convert_idea_to_investment_step = 0;
+		window._wfx_close_live();
+	}
+	
+	// For step number 8
+	if (how_to_convert_idea_to_investment_step == 8 && !window.location.hash.includes('#action:projmgr.applicationProperties&i')) 
+	{
+		how_to_convert_idea_to_investment_step = 0;
+		window._wfx_close_live();
+	}
+
+
+
+	if (window._wfx_is_live()) 
+	{
+		window._wfx_settings['751c3b40-99df-11e6-a426-04013d24cc02'] = function (event) 
+	{
+		potential_step = 0;
+
+
+			if ((event.step==2) && (window.location.hash.includes('#action:pma.ideaList'))) 
+			{
+				how_to_convert_idea_to_investment_step = 2
+				how_to_convert_idea_to_investment_triggerReady = false;
+			}
+
+			if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes('#action:pma.ideaProperties'))) 
+			{
+				how_to_convert_idea_to_investment_triggerReady = true;
+			}
+
+			if ((event.step==4) && (window.location.hash.includes('#action:pma.ideaProperties'))) 
+			{
+				how_to_convert_idea_to_investment_step = 4
+				how_to_convert_idea_to_investment_triggerReady = false;
+			}
+
+			if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes('#action:pma.ideaConvert'))) 
+			{
+				how_to_convert_idea_to_investment_triggerReady = true;
+			}
+
+			if ((event.step==6) && (window.location.hash.includes('#action:pma.ideaConvert'))) 
+			{
+				how_to_convert_idea_to_investment_step = 6
+				how_to_convert_idea_to_investment_triggerReady = false;
+			}
+
+			if ((event.step >= 7 && event.step <= 9) && (window.location.hash.includes('#action:projmgr.applicationNew'))) 
+			{
+				how_to_convert_idea_to_investment_triggerReady = true;
+			}
+			
+			
+			if ((event.step==8) && (window.location.hash.includes('#action:projmgr.applicationNew'))) 
+			{
+				how_to_convert_idea_to_investment_step = 8
+				how_to_convert_idea_to_investment_triggerReady = false;
+			}
+			
+
+
+/*jump steps */
+			if ((window.location.hash.includes('#action:pma.ideaList'))) 
+			{
+				potential_step = 2;
+			}
+
+			if ((window.location.hash.includes('#action:pma.ideaProperties'))) 
+			{
+				potential_step = 3;
+			}
+
+			if ((window.location.hash.includes('#action:pma.ideaConvert'))) 
+			{
+				potential_step = 5;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.projectNew&i'))) 
+			{
+				potential_step = 7;
+			}
+
+
+			if (potential_step && event.step <= potential_step) 
+			{
+				return {
+				"position": potential_step
+				};
+			}
+		}
+	}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_convert_idea_to_investment<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+		
+		
+		
+		
 		/* ******************************************************how_to_create_change_request***************************************************/
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 	if (how_to_create_change_request_triggerReady)
@@ -3866,6 +4003,8 @@ $(window).hashchange(function() {
 
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to submit an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+	
 
 
 		     /* ******************************************** How to Flag an Incident for Conversion? ******************************************Rishi */
