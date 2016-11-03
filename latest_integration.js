@@ -154,6 +154,11 @@ var how_to_change_an_etc_value_triggerReady = false;
 var how_to_change_an_etc_value_triggerReady_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+/* variable for how_to_create_change_request_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_change_request_triggerReady = false;
+var how_to_create_change_request_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
 /* variable for How to modify a submitted Timesheet*/
@@ -203,6 +208,14 @@ var how_to_submit_timesheet_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/* variable for how_to_create_change_request_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_create_change_request_triggerReady = false;
+var how_to_create_change_request_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
 /* variable for incident to task*/
 
 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
@@ -237,6 +250,8 @@ var how_to_create_a_baseline_step = 0;
 var how_to_create_a_resource_triggerReady = false;
 var how_to_create_a_resource_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
 
 
 
@@ -305,11 +320,7 @@ var how_to_add_document_to_a_resource_triggerReady = false;
 var how_to_add_document_to_a_resource_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
-/* variable for how_to_create_change_request_step */
-/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
-var how_to_create_change_request_triggerReady = false;
-var how_to_create_change_request_step = 0;
-/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
 
 
 
@@ -2572,7 +2583,6 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a copy of cost plan<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
-
         /* ******************************************** How to Create a Benefit Plan? ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
@@ -2705,9 +2715,7 @@ $(window).hashchange(function() {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Create a Benefit Plan?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-		
-		
-/* ******************************************************how_to_create_change_request***************************************************/
+		/* ******************************************************how_to_create_change_request***************************************************/
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 	if (how_to_create_change_request_triggerReady)
 	{
@@ -2737,7 +2745,7 @@ $(window).hashchange(function() {
 	}
 
 	// For step number 6
-	if (how_to_create_change_request_step == 6 && !window.location.hash.includes('#action:itl.changeObject')) 
+	if (how_to_create_change_request_step == 6 && !window.location.hash.includes('#action:itl.changeObject&')) 
 	{
 		how_to_create_change_request_step = 0;
 		window._wfx_close_live();
@@ -2771,18 +2779,18 @@ $(window).hashchange(function() {
 				how_to_create_change_request_triggerReady = false;
 			}
 
-			if ((event.step >= 4 && event.step < 5) && (window.location.hash.includes('c'))) 
+			if ((event.step >= 4 && event.step < 5) && (window.location.hash.includes('#action:itl.riskList'))) 
 			{
 				how_to_create_change_request_triggerReady = true;
 			}
 
-			if ((event.step==5) && (window.location.hash.includes('same'))) 
+			if ((event.step==5) && (window.location.hash.includes('#action:itl.riskList'))) 
 			{
 				how_to_create_change_request_step = 5
 				how_to_create_change_request_triggerReady = false;
 			}
 
-			if ((event.step==6) && (window.location.hash.includes('#action:itl.changeList'))) 
+			if ((event.step==6) && (window.location.hash.includes('#action:itl.changeList&'))) 
 			{
 				how_to_create_change_request_step = 6
 				how_to_create_change_request_triggerReady = false;
@@ -2792,10 +2800,10 @@ $(window).hashchange(function() {
 			{
 				how_to_create_change_request_triggerReady = true;
 			}
-
-			if ((event.step==16) && (window.location.hash.includes('#action:itl.changeObject'))) 
+			
+			if ((event.step == 16) && (window.location.hash.includes('#action:itl.changeObject'))) 
 			{
-				how_to_create_change_request_step = 16
+					how_to_create_change_request_step = 16
 				how_to_create_change_request_triggerReady = false;
 			}
 
@@ -2836,8 +2844,8 @@ $(window).hashchange(function() {
 	}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_create_change_request<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-
+		
+		
         /* ******************************************** How to Reject an Idea? ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
