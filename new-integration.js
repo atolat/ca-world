@@ -1174,7 +1174,7 @@ $(window).hashchange(function() {
 
                 //Select reource type page
                 if ((event.step >= 3 && event.step < 5) && (window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
-                    how_to_create_a_program_triggerReady = true;
+                    how_to_create_a_role_triggerReady = true;
                 }
 
                 //Next button on Select reource type page
