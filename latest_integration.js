@@ -478,11 +478,6 @@ var how_to_configure_user_personal_information_step = 0;
 
 
 
-/* variable for how_to_make_collaboration_manager_step */
-/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
-var how_to_make_collaboration_manager_triggerReady = false;
-var how_to_make_collaboration_manager_step = 0;
-/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
 
@@ -825,134 +820,6 @@ $(window).hashchange(function() {
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_add_doc_to_project<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 		
 		
-		/* ******************************************************how_to_make_collaboration_manager***************************************************/
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-	if (how_to_make_collaboration_manager_triggerReady)
-	{
-		window._wfx_close_live();
-		how_to_make_collaboration_manager_triggerReady = false;
-	}
-
-	// For step number 2
-	if (how_to_make_collaboration_manager_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 3
-	if (how_to_make_collaboration_manager_step == 3 && !window.location.hash.includes('#action:projmgr.roster')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-	
-		// For step number 4
-	if (how_to_make_collaboration_manager_step == 4 && !window.location.hash.includes('#action:collab.projectParticipants')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 6
-	if (how_to_make_collaboration_manager_step == 6 && !window.location.hash.includes('#action:collab.makeManagerConfirmation')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 7
-	if (how_to_make_collaboration_manager_step == 7 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-
-
-	if (window._wfx_is_live()) 
-	{
-		window._wfx_settings['3e5a4420-99cc-11e6-a426-04013d24cc02'] = function (event) 
-	{
-		potential_step = 0;
-
-
-			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work'))) 
-			{
-				how_to_make_collaboration_manager_step = 2
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				how_to_make_collaboration_manager_step = 3
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step>=4 ) && (window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				how_to_make_collaboration_manager_step = 4
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step>=5 && event.step < 7) && (window.location.hash.includes('#action:collab.projectParticipants'))) 
-			{
-				how_to_make_collaboration_manager_triggerReady = true;
-			}
-
-			if ((event.step==7) && (window.location.hash.includes('#action:collab.makeManagerConfirmation'))) 
-			{
-				how_to_make_collaboration_manager_step = 7
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==8) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				how_to_make_collaboration_manager_step = 8
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-
-
-
-
-/*jump steps */
-			if ((window.location.hash.includes('#action:mainnav.work'))) 
-			{
-				potential_step = 2;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				potential_step = 3;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				potential_step = 4;
-			}
-
-			if ((window.location.hash.includes('#action:collab.makeManagerConfirmation'))) 
-			{
-				potential_step = 7;
-			}
-
-			if ((window.location.hash.includes('#action:collab.projectParticipants'))) 
-			{
-				potential_step = 8;
-			}
-
-			if (potential_step && event.step <= potential_step) 
-			{
-				return {
-				"position": potential_step
-				};
-			}
-		}
-	}
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_make_collaboration_manager<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-		
         /* ******************************************************how to create an issue***************************************************/
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -1136,6 +1003,144 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a Program <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		/* ******************************************************how_to_make_collaboration_manager***************************************************/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+	if (how_to_make_collaboration_manager_triggerReady)
+	{
+		window._wfx_close_live();
+		how_to_make_collaboration_manager_triggerReady = false;
+	}
+
+	// For step number 2
+	if (how_to_make_collaboration_manager_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefau')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 3
+	if (how_to_make_collaboration_manager_step == 3 && !window.location.hash.includes('#action:projmgr.roster&')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+	
+		// For step number 4
+	if (how_to_make_collaboration_manager_step == 4 && !window.location.hash.includes('#action:collab.projectParti')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 6
+	if (how_to_make_collaboration_manager_step == 6 && !window.location.hash.includes('#action:collab.makeManagerConfirmati')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 7
+	if (how_to_make_collaboration_manager_step == 7 && !window.location.hash.includes('#action:collab.projectParticipant')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+	
+	// For step number 8
+	if (how_to_make_collaboration_manager_step == 8 && !window.location.hash.includes('#action:collab.projectParti')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+
+
+	if (window._wfx_is_live()) 
+	{
+		window._wfx_settings['3e5a4420-99cc-11e6-a426-04013d24cc02'] = function (event) 
+	{
+		potential_step = 0;
+
+
+			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work'))) 
+			{
+				how_to_make_collaboration_manager_step = 2
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefau'))) 
+			{
+				how_to_make_collaboration_manager_step = 3
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step>=4 ) && (window.location.hash.includes('#action:projmgr.roster'))) 
+			{
+				how_to_make_collaboration_manager_step = 4
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step>=5 && event.step < 7) && (window.location.hash.includes('#action:collab.projectParticipants'))) 
+			{
+				how_to_make_collaboration_manager_triggerReady = true;
+			}
+
+			if ((event.step==6) && (window.location.hash.includes('#action:collab.projectParticipants'))) 
+			{
+				how_to_make_collaboration_manager_step = 6;
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+			
+			if ((event.step==7) && (window.location.hash.includes('#action:collab.makeManagerConfirma'))) 
+			{
+				how_to_make_collaboration_manager_step = 7;
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step==8) && (window.location.hash.includes('#action:collab.projectParticipant')))
+			{
+				how_to_make_collaboration_manager_step = 8
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			
+/*jump steps */
+			if ((window.location.hash.includes('#action:mainnav.work'))) 
+			{
+				potential_step = 2;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
+			{
+				potential_step = 3;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.roster'))) 
+			{
+				potential_step = 4;
+			}
+
+			if ((window.location.hash.includes('#action:collab.projectParticipants'))) 
+			{
+				potential_step = 5;
+			}
+
+			if ((window.location.hash.includes('#action:collab.makeManagerConfirma'))) 
+			{
+				potential_step = 7;
+			}
+			
+
+			if (potential_step && event.step <= potential_step) 
+			{
+				return {
+				"position": potential_step
+				};
+			}
+		}
+	}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_make_collaboration_manager<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
         /* ******************************************************How to Create a Role***************************************************/
@@ -3438,128 +3443,6 @@ $(window).hashchange(function() {
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_manage_allocations_of_staff_member<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
-/* ******************************************************how_to_make_collaboration_manager***************************************************/
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-	if (how_to_make_collaboration_manager_triggerReady)
-	{
-		window._wfx_close_live();
-		how_to_make_collaboration_manager_triggerReady = false;
-	}
-
-	// For step number 2
-	if (how_to_make_collaboration_manager_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 3
-	if (how_to_make_collaboration_manager_step == 3 && !window.location.hash.includes('#action:projmgr.roster')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 6
-	if (how_to_make_collaboration_manager_step == 6 && !window.location.hash.includes('#action:collab.makeManagerConfirmation')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 7
-	if (how_to_make_collaboration_manager_step == 7 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-
-
-	if (window._wfx_is_live()) 
-	{
-		window._wfx_settings['3e5a4420-99cc-11e6-a426-04013d24cc02'] = function (event) 
-	{
-		potential_step = 0;
-
-
-			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work'))) 
-			{
-				how_to_make_collaboration_manager_step = 2
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				how_to_make_collaboration_manager_step = 3
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==4) && (window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				how_to_make_collaboration_manager_step = 4
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==6) && (window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				how_to_make_collaboration_manager_step = 6
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==7) && (window.location.hash.includes('#action:collab.makeManagerConfirmation'))) 
-			{
-				how_to_make_collaboration_manager_step = 7
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==8) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				how_to_make_collaboration_manager_step = 8
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-
-
-
-
-/*jump steps */
-			if ((window.location.hash.includes('#action:mainnav.work'))) 
-			{
-				potential_step = 2;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				potential_step = 3;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				potential_step = 4;
-			}
-
-			if ((window.location.hash.includes('#action:collab.makeManagerConfirmation'))) 
-			{
-				potential_step = 7;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				potential_step = 8;
-			}
-
-			if (potential_step && event.step <= potential_step) 
-			{
-				return {
-				"position": potential_step
-				};
-			}
-		}
-	}
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_make_collaboration_manager<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
         /* ******************************************** How to add a team to an idea? ****************************************** */
