@@ -1149,7 +1149,7 @@ $(window).hashchange(function() {
         }
 
         //for step number 4
-        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.newResource&isRole')) {
+        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_od')) {
             how_to_create_a_role_step = 0;
             window._wfx_close_live();
         }
@@ -1164,7 +1164,7 @@ $(window).hashchange(function() {
         if (window._wfx_is_live()) {
             window._wfx_settings['deb84cd0-89f2-11e6-a787-04013d24cf02'] = function(event) {
                 potential_step = 0;
-
+                console.log("Step::"+event.step+"::Bool_val::"+how_to_create_a_role_triggerReady);
                 //new button on resource  list page
                 if ((event.step == 2) && (window.location.hash.includes("#action:projmgr.getResources"))) {
                     how_to_create_a_role_step = 2;
@@ -1185,11 +1185,12 @@ $(window).hashchange(function() {
 
 
                 //Create Role Labor page
-                if ((event.step >= 5 && event.step < 8) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
-                    how_to_create_a_program_triggerReady = true;
+                if ((event.step >= 5 && event.step < 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+                    console.log("here");
+                    how_to_create_a_role_triggerReady = true;
                 }
 
-                if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole"))) {
+                if ((event.step == 7)) {
                     how_to_create_a_role_step = 7;
                     how_to_create_a_role_triggerReady = false;
                 }
@@ -1206,7 +1207,7 @@ $(window).hashchange(function() {
 
                 }
 
-                if ((window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+                if ((window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey")) || (window.location.hash.includes('action:projmgr.editResource&resourceType'))) {
                     potential_step = 5;
 
                 }
