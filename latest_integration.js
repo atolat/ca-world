@@ -13,8 +13,14 @@ window._wfx_widget = {
     "label": "letzNav",
     "mode": "live_here",
     "ent_id": "12fbce70-6f83-11e6-90aa-04013d24cf02",
-    "color": "black"
+    "color": "#4c4b4b"
 
+};
+
+
+//Generic self help widget LNF
+window._wfx_settings.theme = {
+                "widget_size":"20px",
 };
 
 //Setting up the wfx object to control flow, branching/page level step control.
@@ -1644,153 +1650,6 @@ $(window).hashchange(function() {
 		
 		
 		
-
-
-        /* *********************************************How to Create a Risk?****************************************** */
-
-        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-
-
-        if (how_to_create_a_risk_triggerReady) {
-            window._wfx_close_live();
-            how_to_create_a_risk_triggerReady = false;
-        }
-
-        //For last step on every page
-        // For step number 2
-        if (how_to_create_a_risk_step == 2 && !window.location.hash.includes('#action:mainnav.work&classCode=project')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 3
-        if (how_to_create_a_risk_step == 3 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 4
-        if (how_to_create_a_risk_step == 4 && !window.location.hash.includes('#action:itl.riskList&id')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 10
-        if (how_to_create_a_risk_step == 10 && !window.location.hash.includes('&return_to=itl.riskList')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 12
-        if (how_to_create_a_risk_step == 12 && !window.location.hash.includes('&ui.page.space=mainnav.work&return_to=itl.riskList')) {
-            ow_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 13
-        if (how_to_create_a_risk_step == 13 && !window.location.hash.includes('#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        if (window._wfx_is_live()) {
-            potential_step = 0;
-            window._wfx_settings['33c53fe0-815f-11e6-90aa-04013d24cf02'] = function(event) {
-                potential_step = 0;
-                console.log("here::" + how_to_create_a_risk_triggerReady);
-
-
-                if ((event.step == 2) && window.location.hash.includes('#action:projmgr.projectDefaultTab&id')) {
-                    how_to_create_a_risk_step = 2;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                //
-                // For step number 3
-                if (event.step == 3 && window.location.hash.includes('&ui.page.space=mainnav.work')) {
-                    how_to_create_a_risk_step = 3;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                //
-                // For step number 4
-                if (event.step == 4 && window.location.hash.includes('&return_to=itl.riskList')) {
-                    how_to_create_a_risk_step = 4;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-
-                // For step number 5 to 9
-                if ((event.step >= 5 && event.step < 10) && window.location.hash.includes('&return_to=itl.riskList')) {
-                    how_to_create_a_risk_triggerReady = true;
-                }
-
-                // For step number 10
-                if (event.step == 10) {
-                    how_to_create_a_risk_step = 10;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                // For step number 11 & 12
-                if ((event.step >= 11 && event.step < 12) && window.location.hash.includes('&ui.page.space=mainnav.work&return_to=itl.riskList')) {
-                    how_to_create_a_risk_triggerReady = true;
-                }
-                // For step number 12
-                if ((event.step == 12) && (window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id"))) {
-                    how_to_create_a_risk_step = 12;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                //
-                // For step number 13
-                if (event.step == 13 && window.location.hash.includes('#action:projmgr.projectProperties&id')) {
-                    how_to_create_a_risk_step = 13;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-
-                // For step number 14
-                if (event.step == 14 && window.location.hash.includes('#action:projmgr.projectProperties&odf_view=projectRisk&id')) {
-                    how_to_create_a_risk_step = 14;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-
-
-
-
-                /*jump steps */
-                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-                    potential_step = 2;
-                }
-
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
-                    potential_step = 3;
-                }
-
-                if (window.location.hash.includes("&ui.page.space=mainnav.work")) {
-                    potential_step = 4;
-                }
-
-                if (window.location.hash.includes("&return_to=itl.riskList")) {
-                    potential_step = 5;
-                }
-                if (window.location.hash.includes("&ui.page.space=mainnav.work&return_to=itl.riskList")) {
-                    potential_step = 11;
-                }
-                if (window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id")) {
-                    potential_step = 13;
-                }
-                if (window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectRisk&id=")) {
-                    potential_step = 15;
-                }
-                if (potential_step && event.step <= potential_step) {
-                    return {
-                        "position": potential_step
-                    };
-                }
-            }
-        }
-
-
-
-
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to create a Risk <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
 
 
 
