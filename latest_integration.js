@@ -476,6 +476,38 @@ var how_to_configure_user_personal_information_triggerReady = false;
 var how_to_configure_user_personal_information_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+/* variable for How to run a process */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_run_a_process_triggerReady = false;
+var how_to_run_a_process_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for How to run a Job */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_run_a_job_triggerReady = false;
+var how_to_run_a_job_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for how to add unplanned task row*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_add_a_unplanned_task_row_triggerReady = false;
+var how_to_add_a_unplanned_task_row_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+/* set variables for How to add an incident row */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var add_an_incident_row = 0;
+var add_an_incident_row_triggerReady = false;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* set variables for Add an Existing Project Task Row*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var project_task_row_step = 0;
+var project_task_row_triggerReady = false;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
 
 
 
@@ -5209,7 +5241,472 @@ if (window._wfx_is_live()) {
     }
 }
 
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to configure your personal account settings <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF How to configure your personal account settings <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* ******************************************************How to run a Process ***************************************************/
+
+//Pranavi 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_run_a_process_triggerReady) {
+    window._wfx_close_live();
+    how_to_run_a_process_triggerReady = false;
+}
+//for step number 2...Click on Processes tab
+if (how_to_run_a_process_step == 2 && !window.location.hash.includes('#action:calendar.organizerProcessInstances&object_type=organizer&ui.page.space=calendar.organizerHome&ui.page.template=union.appPage')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 3...Hover on Processes tab
+if (how_to_run_a_process_step == 4 && !window.location.hash.includes('#action:calendar.organizerProcessDefinitions&bpm.ret')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 5...Select any Process you want to run
+if (how_to_run_a_process_step == 5 && !window.location.hash.includes('#action:calendar.organizerProcessInstances')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+//for step number 6...Click on Start button
+if (how_to_run_a_process_step == 6 && !window.location.hash.includes('#action:calendar.organizerProcessInstances&object_t')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+if (window._wfx_is_live()) {
+    window._wfx_settings['666db330-91f1-11e6-b370-04013d24cc02'] = function(event) {
+        potential_step = 0;
+        //for step number 2...Click on Processes tab
+        if ((event.step == 2) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
+            how_to_run_a_process_step = 2;
+            how_to_run_a_process_triggerReady = false;
+        }
+        //for step number 3...Hover on Processes tab
+        if ((event.step >= 3 && event.step <5) && (window.location.hash.includes("#action:calendar.organizerProcessInstances"))) {
+            how_to_run_a_process_triggerReady = true;
+        }
+        //for step number 4...Click on Availkable link
+        if ((event.step == 4) && (window.location.hash.includes("#action:calendar.organizerProcessInstances"))) {
+            how_to_run_a_process_step = 4;
+            how_to_run_a_process_triggerReady = false;
+        }
+		//for step number 5...Select any Process you want to run
+        if ((event.step == 5 && event.step < 7) && (window.location.hash.includes("#action:calendar.organizerProcessDefinitions&bpm.returnMod"))) {
+            how_to_run_a_process_triggerReady = true;
+        }
+		//for step number 6...Click on Start button
+        if ((event.step == 6) && (window.location.hash.includes("#action:calendar.organizerProcessDefinitions&bpm.returnModuleAction"))) {
+            how_to_run_a_process_step = 6;
+            how_to_run_a_process_triggerReady = false;
+        }
+
+
+        /*jump steps */
+		//for step number 2...Click on Processes tab page
+        if ((window.location.hash.includes("#action:calendar.organizerHome"))) {
+            potential_step = 2;
+        }
+		//for step number 3...Hover on Processes tab page
+        if ((window.location.hash.includes("#action:calendar.organizerProcessInstances&object_type=organizer&ui.page.space=calendar.organizerHome&ui.page.template=union.appPage"))) {
+            potential_step = 3;
+        }
+		//for step number 5...Select any Process you want to run page
+        if ((window.location.hash.includes("#action:calendar.organizerProcessDefinitions&bpm.returnModuleAction=calendar.organizerProcessInstancesReturn&object_type=organizer&ui.page.space=calendar.organizerHome&ui.page.template=union.appPage"))) {
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to run a Process<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+/* ******************************************************How to run a Job ***************************************************/
+
+//Pranavi 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_run_a_job_triggerReady) {
+    window._wfx_close_live();
+    how_to_run_a_job_triggerReady = false;
+}
+//for step number 2...Hover on Jobs Menu
+if (how_to_run_a_job_step == 2 && !window.location.hash.includes('#action:nmc.jobPropertiesNew&job_definition_id')) {
+    how_to_run_a_job_step = 0;
+    window._wfx_close_live();
+}
+//for step number 5...Edit the job name 
+if (how_to_run_a_job_step == 5 && !window.location.hash.includes('#action:nmc.jobNoMergeSearchReturn')) {
+    how_to_run_a_job_step = 0;
+    window._wfx_close_live();
+}
+//for step number 6...Click on submit button
+if (how_to_run_a_job_step == 5 && !window.location.hash.includes('#action:nmc.jobNoMergeSearchReturn')) {
+    how_to_run_a_job_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['4e97f580-a1ab-11e6-961a-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //for step number 2...Hover on Jobs Menu
+        if ((event.step == 2 && event.step < 5) && (window.location.hash.includes("#action:nmc.reportAccess"))) {
+            how_to_run_a_job_triggerReady = true;
+        }
+        //for step number 2...Click on the job you want to run
+        if ((event.step == 4) && (window.location.hash.includes("#action:nmc.reportAccess"))) {
+            how_to_run_a_job_step = 4;
+            how_to_run_a_job_triggerReady = false;
+        }
+		//for step number 5...Edit the job name 
+        if ((event.step == 5 && event.step < 7) && (window.location.hash.includes("#action:nmc.jobPropertiesNew&job_definition_id"))) {
+            how_to_run_a_job_triggerReady = true;
+        }
+		//for step number 6...Click on submit button
+        if ((event.step == 6) && (window.location.hash.includes("##action:nmc.jobPropertiesNew&job_definition_id"))) {
+            how_to_run_a_job_step = 6;
+            how_to_run_a_job_triggerReady = false;
+        }
+
+        /*jump steps */
+		//for step number 2...Hover on jobs menu page
+        if ((window.location.hash.includes("#action:nmc.reportAccess"))) {
+            potential_step = 2;
+        }
+		//for step number 5...Edit the job name page
+        if ((window.location.hash.includes("#action:nmc.jobPropertiesNew&job_definition_id"))) {
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to run a Job <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* ******************************************************How to add an unplanned task row ***************************************************/
+
+//Arun
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_add_a_unplanned_task_row_triggerReady) {
+    window._wfx_close_live();
+    how_to_add_a_unplanned_task_row_triggerReady = false;
+}
+//for step number 1....Click on Add Task button
+if (how_to_add_a_unplanned_task_row_step == 1 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 2....Click on Create Task Page
+if (how_to_add_a_unplanned_task_row_step == 2 && !window.location.hash.includes("#action:timeadmin.createUnplannedTask")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 3....Click on investment link
+if (how_to_add_a_unplanned_task_row_step == 3 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId=UNPLANNED_TASK_ADDED")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 7....Click on save and return button
+if (how_to_add_a_unplanned_task_row_step == 7 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 8....Click on return button		
+if (how_to_add_a_unplanned_task_row_step == 8 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 9....Click on save button
+if (how_to_add_a_unplanned_task_row_step == 9 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['193c02f0-86fd-11e6-85ad-04013d24cd02'] = function(event) {
+        potential_step = 0;
+        //for step number 1....Click on Add Task button
+        if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            how_to_add_a_unplanned_task_row_step = 1;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 2....Click on Create Task Page
+        if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt"))) {
+            how_to_add_a_unplanned_task_row_step = 2;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 3....Click on investment link
+        if ((event.step >= 3 && event.step < 8) && (window.location.hash.includes("#action:timeadmin.createUnplannedTask"))) {
+            how_to_add_a_unplanned_task_row_step = 3;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 7....Click on save and return button
+        if ((event.step == 7) && (window.location.hash.includes("#action:timeadmin.createUnplannedTask"))) {
+            how_to_add_a_unplanned_task_row_step = 7;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 8....Click on return button
+        if ((event.step == 8) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId"))) {
+            how_to_add_a_unplanned_task_row_step = 8;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 9....Click on save button
+        if ((event.step == 9) && (window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            how_to_add_a_unplanned_task_row_step = 9;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        /*jump steps */
+        //for step number 1....Click on Add Task button page
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            potential_step = 1;
+
+        }
+        //for step number 2....Click on Create Task Page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt"))) {
+
+            potential_step = 2;
+        }
+        //for step number 3....Click on investment link page
+        if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid"))) {
+
+            potential_step = 3;
+        }
+        //for step number 8....Click on return button page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId"))) {
+
+            potential_step = 8;
+        }
+        //for step number 9....Click on save button page
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+
+            potential_step = 9;
+        }
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to add an unplanned task row <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/*<<<<<How to add an incident row >>>>*********************************/
+/* @Author : Venu */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+
+if (add_an_incident_row_triggerReady) {
+    window._wfx_close_live();
+    add_an_incident_row_triggerReady = false;
+}
+//for step number 2...Click on Add Incident Button
+if (add_an_incident_row == 2 && !window.location.hash.includes('#action:timeadmin.selectTimesheetIncident&sortColumn')) {
+    add_an_incident_row = 0;
+    window._wfx_close_live();
+}
+
+//for step number 2...Click on add button of incident page
+if (add_an_incident_row == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&id')) {
+    add_an_incident_row = 0;
+    window._wfx_close_live();
+}
+//for step number 5...Click on save button
+if (add_an_incident_row == 5 && !window.location.hash.includes('#action:timeadmin.editTimesheet&id')) {
+    add_an_incident_row = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['e1f46340-86f8-11e6-a787-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //for step number 2...Click on Add Incident Button
+        if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.selectTimesheetIncidentOpt&id"))) {
+            add_an_incident_row = 2;
+            add_an_incident_row_triggerReady = false;
+        }
+        //for step number 3...click on show all button of incident page
+        if ((event.step >= 3 && event.step < 5) && (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColumn"))) {
+            add_an_incident_row_triggerReady = true;
+        }
+        //for step number 3...click on show all button of incident page
+        if ((event.step == 4) && (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColumn"))) {
+            add_an_incident_row = 4;
+            add_an_incident_row_triggerReady = false;
+        }
+        //click on add button of incident page
+        if ((event.step == 5) && (window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            add_an_incident_row = 5;
+            add_an_incident_row_triggerReady = false;
+        }
+
+        /*jump steps */
+        //Click on Add Incident button page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetIncidentOpt&id"))) {
+            potential_step = 2;
+        }
+        //click on show all button of incident page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColumn"))) {
+            potential_step = 3;
+        }
+        //click on add button of incident page
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<End of How to add an incident row? <<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+/*<<<<<How to Add an Existing Project Task Row >>>>*********************************/
+/* @Author : Venu */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+
+if (project_task_row_triggerReady) {
+    window._wfx_close_live();
+    project_task_row_triggerReady = false;
+}
+//for step number 1
+if (project_task_row_step == 1 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 2...click on add task button
+if (project_task_row_step == 2 && !window.location.hash.includes('#action:timeadmin.selectTimesheetTask&id')) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 6...Click on filter 
+if (project_task_row_step == 6 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTask&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+//click on project name
+if (project_task_row_step == 7 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&sortColumn")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+//click on add button page
+if (project_task_row_step == 8 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+//click on add button page
+if (project_task_row_step == 10 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+//click on save button page	
+if (project_task_row_step == 11 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['56c6e150-8967-11e6-b370-04013d24cc02'] = function(event) {
+        potential_step = 0;
+
+        if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            project_task_row_step = 1;
+            project_task_row_triggerReady = false;
+        }
+        //for step number 2...click on add task button 
+        if ((event.step == 2 && event.step < 7) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id"))) {
+            project_task_row_step = 2;
+            project_task_row_triggerReady = false;
+        }
+
+        //for step number 6...Click on filter
+        if ((event.step == 6) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id"))) {
+            project_task_row_step = 6;
+            project_task_row_triggerReady = false;
+
+        }
+
+        //for step number 7 ...click on project name
+        if ((event.step == 7) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTask&id"))) {
+            project_task_row_step = 7;
+            project_task_row_triggerReady = false;
+        }
+
+        //for step number 8.. expand the tasks
+        if ((event.step == 8 && event.step < 11) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&sortColumn"))) {
+            project_task_row_step = 8;
+            project_task_row_triggerReady = false;
+        }
+
+        //add button page
+        if ((event.step == 10) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt"))) {
+            project_task_row_step = 10;
+            project_task_row_triggerReady = false;
+        }
+        //click on save button page
+        if ((event.step == 11) && (window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            project_task_row_step = 11;
+            project_task_row_triggerReady = false;
+        }
+
+        /*jump steps */
+
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            potential_step = 1;
+
+        }
+        //click on add task button page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id"))) {
+            potential_step = 2;
+        }
+
+        //select task for enter the time page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTask&id"))) {
+            potential_step = 7;
+        }
+
+        //select task for enter the time page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&sortColumn"))) {
+            potential_step = 8;
+        }
+
+        //add button page
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            potential_step = 11;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+/*<<<<<End of Add an Existing Project Task Row >>>>*********************************/
+
 
     })
     /*Killing flow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
