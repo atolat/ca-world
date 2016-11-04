@@ -5371,7 +5371,7 @@ if (window._wfx_is_live()) {
             how_to_run_a_job_triggerReady = true;
         }
 		//for step number 6...Click on submit button
-        if ((event.step == 6) && (window.location.hash.includes("##action:nmc.jobPropertiesNew&job_definition_id"))) {
+        if ((event.step == 6) && (window.location.hash.includes("#action:nmc.jobPropertiesNew&job_definition_id"))) {
             how_to_run_a_job_step = 6;
             how_to_run_a_job_triggerReady = false;
         }
@@ -5407,12 +5407,12 @@ if (how_to_add_a_unplanned_task_row_triggerReady) {
     how_to_add_a_unplanned_task_row_triggerReady = false;
 }
 //for step number 1....Click on Add Task button
-if (how_to_add_a_unplanned_task_row_step == 1 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt")) {
+if (how_to_add_a_unplanned_task_row_step == 1 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTas")) {
     how_to_add_a_unplanned_task_row_step = 0;
     window._wfx_close_live();
 }
 //for step number 2....Click on Create Task Page
-if (how_to_add_a_unplanned_task_row_step == 2 && !window.location.hash.includes("#action:timeadmin.createUnplannedTask")) {
+if (how_to_add_a_unplanned_task_row_step == 2 && !window.location.hash.includes("#action:timeadmin.createUnplanne")) {
     how_to_add_a_unplanned_task_row_step = 0;
     window._wfx_close_live();
 }
@@ -5441,12 +5441,12 @@ if (window._wfx_is_live()) {
     window._wfx_settings['193c02f0-86fd-11e6-85ad-04013d24cd02'] = function(event) {
         potential_step = 0;
         //for step number 1....Click on Add Task button
-        if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+        if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resi"))) {
             how_to_add_a_unplanned_task_row_step = 1;
             how_to_add_a_unplanned_task_row_triggerReady = false;
         }
         //for step number 2....Click on Create Task Page
-        if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt"))) {
+        if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.selectTimesheetT"))) {
             how_to_add_a_unplanned_task_row_step = 2;
             how_to_add_a_unplanned_task_row_triggerReady = false;
         }
