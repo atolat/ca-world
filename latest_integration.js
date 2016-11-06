@@ -13,8 +13,14 @@ window._wfx_widget = {
     "label": "letzNav",
     "mode": "live_here",
     "ent_id": "12fbce70-6f83-11e6-90aa-04013d24cf02",
-    "color": "black"
+    "color": "#4c4b4b"
 
+};
+
+
+//Generic self help widget LNF
+window._wfx_settings.theme = {
+                "widget_size":"20px",
 };
 
 //Setting up the wfx object to control flow, branching/page level step control.
@@ -227,6 +233,14 @@ var incident_to_task_step = 0;
 /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
 var how_to_allocate_resource_from_estimates_triggerReady = false;
 var how_to_allocate_resource_from_estimates_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+
+/* variable for how_to_synchronize_portfolio_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_synchronize_portfolio_triggerReady = false;
+var how_to_synchronize_portfolio_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
@@ -470,12 +484,44 @@ var how_to_configure_user_personal_information_triggerReady = false;
 var how_to_configure_user_personal_information_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
+/* variable for How to run a process */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_run_a_process_triggerReady = false;
+var how_to_run_a_process_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for How to run a Job */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_run_a_job_triggerReady = false;
+var how_to_run_a_job_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* variable for how to add unplanned task row*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_add_a_unplanned_task_row_triggerReady = false;
+var how_to_add_a_unplanned_task_row_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+
+/* set variables for How to add an incident row */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var add_an_incident_row = 0;
+var add_an_incident_row_triggerReady = false;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
+
+/* set variables for Add an Existing Project Task Row*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var project_task_row_step = 0;
+var project_task_row_triggerReady = false;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
 
-
-
-
+/* variable for add_skills_to_resource_step */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var add_skills_to_resource_triggerReady = false;
+var add_skills_to_resource_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 //Based on Hash Change this function runs
 
@@ -996,6 +1042,144 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a Program <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
+		/* ******************************************************how_to_make_collaboration_manager***************************************************/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+	if (how_to_make_collaboration_manager_triggerReady)
+	{
+		window._wfx_close_live();
+		how_to_make_collaboration_manager_triggerReady = false;
+	}
+
+	// For step number 2
+	if (how_to_make_collaboration_manager_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefau')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 3
+	if (how_to_make_collaboration_manager_step == 3 && !window.location.hash.includes('#action:projmgr.roster&')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+	
+		// For step number 4
+	if (how_to_make_collaboration_manager_step == 4 && !window.location.hash.includes('#action:collab.projectParti')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 6
+	if (how_to_make_collaboration_manager_step == 6 && !window.location.hash.includes('#action:collab.makeManagerConfirmati')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 7
+	if (how_to_make_collaboration_manager_step == 7 && !window.location.hash.includes('#action:collab.projectParticipant')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+	
+	// For step number 8
+	if (how_to_make_collaboration_manager_step == 8 && !window.location.hash.includes('#action:collab.projectParti')) 
+	{
+		how_to_make_collaboration_manager_step = 0;
+		window._wfx_close_live();
+	}
+
+
+
+	if (window._wfx_is_live()) 
+	{
+		window._wfx_settings['3e5a4420-99cc-11e6-a426-04013d24cc02'] = function (event) 
+	{
+		potential_step = 0;
+
+
+			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work'))) 
+			{
+				how_to_make_collaboration_manager_step = 2
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefau'))) 
+			{
+				how_to_make_collaboration_manager_step = 3
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step>=4 ) && (window.location.hash.includes('#action:projmgr.roster'))) 
+			{
+				how_to_make_collaboration_manager_step = 4
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step>=5 && event.step < 7) && (window.location.hash.includes('#action:collab.projectParticipants'))) 
+			{
+				how_to_make_collaboration_manager_triggerReady = true;
+			}
+
+			if ((event.step==6) && (window.location.hash.includes('#action:collab.projectParticipants'))) 
+			{
+				how_to_make_collaboration_manager_step = 6;
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+			
+			if ((event.step==7) && (window.location.hash.includes('#action:collab.makeManagerConfirma'))) 
+			{
+				how_to_make_collaboration_manager_step = 7;
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			if ((event.step==8) && (window.location.hash.includes('#action:collab.projectParticipant')))
+			{
+				how_to_make_collaboration_manager_step = 8
+				how_to_make_collaboration_manager_triggerReady = false;
+			}
+
+			
+/*jump steps */
+			if ((window.location.hash.includes('#action:mainnav.work'))) 
+			{
+				potential_step = 2;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
+			{
+				potential_step = 3;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.roster'))) 
+			{
+				potential_step = 4;
+			}
+
+			if ((window.location.hash.includes('#action:collab.projectParticipants'))) 
+			{
+				potential_step = 5;
+			}
+
+			if ((window.location.hash.includes('#action:collab.makeManagerConfirma'))) 
+			{
+				potential_step = 7;
+			}
+			
+
+			if (potential_step && event.step <= potential_step) 
+			{
+				return {
+				"position": potential_step
+				};
+			}
+		}
+	}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_make_collaboration_manager<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
         /* ******************************************************How to Create a Role***************************************************/
@@ -1015,7 +1199,7 @@ $(window).hashchange(function() {
         }
 
         //for step number 4
-        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.newResource&isRole')) {
+        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_od')) {
             how_to_create_a_role_step = 0;
             window._wfx_close_live();
         }
@@ -1030,7 +1214,7 @@ $(window).hashchange(function() {
         if (window._wfx_is_live()) {
             window._wfx_settings['deb84cd0-89f2-11e6-a787-04013d24cf02'] = function(event) {
                 potential_step = 0;
-
+                console.log("Step::"+event.step+"::Bool_val::"+how_to_create_a_role_triggerReady);
                 //new button on resource  list page
                 if ((event.step == 2) && (window.location.hash.includes("#action:projmgr.getResources"))) {
                     how_to_create_a_role_step = 2;
@@ -1040,7 +1224,7 @@ $(window).hashchange(function() {
 
                 //Select reource type page
                 if ((event.step >= 3 && event.step < 5) && (window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
-                    how_to_create_a_program_triggerReady = true;
+                    how_to_create_a_role_triggerReady = true;
                 }
 
                 //Next button on Select reource type page
@@ -1051,11 +1235,12 @@ $(window).hashchange(function() {
 
 
                 //Create Role Labor page
-                if ((event.step >= 5 && event.step < 8) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
-                    how_to_create_a_program_triggerReady = true;
+                if ((event.step >= 5 && event.step < 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+                    console.log("here");
+                    how_to_create_a_role_triggerReady = true;
                 }
 
-                if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole"))) {
+                if ((event.step == 7)) {
                     how_to_create_a_role_step = 7;
                     how_to_create_a_role_triggerReady = false;
                 }
@@ -1072,7 +1257,7 @@ $(window).hashchange(function() {
 
                 }
 
-                if ((window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
+                if ((window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey")) || (window.location.hash.includes('action:projmgr.editResource&resourceType'))) {
                     potential_step = 5;
 
                 }
@@ -1170,8 +1355,9 @@ $(window).hashchange(function() {
             how_to_create_a_project_from_a_template_triggerReady = false;
         }
 
-        // For step number 2
-        if (how_to_create_a_project_from_a_template_step == 2 && !window.location.hash.includes('#action:projmgr.selectProjectTemplate&cancelAction')) {
+         //For step number 2
+        if (how_to_create_a_project_from_a_template_step == 2 && !window.location.hash.includes('#action:projmgr.selectProjectTemplate&cancelAction=projmgr.projectList')) {
+            console.log('here 1');
             how_to_create_a_project_from_a_template_step = 0;
             window._wfx_close_live();
         }
@@ -1191,17 +1377,20 @@ $(window).hashchange(function() {
         if (window._wfx_is_live()) {
             window._wfx_settings['4be97380-84b0-11e6-a247-04013d24cc02'] = function(event) {
                 potential_step = 0;
-
+                console.log(event.step);
+                console.log("bool_val::"+how_to_create_a_project_from_a_template_triggerReady);
                 //new from template button on Projects page
 
                 if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    
                     how_to_create_a_project_from_a_template_step = 2;
                     how_to_create_a_project_from_a_template_triggerReady = false;
                 }
 
 
                 //select template project
-                if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:projmgr.selectProjectTemplate&cancelAction"))) {
+                if ((event.step == 4) ) {
+                    console.log('here');
                     how_to_create_a_project_from_a_template_triggerReady = true;
                 }
 
@@ -1505,153 +1694,6 @@ $(window).hashchange(function() {
 		
 		
 		
-
-
-        /* *********************************************How to Create a Risk?****************************************** */
-
-        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-
-
-        if (how_to_create_a_risk_triggerReady) {
-            window._wfx_close_live();
-            how_to_create_a_risk_triggerReady = false;
-        }
-
-        //For last step on every page
-        // For step number 2
-        if (how_to_create_a_risk_step == 2 && !window.location.hash.includes('#action:mainnav.work&classCode=project')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 3
-        if (how_to_create_a_risk_step == 3 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 4
-        if (how_to_create_a_risk_step == 4 && !window.location.hash.includes('#action:itl.riskList&id')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 10
-        if (how_to_create_a_risk_step == 10 && !window.location.hash.includes('&return_to=itl.riskList')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 12
-        if (how_to_create_a_risk_step == 12 && !window.location.hash.includes('&ui.page.space=mainnav.work&return_to=itl.riskList')) {
-            ow_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 13
-        if (how_to_create_a_risk_step == 13 && !window.location.hash.includes('#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id')) {
-            how_to_create_a_risk_step = 0;
-            window._wfx_close_live();
-        }
-
-        if (window._wfx_is_live()) {
-            potential_step = 0;
-            window._wfx_settings['33c53fe0-815f-11e6-90aa-04013d24cf02'] = function(event) {
-                potential_step = 0;
-                console.log("here::" + how_to_create_a_risk_triggerReady);
-
-
-                if ((event.step == 2) && window.location.hash.includes('#action:projmgr.projectDefaultTab&id')) {
-                    how_to_create_a_risk_step = 2;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                //
-                // For step number 3
-                if (event.step == 3 && window.location.hash.includes('&ui.page.space=mainnav.work')) {
-                    how_to_create_a_risk_step = 3;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                //
-                // For step number 4
-                if (event.step == 4 && window.location.hash.includes('&return_to=itl.riskList')) {
-                    how_to_create_a_risk_step = 4;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-
-                // For step number 5 to 9
-                if ((event.step >= 5 && event.step < 10) && window.location.hash.includes('&return_to=itl.riskList')) {
-                    how_to_create_a_risk_triggerReady = true;
-                }
-
-                // For step number 10
-                if (event.step == 10) {
-                    how_to_create_a_risk_step = 10;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                // For step number 11 & 12
-                if ((event.step >= 11 && event.step < 12) && window.location.hash.includes('&ui.page.space=mainnav.work&return_to=itl.riskList')) {
-                    how_to_create_a_risk_triggerReady = true;
-                }
-                // For step number 12
-                if ((event.step == 12) && (window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id"))) {
-                    how_to_create_a_risk_step = 12;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-                //
-                // For step number 13
-                if (event.step == 13 && window.location.hash.includes('#action:projmgr.projectProperties&id')) {
-                    how_to_create_a_risk_step = 13;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-
-                // For step number 14
-                if (event.step == 14 && window.location.hash.includes('#action:projmgr.projectProperties&odf_view=projectRisk&id')) {
-                    how_to_create_a_risk_step = 14;
-                    how_to_create_a_risk_triggerReady = false;
-                }
-
-
-
-
-                /*jump steps */
-                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-                    potential_step = 2;
-                }
-
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
-                    potential_step = 3;
-                }
-
-                if (window.location.hash.includes("&ui.page.space=mainnav.work")) {
-                    potential_step = 4;
-                }
-
-                if (window.location.hash.includes("&return_to=itl.riskList")) {
-                    potential_step = 5;
-                }
-                if (window.location.hash.includes("&ui.page.space=mainnav.work&return_to=itl.riskList")) {
-                    potential_step = 11;
-                }
-                if (window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id")) {
-                    potential_step = 13;
-                }
-                if (window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectRisk&id=")) {
-                    potential_step = 15;
-                }
-                if (potential_step && event.step <= potential_step) {
-                    return {
-                        "position": potential_step
-                    };
-                }
-            }
-        }
-
-
-
-
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to create a Risk <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
 
 
 
@@ -3441,128 +3483,6 @@ $(window).hashchange(function() {
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_manage_allocations_of_staff_member<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
-/* ******************************************************how_to_make_collaboration_manager***************************************************/
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-	if (how_to_make_collaboration_manager_triggerReady)
-	{
-		window._wfx_close_live();
-		how_to_make_collaboration_manager_triggerReady = false;
-	}
-
-	// For step number 2
-	if (how_to_make_collaboration_manager_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 3
-	if (how_to_make_collaboration_manager_step == 3 && !window.location.hash.includes('#action:projmgr.roster')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 6
-	if (how_to_make_collaboration_manager_step == 6 && !window.location.hash.includes('#action:collab.makeManagerConfirmation')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 7
-	if (how_to_make_collaboration_manager_step == 7 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
-	{
-		how_to_make_collaboration_manager_step = 0;
-		window._wfx_close_live();
-	}
-
-
-
-	if (window._wfx_is_live()) 
-	{
-		window._wfx_settings['3e5a4420-99cc-11e6-a426-04013d24cc02'] = function (event) 
-	{
-		potential_step = 0;
-
-
-			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work'))) 
-			{
-				how_to_make_collaboration_manager_step = 2
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				how_to_make_collaboration_manager_step = 3
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==4) && (window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				how_to_make_collaboration_manager_step = 4
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==6) && (window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				how_to_make_collaboration_manager_step = 6
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==7) && (window.location.hash.includes('#action:collab.makeManagerConfirmation'))) 
-			{
-				how_to_make_collaboration_manager_step = 7
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-			if ((event.step==8) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				how_to_make_collaboration_manager_step = 8
-				how_to_make_collaboration_manager_triggerReady = false;
-			}
-
-
-
-
-
-/*jump steps */
-			if ((window.location.hash.includes('#action:mainnav.work'))) 
-			{
-				potential_step = 2;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				potential_step = 3;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.roster'))) 
-			{
-				potential_step = 4;
-			}
-
-			if ((window.location.hash.includes('#action:collab.makeManagerConfirmation'))) 
-			{
-				potential_step = 7;
-			}
-
-			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				potential_step = 8;
-			}
-
-			if (potential_step && event.step <= potential_step) 
-			{
-				return {
-				"position": potential_step
-				};
-			}
-		}
-	}
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_make_collaboration_manager<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
 
         /* ******************************************** How to add a team to an idea? ****************************************** */
 
@@ -3650,107 +3570,6 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to add a team to an idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 		
-		/* ********************************************How to add an incident row? ****************************************** */
-
-                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-				
-				 if (how_to_add_a_non_project_investment_row_triggerReady) {
-                window._wfx_close_live();
-                how_to_add_a_non_project_investment_row_triggerReady = false;
-            }
-				
-				// For step number 1
-            if (how_to_add_a_non_project_investment_row_step == 1 && !window.location.hash.includes('#action:timeadmin.selectTimesheetInciden')) {
-                how_to_add_a_non_project_investment_row_step = 0;
-				
-                window._wfx_close_live();
-            }
-				
-				
-				// For step number 2
-				if (how_to_add_a_non_project_investment_row_step == 2 && !window.location.hash.includes('#action:timeadmin.selectTimesheetIncident&sortColum')) {
-                how_to_add_a_non_project_investment_row_step = 0;
-                window._wfx_close_live();
-				}
-			
-			
-			
-			// For step number 4
-            if (how_to_add_a_non_project_investment_row_step == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
-                how_to_add_a_non_project_investment_row_step = 0;
-                window._wfx_close_live();
-            }
-				
-				//step 5
-				if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.editTimesheet")) {
-				how_to_add_a_non_project_investment_row_step = 0;
-                window._wfx_close_live();                    
-				}
-				
-				
-				
-				
-				if (window._wfx_is_live()) {
-                        window._wfx_settings['e1f46340-86f8-11e6-a787-04013d24cf02'] = function (event) {
-                            potential_step = 0;
-			
-				if ((event.step == 1) && window.location.hash.includes("#action:timeadmin.editTimesheet")) {
-                            how_to_add_a_non_project_investment_row_step = 1;
-                            how_to_add_a_non_project_investment_row_triggerReady = false;
-							console.log('1');
-                        }
-				
-				
-				//show all button
-					if ((event.step == 2) && window.location.hash.includes("#action:timeadmin.selectTimesheetInciden")) {
-                            how_to_add_a_non_project_investment_row_step = 2;
-                            how_to_add_a_non_project_investment_row_triggerReady = false;
-                        }
-				
-					//incident selection
-			 if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColum"))) {
-                        how_to_add_a_non_project_investment_row_triggerReady = true;
-                    }
-				
-			
-				if ((event.step == 4) && window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColum")) {
-                            how_to_add_a_non_project_investment_row_step = 4;
-                            how_to_add_a_non_project_investment_row_triggerReady = false;
-                        }
-				
-				
-				//save button
-				if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.editTimesheet&")) {
-                            how_to_add_a_non_project_investment_row_step = 5;
-                            how_to_add_a_non_project_investment_row_triggerReady = false;
-                        }
-						
-						 /*jump steps */
-                        if ((window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
-                            potential_step = 1;
-                        }
-
-                        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetInciden"))) {
-                            potential_step = 2;
-                        }
-
-                        if (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColum")) {
-                            potential_step = 3;
-                        }
-
-                        if (potential_step && event.step <= potential_step) {
-                            return {
-                                "position": potential_step
-                            };
-                        }
-					
-					}
-				}
-				
-				
-  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to add an incident row?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  
-  
 		
 		
 		
@@ -4438,6 +4257,228 @@ $(window).hashchange(function() {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to submit an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 	
+	
+/* ******************************************************how_to_synchronize_portfolio***************************************************/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+	if (how_to_synchronize_portfolio_triggerReady)
+	{
+		window._wfx_close_live();
+		how_to_synchronize_portfolio_triggerReady = false;
+	}
+
+	// For step number 2
+	if (how_to_synchronize_portfolio_step == 2 && !window.location.hash.includes('#action:pfm.portfolioDefaultTab')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 8
+	if (how_to_synchronize_portfolio_step == 8 && !window.location.hash.includes('#action:pfm.portfolioInvestments')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 9
+	if (how_to_synchronize_portfolio_step == 9 && !window.location.hash.includes('#action:pfm.portfolioWorksheet')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 10
+	if (how_to_synchronize_portfolio_step == 10 && !window.location.hash.includes('#action:pfm.portfolioContentsEditor')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 13
+	if (how_to_synchronize_portfolio_step == 13 && !window.location.hash.includes('#action:pfm.portfolioInvestments')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 15
+	if (how_to_synchronize_portfolio_step == 15 && !window.location.hash.includes('#action:pfm.portfolioProperties')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 17
+	if (how_to_synchronize_portfolio_step == 17 && !window.location.hash.includes('#action:nmc.reportAccess')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 20
+	if (how_to_synchronize_portfolio_step == 20 && !window.location.hash.includes('#action:nmc.jobPropertiesNew')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 22
+	if (how_to_synchronize_portfolio_step == 22 && !window.location.hash.includes('#')) 
+	{
+		how_to_synchronize_portfolio_step = 0;
+		window._wfx_close_live();
+	}
+
+
+
+	if (window._wfx_is_live()) 
+	{
+		window._wfx_settings['d1ab2ee0-8afb-11e6-a787-04013d24cf02'] = function (event) 
+	{
+		potential_step = 0;
+
+
+			if ((event.step==2) && (window.location.hash.includes('#action:pfm.portfolioList'))) 
+			{
+				how_to_synchronize_portfolio_step = 2
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step >= 3 && event.step < 8) && (window.location.hash.includes('#action:pfm.portfolioDefaultTab'))) 
+			{
+				how_to_synchronize_portfolio_triggerReady = true;
+			}
+
+			if ((event.step==8) && (window.location.hash.includes('#action:pfm.portfolioDefaultTab'))) 
+			{
+				how_to_synchronize_portfolio_step = 8
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step==9) && (window.location.hash.includes('#action:pfm.portfolioInvestments'))) 
+			{
+				how_to_synchronize_portfolio_step = 9
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step==10) && (window.location.hash.includes('#action:pfm.portfolioWorksheet'))) 
+			{
+				how_to_synchronize_portfolio_step = 10
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step >= 11 && event.step < 13) && (window.location.hash.includes('#action:pfm.portfolioContentsEditor'))) 
+			{
+				how_to_synchronize_portfolio_triggerReady = true;
+			}
+
+			if ((event.step==13) && (window.location.hash.includes('#action:pfm.portfolioContentsEditor'))) 
+			{
+				how_to_synchronize_portfolio_step = 13
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step==14) && (window.location.hash.includes('#action:pfm.portfolioInvestments'))) 
+			{
+				how_to_synchronize_portfolio_step = 14
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step==15) && (window.location.hash.includes('niku/#action:pfm.portfolioContentsEditor'))) 
+			{
+				how_to_synchronize_portfolio_step = 15
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step >= 16 && event.step < 17) && (window.location.hash.includes('#action:pfm.portfolioProperties'))) 
+			{
+				how_to_synchronize_portfolio_triggerReady = true;
+			}
+
+			if ((event.step==17) && (window.location.hash.includes('#action:pfm.portfolioProperties'))) 
+			{
+				how_to_synchronize_portfolio_step = 17
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step >= 18 && event.step < 20) && (window.location.hash.includes('#action:nmc.reportAccess'))) 
+			{
+				how_to_synchronize_portfolio_triggerReady = true;
+			}
+
+			if ((event.step==20) && (window.location.hash.includes('#action:nmc.reportAccess'))) 
+			{
+				how_to_synchronize_portfolio_step = 20
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+			if ((event.step >= 21 && event.step <= 23) && (window.location.hash.includes('#action:nmc.jobPropertiesNew'))) 
+			{
+				how_to_synchronize_portfolio_triggerReady = true;
+			}
+			if ((event.step >= 21 && event.step < 23) && (window.location.hash.includes('#action:nmc.jobPropertiesNew'))) 
+			{
+				how_to_synchronize_portfolio_step = 23
+				how_to_synchronize_portfolio_triggerReady = false;
+			}
+
+
+
+
+
+
+/*jump steps */
+			if ((window.location.hash.includes('#action:pfm.portfolioDefaultTab'))) 
+			{
+				potential_step = 3;
+			}
+
+			if ((window.location.hash.includes('#action:pfm.portfolioInvestments'))) 
+			{
+				potential_step = 9;
+			}
+
+			if ((window.location.hash.includes('#action:pfm.portfolioWorksheet'))) 
+			{
+				potential_step = 10;
+			}
+
+			if ((window.location.hash.includes('#action:pfm.portfolioContentsEditor'))) 
+			{
+				potential_step = 11;
+			}
+
+			if ((window.location.hash.includes('#action:pfm.portfolioInvestments'))) 
+			{
+				potential_step = 14;
+			}
+
+			if ((window.location.hash.includes('#action:pfm.portfolioProperties'))) 
+			{
+				potential_step = 16;
+			}
+
+			if ((window.location.hash.includes('#action:nmc.reportAccess'))) 
+			{
+				potential_step = 18;
+			}
+
+			if ((window.location.hash.includes('#action:nmc.jobPropertiesNew'))) 
+			{
+				potential_step = 21;
+			}
+
+
+			if (potential_step && event.step <= potential_step) 
+			{
+				return {
+				"position": potential_step
+				};
+			}
+		}
+	}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_synchronize_portfolio<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
 		     /* ******************************************** How to Flag an Incident for Conversion? ******************************************Rishi */
@@ -5328,7 +5369,658 @@ if (window._wfx_is_live()) {
     }
 }
 
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to configure your personal account settings <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF How to configure your personal account settings <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* ******************************************************How to run a Process ***************************************************/
+
+//Pranavi 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_run_a_process_triggerReady) {
+    window._wfx_close_live();
+    how_to_run_a_process_triggerReady = false;
+}
+//for step number 2...Click on Processes tab
+if (how_to_run_a_process_step == 2 && !window.location.hash.includes('#action:calendar.organizerProcessInstances&object_type=organizer&ui.page.space=calendar.organizerHome&ui.page.template=union.appPage')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 3...Hover on Processes tab
+if (how_to_run_a_process_step == 4 && !window.location.hash.includes('#action:calendar.organizerProcessDefinitions&bpm.ret')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 5...Select any Process you want to run
+if (how_to_run_a_process_step == 5 && !window.location.hash.includes('#action:calendar.organizerProcessInstances')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+//for step number 6...Click on Start button
+if (how_to_run_a_process_step == 6 && !window.location.hash.includes('#action:calendar.organizerProcessInstances&object_t')) {
+    how_to_run_a_process_step = 0;
+    window._wfx_close_live();
+}
+if (window._wfx_is_live()) {
+    window._wfx_settings['666db330-91f1-11e6-b370-04013d24cc02'] = function(event) {
+        potential_step = 0;
+        //for step number 2...Click on Processes tab
+        if ((event.step == 2) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
+            how_to_run_a_process_step = 2;
+            how_to_run_a_process_triggerReady = false;
+        }
+        //for step number 3...Hover on Processes tab
+        if ((event.step >= 3 && event.step <5) && (window.location.hash.includes("#action:calendar.organizerProcessInstances"))) {
+            how_to_run_a_process_triggerReady = true;
+        }
+        //for step number 4...Click on Availkable link
+        if ((event.step == 4) && (window.location.hash.includes("#action:calendar.organizerProcessInstances"))) {
+            how_to_run_a_process_step = 4;
+            how_to_run_a_process_triggerReady = false;
+        }
+		//for step number 5...Select any Process you want to run
+        if ((event.step == 5 && event.step < 7) && (window.location.hash.includes("#action:calendar.organizerProcessDefinitions&bpm.returnMod"))) {
+            how_to_run_a_process_triggerReady = true;
+        }
+		//for step number 6...Click on Start button
+        if ((event.step == 6) && (window.location.hash.includes("#action:calendar.organizerProcessDefinitions&bpm.returnModuleAction"))) {
+            how_to_run_a_process_step = 6;
+            how_to_run_a_process_triggerReady = false;
+        }
+
+
+        /*jump steps */
+		//for step number 2...Click on Processes tab page
+        if ((window.location.hash.includes("#action:calendar.organizerHome"))) {
+            potential_step = 2;
+        }
+		//for step number 3...Hover on Processes tab page
+        if ((window.location.hash.includes("#action:calendar.organizerProcessInstances&object_type=organizer&ui.page.space=calendar.organizerHome&ui.page.template=union.appPage"))) {
+            potential_step = 3;
+        }
+		//for step number 5...Select any Process you want to run page
+        if ((window.location.hash.includes("#action:calendar.organizerProcessDefinitions&bpm.returnModuleAction=calendar.organizerProcessInstancesReturn&object_type=organizer&ui.page.space=calendar.organizerHome&ui.page.template=union.appPage"))) {
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to run a Process<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+/* ******************************************************How to run a Job ***************************************************/
+
+//Pranavi 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_run_a_job_triggerReady) {
+    window._wfx_close_live();
+    how_to_run_a_job_triggerReady = false;
+}
+//for step number 2...Hover on Jobs Menu
+if (how_to_run_a_job_step == 2 && !window.location.hash.includes('#action:nmc.jobPropertiesNew&job_definition_id')) {
+    how_to_run_a_job_step = 0;
+    window._wfx_close_live();
+}
+//for step number 5...Edit the job name 
+if (how_to_run_a_job_step == 5 && !window.location.hash.includes('#action:nmc.jobNoMergeSearchReturn')) {
+    how_to_run_a_job_step = 0;
+    window._wfx_close_live();
+}
+//for step number 6...Click on submit button
+if (how_to_run_a_job_step == 6 && !window.location.hash.includes('#action:nmc.jobNoMergeSearchReturn')) {
+    how_to_run_a_job_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['4e97f580-a1ab-11e6-961a-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //for step number 2...Hover on Jobs Menu
+        if ((event.step == 2 && event.step < 5) && (window.location.hash.includes("#action:nmc.reportAccess"))) {
+            how_to_run_a_job_triggerReady = true;
+        }
+        //for step number 2...Click on the job you want to run
+        if ((event.step == 4) && (window.location.hash.includes("#action:nmc.reportAccess"))) {
+            how_to_run_a_job_step = 4;
+            how_to_run_a_job_triggerReady = false;
+        }
+		//for step number 5...Edit the job name 
+        if ((event.step == 5 && event.step < 7) && (window.location.hash.includes("#action:nmc.jobPropertiesNew&job_definition_id"))) {
+            how_to_run_a_job_triggerReady = true;
+        }
+		//for step number 6...Click on submit button
+        if ((event.step == 6) && (window.location.hash.includes("#action:nmc.jobPropertiesNew&job_definition_id"))) {
+            how_to_run_a_job_step = 6;
+            how_to_run_a_job_triggerReady = false;
+        }
+
+        /*jump steps */
+		//for step number 2...Hover on jobs menu page
+        if ((window.location.hash.includes("#action:nmc.reportAccess")) || (window.location.hash.includes("action:nmc.jobDefnSearch")) ) {
+            potential_step = 2;
+        }
+		//for step number 5...Edit the job name page
+        if ((window.location.hash.includes("#action:nmc.jobPropertiesNew&job_definition_id"))) {
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to run a Job <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* ******************************************************How to add an unplanned task row ***************************************************/
+
+//Arun
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+if (how_to_add_a_unplanned_task_row_triggerReady) {
+    window._wfx_close_live();
+    how_to_add_a_unplanned_task_row_triggerReady = false;
+}
+//for step number 1....Click on Add Task button
+if (how_to_add_a_unplanned_task_row_step == 1 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTas")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 2....Click on Create Task Page
+if (how_to_add_a_unplanned_task_row_step == 2 && !window.location.hash.includes("#action:timeadmin.createUnplanne")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 3....Click on investment link
+if (how_to_add_a_unplanned_task_row_step == 3 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId=UNPLANNED_TASK_ADDED")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 7....Click on save and return button
+if (how_to_add_a_unplanned_task_row_step == 7 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 8....Click on return button		
+if (how_to_add_a_unplanned_task_row_step == 8 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 9....Click on save button
+if (how_to_add_a_unplanned_task_row_step == 9 && !window.location.hash.includes("#action:timeadmin.editTimeshee")) {
+    how_to_add_a_unplanned_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['193c02f0-86fd-11e6-85ad-04013d24cd02'] = function(event) {
+        potential_step = 0;
+        //for step number 1....Click on Add Task button
+        if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            how_to_add_a_unplanned_task_row_step = 1;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 2....Click on Create Task Page
+        if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.selectTimesheetT"))) {
+            how_to_add_a_unplanned_task_row_step = 2;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 3....Click on investment link
+        if ((event.step >= 3 && event.step < 8) && (window.location.hash.includes("#action:timeadmin.createUnplannedTask"))) {
+            how_to_add_a_unplanned_task_row_step = 3;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 7....Click on save and return button
+        if ((event.step == 7) && (window.location.hash.includes("#action:timeadmin.createUnplannedTask"))) {
+            how_to_add_a_unplanned_task_row_step = 7;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 8....Click on return button
+        if ((event.step == 8) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId"))) {
+            how_to_add_a_unplanned_task_row_step = 8;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        //for step number 9....Click on save button
+        if ((event.step == 9) && (window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            how_to_add_a_unplanned_task_row_step = 9;
+            how_to_add_a_unplanned_task_row_triggerReady = false;
+        }
+        /*jump steps */
+        //for step number 1....Click on Add Task button page
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            potential_step = 1;
+
+        }
+        //for step number 2....Click on Create Task Page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt"))) {
+
+            potential_step = 2;
+        }
+        //for step number 3....Click on investment link page
+        if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid"))) {
+
+            potential_step = 3;
+        }
+        //for step number 8....Click on return button page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskReturn&messageId"))) {
+
+            potential_step = 8;
+        }
+        //for step number 9....Click on save button page
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+
+            potential_step = 9;
+        }
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to add an unplanned task row <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/*<<<<<How to add an incident row >>>>*********************************/
+
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+
+if (add_an_incident_row_triggerReady) {
+    window._wfx_close_live();
+    add_an_incident_row_triggerReady = false;
+}
+//for step number 1...Click on Add Incident Button
+if (add_an_incident_row == 1 && !window.location.hash.includes('#action:timeadmin.selectTimesheetIncident')) {
+    add_an_incident_row = 0;
+    window._wfx_close_live();
+}
+
+
+// For step number 2
+	if (add_an_incident_row == 2 && !window.location.hash.includes('#action:timeadmin.selectTimesheetIncident&sortColum')) 
+	{
+                add_an_incident_row = 0;
+                window._wfx_close_live();
+				}
+
+//for step number 2...Click on add button of incident page
+if (add_an_incident_row == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&id')) {
+    add_an_incident_row = 0;
+    window._wfx_close_live();
+}
+//for step number 5...Click on save button
+if (add_an_incident_row == 5 && !window.location.hash.includes('#action:timeadmin.editTimesheet&id')) {
+    add_an_incident_row = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['e1f46340-86f8-11e6-a787-04013d24cf02'] = function(event) {
+        potential_step = 0;
+        //for step number 2...Click on Add Incident Button
+        if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&r"))) {
+            add_an_incident_row = 1;
+            add_an_incident_row_triggerReady = false;
+        }
+		
+		//show all button
+	
+					if ((event.step == 2) && window.location.hash.includes("#action:timeadmin.selectTimesheetInciden")) {
+                            add_an_incident_row = 2;
+                            add_an_incident_row_triggerReady = false;
+                        }
+			
+		
+        //for step number 3...click on show all button of incident page
+        if ((event.step >= 3 && event.step < 5) && (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColumn"))) {
+            add_an_incident_row_triggerReady = true;
+        }
+        //for step number 3...click on show all button of incident page
+        if ((event.step == 4) && (window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColumn"))) {
+            add_an_incident_row = 4;
+            add_an_incident_row_triggerReady = false;
+        }
+        //click on add button of incident page
+        if ((event.step == 5) && (window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            add_an_incident_row = 5;
+            add_an_incident_row_triggerReady = false;
+        }
+
+        /*jump steps */
+		
+		 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&r"))) {
+            potential_step = 1;
+        }
+		
+        //Click on Add Incident button page
+		
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetIncidentOpt&id"))) {
+            potential_step = 2;
+        }
+        //click on show all button of incident page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColumn"))) {
+            potential_step = 3;
+        }
+        //click on add button of incident page
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            potential_step = 5;
+        }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<End of How to add an incident row? <<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+/*<<<<<How to Add an Existing Project Task Row >>>>*********************************/
+/* @Author : Venu */
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+
+if (project_task_row_triggerReady) {
+    window._wfx_close_live();
+    project_task_row_triggerReady = false;
+}
+//for step number 1
+if (project_task_row_step == 1 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+//for step number 2...click on add task button
+if (project_task_row_step == 2 && !window.location.hash.includes('#action:timeadmin.selectTimesheetTask&id')) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+//for step number 6...Click on filter 
+if (project_task_row_step == 6 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTask&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+//click on project name
+if (project_task_row_step == 7 && !window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&sortColumn")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+//click on add button page
+if (project_task_row_step == 8 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+//click on add button page
+if (project_task_row_step == 10 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+//click on save button page	
+if (project_task_row_step == 11 && !window.location.hash.includes("#action:timeadmin.editTimesheet&id")) {
+    project_task_row_step = 0;
+    window._wfx_close_live();
+}
+
+if (window._wfx_is_live()) {
+    window._wfx_settings['56c6e150-8967-11e6-b370-04013d24cc02'] = function(event) {
+        potential_step = 0;
+
+        if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            project_task_row_step = 1;
+            project_task_row_triggerReady = false;
+        }
+		
+		
+		
+        //for step number 2...click on add task button 
+        if ((event.step == 2 && event.step < 7) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id"))) {
+            project_task_row_step = 2;
+            project_task_row_triggerReady = false;
+        }
+
+        //for step number 6...Click on filter
+        if ((event.step == 6) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id"))) {
+            project_task_row_step = 6;
+            project_task_row_triggerReady = false;
+
+        }
+
+        //for step number 7 ...click on project name
+        if ((event.step == 7) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTask&id"))) {
+            project_task_row_step = 7;
+            project_task_row_triggerReady = false;
+        }
+
+        //for step number 8.. expand the tasks
+        if ((event.step == 8 && event.step < 11) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&sortColumn"))) {
+            project_task_row_step = 8;
+            project_task_row_triggerReady = false;
+        }
+
+        //add button page
+        if ((event.step == 10) && (window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt"))) {
+            project_task_row_step = 10;
+            project_task_row_triggerReady = false;
+        }
+        //click on save button page
+        if ((event.step == 11) && (window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+            project_task_row_step = 11;
+            project_task_row_triggerReady = false;
+        }
+
+        /*jump steps */
+
+        if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+            potential_step = 1;
+
+        }
+        //click on add task button page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&id"))) {
+            potential_step = 2;
+        }
+
+        //select task for enter the time page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTask&id"))) {
+            potential_step = 7;
+        }
+
+        //select task for enter the time page
+        if ((window.location.hash.includes("#action:timeadmin.selectTimesheetTaskOpt&sortColumn")) && event.step==8) {
+            potential_step = 8;
+        }
+
+        //add button page
+		//the hash same as step 1 
+        //if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+        //    potential_step = 11;
+       // }
+
+        if (potential_step && event.step <= potential_step) {
+            return {
+                "position": potential_step
+            };
+        }
+    }
+}
+/*<<<<<End of Add an Existing Project Task Row >>>>*********************************/
+
+
+
+/* ******************************************************add_skills_to_resource***************************************************/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+	if (add_skills_to_resource_triggerReady)
+	{
+		window._wfx_close_live();
+		add_skills_to_resource_triggerReady = false;
+	}
+
+	// For step number 2
+	if (add_skills_to_resource_step == 2 && !window.location.hash.includes('#action:projmgr.editResource')) 
+	{
+		add_skills_to_resource_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 3
+	if (add_skills_to_resource_step == 3 && !window.location.hash.includes('#action:resource.openSkillsAssociation')) 
+	{
+		add_skills_to_resource_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 4
+	if (add_skills_to_resource_step == 4 && !window.location.hash.includes('#action:resource.skillsAssociationSelect')) 
+	{
+		add_skills_to_resource_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 5
+	if (add_skills_to_resource_step == 5 && !window.location.hash.includes('#action:resource.openSkillsAssociationSort')) 
+	{
+		add_skills_to_resource_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 6
+	if (add_skills_to_resource_step == 6 && !window.location.hash.includes('#action:resource.skillsAssociationSelect')) 
+	{
+		add_skills_to_resource_step = 0;
+		window._wfx_close_live();
+	}
+
+	// For step number 7
+	if (add_skills_to_resource_step == 7 && !window.location.hash.includes('#action:resource.openSkillsAssociationReturn')) 
+	{
+		add_skills_to_resource_step = 0;
+		window._wfx_close_live();
+	}
+
+
+
+
+
+	if (window._wfx_is_live()) 
+	{
+		window._wfx_settings['c27eaad0-849a-11e6-ae8d-04013d24cf02'] = function (event) 
+	{
+		potential_step = 0;
+
+
+			if ((event.step==2) && (window.location.hash.includes('#action:projmgr.getResources'))) 
+			{
+				add_skills_to_resource_step = 2
+				add_skills_to_resource_triggerReady = false;
+			}
+
+			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.editResource'))) 
+			{
+				add_skills_to_resource_step = 3
+				add_skills_to_resource_triggerReady = false;
+			}
+
+			if ((event.step==4) && (window.location.hash.includes('#action:resource.openSkillsAssociation'))) 
+			{
+				add_skills_to_resource_step = 4
+				add_skills_to_resource_triggerReady = false;
+			}
+
+			if ((event.step==5) && (window.location.hash.includes('#action:resource.skillsAssociationSelect'))) 
+			{
+				add_skills_to_resource_step = 5
+				add_skills_to_resource_triggerReady = false;
+			}
+
+			if ((event.step==6) && (window.location.hash.includes('#action:resource.openSkillsAssociationSort'))) 
+			{
+				add_skills_to_resource_step = 6
+				add_skills_to_resource_triggerReady = false;
+			}
+
+			if ((event.step==7) && (window.location.hash.includes('#action:resource.skillsAssociationSelect'))) 
+			{
+				add_skills_to_resource_step = 7
+				add_skills_to_resource_triggerReady = false;
+			}
+
+			if ((event.step >= 8 && event.step < 10) && (window.location.hash.includes('#action:resource.openSkillsAssociationReturn'))) 
+			{
+				add_skills_to_resource_triggerReady = true;
+			}
+
+			if ((event.step==10) && (window.location.hash.includes('#action:resource.openSkillsAssociationReturn'))) 
+			{
+				add_skills_to_resource_step = 10
+				add_skills_to_resource_triggerReady = false;
+			}
+
+
+/*jump steps */
+			if ((window.location.hash.includes('#action:projmgr.getResources'))) 
+			{
+				potential_step = 2;
+			}
+
+			if ((window.location.hash.includes('#action:projmgr.editResource'))) 
+			{
+				potential_step = 3;
+			}
+
+			if ((window.location.hash.includes('#action:resource.openSkillsAssociation'))) 
+			{
+				potential_step = 4;
+			}
+
+			if ((window.location.hash.includes('#action:resource.skillsAssociationSelect'))) 
+			{
+				potential_step = 5;
+			}
+
+			if ((window.location.hash.includes('#action:resource.openSkillsAssociationSort'))) 
+			{
+				potential_step = 6;
+			}
+
+			if ((window.location.hash.includes('#action:resource.skillsAssociationSelect'))) 
+			{
+				potential_step = 7;
+			}
+
+			if ((window.location.hash.includes('#action:resource.openSkillsAssociationReturn'))) 
+			{
+				potential_step = 8;
+			}
+
+
+			if (potential_step && event.step <= potential_step) 
+			{
+				return {
+				"position": potential_step
+				};
+			}
+		}
+	}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of add_skills_to_resource<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
 
     })
     /*Killing flow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
