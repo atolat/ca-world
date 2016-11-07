@@ -2116,7 +2116,7 @@ if (window._wfx_is_live()) {
 
         }
         //for step number 5....... Click on unstaffed list
-        if ((window.location.hash.includes("#action:projmgr.roster&id"))) {
+        if ((window.location.hash.includes("#action:projmgr.roster&id")) || (window.location.hash.includes('#action:projmgr.teamLis'))  ) {
             potential_step = 5;
 
         }
