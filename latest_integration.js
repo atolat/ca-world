@@ -1897,7 +1897,7 @@ if (how_to_create_a_action_item_to_a_resource_step == 3 && !window.location.hash
     how_to_create_a_action_item_to_a_resource_step = 0;
     window._wfx_close_live();
 }
-//for step number 4
+//for step number 18
 if (how_to_create_a_action_item_to_a_resource_step == 18 && !window.location.hash.includes("#action:calendar.actionItemList&odf_pk")) {
     how_to_create_a_action_item_to_a_resource_step = 0;
     window._wfx_close_live();
@@ -1913,8 +1913,8 @@ if (window._wfx_is_live()) {
         }
 
         if ((event.step >= 3 && event.step < 19) && (window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
-            how_to_create_a_action_item_to_a_resource_step = 3;
-            how_to_create_a_action_item_to_a_resource_triggerReady = false;
+          
+            how_to_create_a_action_item_to_a_resource_triggerReady = true;
         }
         if ((event.step == 18) && (window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
             how_to_create_a_action_item_to_a_resource_step = 18;
@@ -1998,12 +1998,12 @@ if (window._wfx_is_live()) {
 
         }
         //project default page
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))  ||(window.location.hash.includes("#action:projmgr.projectDashboard"))) {
 
             potential_step = 3;
         }
         //project team page
-        if ((window.location.hash.includes("#action:projmgr.roster&id"))) {
+        if ((window.location.hash.includes("#action:projmgr.roster&id"))  || (window.location.hash.includes("#action:projmgr.teamList&i"))  ) {
 
             potential_step = 4;
         }
@@ -2111,7 +2111,7 @@ if (window._wfx_is_live()) {
 		}
         
 		//for step number 3....... Click on team tab 
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa"))) {
             potential_step = 3;
 
         }
@@ -2188,7 +2188,7 @@ if (window._wfx_is_live()) {
         if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
             potential_step = 2;
         }
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa"))) {
             potential_step = 3;
         }
         if ((window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
