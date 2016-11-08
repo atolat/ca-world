@@ -1216,11 +1216,11 @@ $(window).hashchange(function () {
             window._wfx_close_live();
         }
 
-        //for step number 4
-        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_od')) {
-            how_to_create_a_role_step = 0;
-            window._wfx_close_live();
-        }
+//        //for step number 4
+//        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_od')) {
+//            how_to_create_a_role_step = 0;
+//            window._wfx_close_live();
+//        }
 
         //for step number 8
         if (how_to_create_a_role_step == 7 && !window.location.hash.includes('#action:projmgr.editResource&reso')) {
@@ -1242,20 +1242,20 @@ $(window).hashchange(function () {
 
                 //Select reource type page
                 if ((event.step >= 3 && event.step < 5) && (window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
-                    how_to_create_a_role_triggerReady = true;
+                    //how_to_create_a_role_triggerReady = true;
                 }
 
                 //Next button on Select reource type page
                 if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
                     how_to_create_a_role_step = 4;
-                    how_to_create_a_role_triggerReady = false;
+//                    how_to_create_a_role_triggerReady = false;
                 }
 
 
                 //Create Role Labor page
                 if ((event.step >= 5 && event.step < 7) && (window.location.hash.includes("#action:projmgr.newResource&isRole=1&superSecretTokenKey"))) {
                     console.log("here");
-                    how_to_create_a_role_triggerReady = true;
+                    //how_to_create_a_role_triggerReady = true;
                 }
 
                 if ((event.step == 7)) {
@@ -1312,7 +1312,7 @@ $(window).hashchange(function () {
         }
 
         // For step number 11
-        if (how_to_create_a_project_step == 11 && !window.location.hash.includes('#action:projmgr.projectDashboard')) {
+        if (how_to_create_a_project_step == 11 && !window.location.hash.includes('#action:projmgr.projectList')) {
             how_to_create_a_project_step = 0;
             window._wfx_close_live();
         }
@@ -3151,106 +3151,106 @@ if (window._wfx_is_live()) {
         /* ******************************************** How to create a copy of cost plan ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-
-
-
-        if (how_to_create_a_copy_of_cost_plan_triggerReady) {
-            window._wfx_close_live();
-            how_to_create_a_copy_of_cost_plan_triggerReady = false;
-        }
-
-
-        // For step number 2
-        if (how_to_create_a_copy_of_cost_plan_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
-            how_to_create_a_copy_of_cost_plan_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 3
-        if (how_to_create_a_copy_of_cost_plan_step == 3 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
-            how_to_create_a_copy_of_cost_plan_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 6
-        if (how_to_create_a_copy_of_cost_plan_step == 6 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
-            how_to_create_a_copy_of_cost_plan_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 9
-        if (how_to_create_a_copy_of_cost_plan_step == 9 && !window.location.hash.includes('#action:revmgr.costplanList&i')) {
-            how_to_create_a_copy_of_cost_plan_step = 0;
-            window._wfx_close_live();
-        }
-
-        if (window._wfx_is_live()) {
-            window._wfx_settings['73182fd0-8494-11e6-ae8d-04013d24cf02'] = function (event) {
-                potential_step = 0;
-
-                //click on any project
-                if ((event.step == 2) && window.location.hash.includes("#action:mainnav.work&classCode=project")) {
-                    how_to_create_a_copy_of_cost_plan_step = 2;
-                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-                }
-                //click on financial plans
-                if ((event.step == 3) && window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
-                    how_to_create_a_copy_of_cost_plan_step = 3;
-                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-                }
-
-                if ((event.step >= 4 && event.step < 6) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-                    how_to_create_a_project_triggerReady = true;
-                }
-
-                //click on copy cost plan
-                if ((event.step == 6) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
-                    how_to_create_a_copy_of_cost_plan_step = 6;
-                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-                }
-
-                if ((event.step >= 7 && event.step < 9) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-                    how_to_create_a_project_triggerReady = true;
-                }
-
-                //click on save and return
-                if ((event.step == 9) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
-                    how_to_create_a_copy_of_cost_plan_step = 9;
-                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-                }
-
-
-                /*jump steps */
-                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-                    potential_step = 2;
-                }
-
-
-                if (window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
-                    potential_step = 3;
-                }
-
-                if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-                    potential_step = 4;
-                }
-				if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-                    potential_step = 7;
-                }
-
-
-
-                if (potential_step && event.step <= potential_step) {
-                    return {
-                        "position": potential_step
-                    };
-                }
-
-
-
-
-            }
-        }
+//
+//
+//
+//
+//        if (how_to_create_a_copy_of_cost_plan_triggerReady) {
+//            window._wfx_close_live();
+//            how_to_create_a_copy_of_cost_plan_triggerReady = false;
+//        }
+//
+//
+//        // For step number 2
+//        if (how_to_create_a_copy_of_cost_plan_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+//            how_to_create_a_copy_of_cost_plan_step = 0;
+//            window._wfx_close_live();
+//        }
+//
+//        // For step number 3
+//        if (how_to_create_a_copy_of_cost_plan_step == 3 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
+//            how_to_create_a_copy_of_cost_plan_step = 0;
+//            window._wfx_close_live();
+//        }
+//
+//        // For step number 6
+//        if (how_to_create_a_copy_of_cost_plan_step == 6 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
+//            how_to_create_a_copy_of_cost_plan_step = 0;
+//            window._wfx_close_live();
+//        }
+//
+//        // For step number 9
+//        if (how_to_create_a_copy_of_cost_plan_step == 9 && !window.location.hash.includes('#action:revmgr.costplanList&i')) {
+//            how_to_create_a_copy_of_cost_plan_step = 0;
+//            window._wfx_close_live();
+//        }
+//
+//        if (window._wfx_is_live()) {
+//            window._wfx_settings['73182fd0-8494-11e6-ae8d-04013d24cf02'] = function (event) {
+//                potential_step = 0;
+//
+//                //click on any project
+//                if ((event.step == 2) && window.location.hash.includes("#action:mainnav.work&classCode=project")) {
+//                    how_to_create_a_copy_of_cost_plan_step = 2;
+//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+//                }
+//                //click on financial plans
+//                if ((event.step == 3) && window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
+//                    how_to_create_a_copy_of_cost_plan_step = 3;
+//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+//                }
+//
+//                if ((event.step >= 4 && event.step < 6) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+//                    how_to_create_a_project_triggerReady = true;
+//                }
+//
+//                //click on copy cost plan
+//                if ((event.step == 6) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
+//                    how_to_create_a_copy_of_cost_plan_step = 6;
+//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+//                }
+//
+//                if ((event.step >= 7 && event.step < 9) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+//                    how_to_create_a_project_triggerReady = true;
+//                }
+//
+//                //click on save and return
+//                if ((event.step == 9) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
+//                    how_to_create_a_copy_of_cost_plan_step = 9;
+//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+//                }
+//
+//
+//                /*jump steps */
+//                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+//                    potential_step = 2;
+//                }
+//
+//
+//                if (window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
+//                    potential_step = 3;
+//                }
+//
+//                if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+//                    potential_step = 4;
+//                }
+//				if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+//                    potential_step = 7;
+//                }
+//
+//
+//
+//                if (potential_step && event.step <= potential_step) {
+//                    return {
+//                        "position": potential_step
+//                    };
+//                }
+//
+//
+//
+//
+//            }
+//        }
 
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a copy of cost plan<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
