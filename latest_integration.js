@@ -1631,48 +1631,14 @@ $(window).hashchange(function () {
 
         //CHECK AGAIN NOT WORKING
 
-        if (how_to_modify_a_submitted_timesheet_triggerReady) {
-            window._wfx_close_live();
-            how_to_modify_a_submitted_timesheet_triggerReady = false;
-        }
 
-
-        // For step number 2
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 2 && !window.location.hash.includes('#action:timeadmin.editTimesheet')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 3
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 3 && !window.location.hash.includes('#action:timeadmin.timesheetBrowserReturn')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 4
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 5
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 6
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 6 && !window.location.hash.includes('#action:timeadmin.timesheetBrowserReturn')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
 
         if (window._wfx_is_live()) {
             window._wfx_settings['7af89700-895b-11e6-a787-04013d24cf02'] = function (event) {
                 potential_step = 0;
 
                 //Timesheets page
-                if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
+               /* if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
                     how_to_how_to_modify_a_submitted_timesheet_step = 2;
                     how_to_modify_a_submitted_timesheet_triggerReady = false;
                 }
@@ -1701,7 +1667,7 @@ $(window).hashchange(function () {
                     how_to_modify_a_submitted_timesheet_triggerReady = false;
                 }
 
-
+				*/
 
                 /*jump steps */
                 if ((window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
