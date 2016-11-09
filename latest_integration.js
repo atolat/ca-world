@@ -701,6 +701,12 @@ $(window).hashchange(function () {
             how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
             window._wfx_close_live();
         }
+		
+		 // For step number 3
+        if (how_to_set_a_portfolio_plan_as_the_plan_of_record_step == 3 && !window.location.hash.includes('#action:pfm.planList&odf_return')) {
+            how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
+            window._wfx_close_live();
+        }
 
         // For step number 4
         if (how_to_set_a_portfolio_plan_as_the_plan_of_record_step == 4 && !window.location.hash.includes('#action:pfm.planList&i')) {
@@ -726,9 +732,17 @@ $(window).hashchange(function () {
                 }
 
 
-                //select any plan and click set plan of record button
+				
+					
+                //click on icon
+                if ((event.step == 3) && window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm.")) {
+                    how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 3;
+                    how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
+                }
 
-                if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm."))) {
+				
+                //select any plan and click set plan of record button
+				if ((event.step >=3 && event.step < 4) && (window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm."))) {
                     how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = true;
                 }
 
@@ -3623,11 +3637,11 @@ if (window._wfx_is_live()) {
             window._wfx_close_live();
         }
 
-        // For step number 6
-        if (how_to_reject_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaList')) {
-            how_to_reject_an_idea_step = 0;
-            window._wfx_close_live();
-        }
+//        // For step number 6
+//        if (how_to_reject_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaList')) {
+//            how_to_reject_an_idea_step = 0;
+//            window._wfx_close_live();
+//        }
 
         if (window._wfx_is_live()) {
             window._wfx_settings['2ff9dbb0-855f-11e6-ba2f-04013d24cd02'] = function (event) {
@@ -3641,9 +3655,9 @@ if (window._wfx_is_live()) {
 
 
 
-                if ((event.step >= 3 && event.step < 7) && (window.location.hash.includes("#action:pma.ideaProperties&return"))) {
-                    how_to_create_a_project_triggerReady = true;
-                }
+//                if ((event.step >= 3 && event.step < 6) && (window.location.hash.includes("#action:pma.ideaProperties&return"))) {
+//                    how_to_create_a_project_triggerReady = true;
+//                }
 
                 if ((event.step == 6) && window.location.hash.includes("#action:pma.ideaProperties&return")) {
                     how_to_reject_an_idea_step = 6;
@@ -3769,7 +3783,8 @@ if (window._wfx_is_live()) {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Request More Information for an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-      /* ******************************************************how_to_manage_allocations_of_staff_member***************************************************/
+    
+/* ******************************************************how_to_manage_allocations_of_staff_member***************************************************/
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 	if (how_to_manage_allocations_of_staff_member_triggerReady)
 	{
@@ -3792,28 +3807,21 @@ if (window._wfx_is_live()) {
 	}
 
 	// For step number 4
-	if (how_to_manage_allocations_of_staff_member_step == 4 && !window.location.hash.includes('#action:projmgr.roster')) 
+	if (how_to_manage_allocations_of_staff_member_step == 4 && !window.location.hash.includes('#action:projmgr.roster&id')) 
 	{
 		how_to_manage_allocations_of_staff_member_step = 0;
 		window._wfx_close_live();
 	}
 
 	// For step number 6
-	if (how_to_manage_allocations_of_staff_member_step == 6 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations')) 
+	if (how_to_manage_allocations_of_staff_member_step == 6 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id=')) 
 	{
 		how_to_manage_allocations_of_staff_member_step = 0;
 		window._wfx_close_live();
 	}
 
-	// For step number 9
-	if (how_to_manage_allocations_of_staff_member_step == 9 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList')) 
-	{
-		how_to_manage_allocations_of_staff_member_step = 0;
-		window._wfx_close_live();
-	}
-
-	// For step number 14
-	if (how_to_manage_allocations_of_staff_member_step == 14 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList')) 
+	// For step number 15
+	if (how_to_manage_allocations_of_staff_member_step == 15 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id=')) 
 	{
 		how_to_manage_allocations_of_staff_member_step = 0;
 		window._wfx_close_live();
@@ -3844,51 +3852,37 @@ if (window._wfx_is_live()) {
 			}
 
 //Set _Step and _triggerReady for step 4
-			if ((event.step==4) && (window.location.hash.includes('#action:projmgr.roster'))) 
+			if ((event.step==4) && (window.location.hash.includes('#action:projmgr.roster&id'))) 
 			{
 				how_to_manage_allocations_of_staff_member_step = 4
 				how_to_manage_allocations_of_staff_member_triggerReady = false;
 			}
 
 //Set _triggerReady for step 5
-			if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations'))) 
+			if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) 
 			{
 				how_to_manage_allocations_of_staff_member_triggerReady = true;
 			}
 
 //Set _Step and _triggerReady for step 6
-			if ((event.step==6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations'))) 
+			if ((event.step==6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) 
 			{
 				how_to_manage_allocations_of_staff_member_step = 6
 				how_to_manage_allocations_of_staff_member_triggerReady = false;
 			}
 
 //Set _triggerReady for step 7
-			if ((event.step >= 7 && event.step < 9) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList') && window.location.hash.includes('ResourceProjectsDetail'))) 
+			if ((event.step >= 7 && event.step < 15) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) 
 			{
 				how_to_manage_allocations_of_staff_member_triggerReady = true;
 			}
 
-//Set _Step and _triggerReady for step 9
-			if ((event.step==9) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList') && window.location.hash.includes('ResourceProjectsDetail')))  
+//Set _Step and _triggerReady for step 15
+			if ((event.step==15) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) 
 			{
-				how_to_manage_allocations_of_staff_member_step = 9
+				how_to_manage_allocations_of_staff_member_step = 15
 				how_to_manage_allocations_of_staff_member_triggerReady = false;
 			}
-
-//Set _triggerReady for step 10
-			if ((event.step >= 10 && event.step < 14) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList') && window.location.hash.includes('object_code=resource&view_code=resourceProjectsDetail)'))) 
-			{
-				how_to_manage_allocations_of_staff_member_triggerReady = true;
-			}
-
-//Set _Step and _triggerReady for step 14
-			if ((event.step==14) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList') && window.location.hash.includes('object_code=resource&view_code=resourceProjectsDetail)'))) 
-			{
-				how_to_manage_allocations_of_staff_member_step = 14
-				how_to_manage_allocations_of_staff_member_triggerReady = false;
-			}
-
 
 
 /*jump steps */
@@ -3902,24 +3896,19 @@ if (window._wfx_is_live()) {
 				potential_step = 3;
 			}
 
-			if ((window.location.hash.includes('#action:projmgr.roster'))) 
+			if ((window.location.hash.includes('#action:projmgr.roster&id'))) 
 			{
 				potential_step = 4;
 			}
 
-			if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations'))) 
+			if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) 
 			{
 				potential_step = 5;
 			}
 
-			if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList') && window.location.hash.includes('ResourceProjectsDetail'))) 
+			if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) 
 			{
 				potential_step = 7;
-			}
-
-			if (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList') && window.location.hash.includes('object_code=resource&view_code=resourceProjectsDetail)'))
-			{
-				potential_step = 10;
 			}
 
 
@@ -3930,9 +3919,9 @@ if (window._wfx_is_live()) {
 				};
 			}
 		}
-}
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_manage_allocations_of_staff_member<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+	}
 
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_manage_allocations_of_staff_member<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         /* ******************************************** How to add a team to an idea? ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
@@ -4944,12 +4933,12 @@ if (window._wfx_is_live()) {
             window._wfx_close_live();
         }
         // For step number 8
-        if (how_to_flag_an_incident_for_conversion_step == 8 && !window.location.hash.includes('#action:itl.incidentObject')) {
+        if (how_to_flag_an_incident_for_conversion_step == 8 && !window.location.hash.includes('#action:itl.incidentObject&odf_')) {
             how_to_flag_an_incident_for_conversion_step = 0;
             window._wfx_close_live();
         }
         // For step number 9
-        if (how_to_flag_an_incident_for_conversion_step == 9 && !window.location.hash.includes('#action:itl.incidentObject')) {
+        if (how_to_flag_an_incident_for_conversion_step == 9 && !window.location.hash.includes('#action:itl.incidentList')) {
             how_to_flag_an_incident_for_conversion_step = 0;
             window._wfx_close_live();
         }
@@ -4983,9 +4972,24 @@ if (window._wfx_is_live()) {
                 if ((event.step >= 4 && event.step < 9) && (window.location.hash.includes("#action:itl.incidentObject"))) {
                     how_to_flag_an_incident_for_conversion_triggerReady = true;
                 }
+	
+	
+			//Click on save
+                if ((event.step == 8) && window.location.hash.includes("#action:itl.incidentObject")) {
+                    how_to_flag_an_incident_for_conversion_step = 8;
+                    how_to_flag_an_incident_for_conversion_triggerReady = false;
+                }
 
+				
+				
                 //Incident is now flagged for conversion
-                if ((event.step == 10) && window.location.hash.includes("#action:itl.incidentList&id=&incidentListType=reportedBy")) {
+                if ((event.step == 9) && window.location.hash.includes("#action:itl.incidentObject&odf_")) {
+                    how_to_flag_an_incident_for_conversion_step = 9;
+                    how_to_flag_an_incident_for_conversion_triggerReady = false;
+                }
+				
+				 //Incident is now flagged for conversion
+                if ((event.step == 10) && window.location.hash.includes("#action:itl.incidentList")) {
                     how_to_flag_an_incident_for_conversion_step = 10;
                     how_to_flag_an_incident_for_conversion_triggerReady = false;
                 }
@@ -5353,18 +5357,7 @@ if (window._wfx_is_live()) {
                 if ((window.location.hash.includes("#action:itl.riskObject&odf_pk"))) {
                     potential_step = 11;
                 }
-                //Click on Save And Return button page
-                if ((window.location.hash.includes("#action:itl.riskList&ui.page.space=mainnav.work&page.space=mainnav.work&id"))) {
-                    potential_step = 13;
-                }
-                //Click on Properties tab and hover on it
-                if ((window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
-                    potential_step = 14;
-                }
-                //Click on Risk/Risk Rating link
-                if ((window.location.hash.includes("#action:projmgr.projectProperties&odf_view=projectRisk&id"))) {
-                    potential_step = 15;
-                }
+                
 
                 if (potential_step && event.step <= potential_step) {
                     return {
@@ -6129,6 +6122,7 @@ if (window._wfx_is_live()) {
                 if ((window.location.hash.includes("#action:timeadmin.selectTimesheetIncidentOpt&id"))) {
                     potential_step = 2;
                 }
+
                 //click on show all button of incident page
                 if ((window.location.hash.includes("#action:timeadmin.selectTimesheetIncident&sortColumn"))) {
                     potential_step = 3;
@@ -6308,7 +6302,7 @@ if (window._wfx_is_live()) {
         }
 
         // For step number 5
-        if (add_skills_to_resource_step == 5 && !window.location.hash.includes('#action:resource.openSkillsAssociationSort')) {
+        if (add_skills_to_resource_step == 5 && !window.location.hash.includes('#action:resource.skillsAssociationSelectSort')) {
             add_skills_to_resource_step = 0;
             window._wfx_close_live();
         }
