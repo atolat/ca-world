@@ -1534,6 +1534,10 @@ $(window).hashchange(function () {
                 if ((window.location.hash.includes("#action:timeadmin.confirmAction&ts_"))) {
                     potential_step = 2;
                 }
+				//Added jump Step
+                if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
+                    potential_step = 3;
+                }
 
 
 
@@ -2131,7 +2135,7 @@ if (window._wfx_is_live()) {
         }
         //for step number 5....... Click on unstaffed list
         if ((window.location.hash.includes("#action:projmgr.roster&id")) || (window.location.hash.includes('#action:projmgr.teamLis'))  ) {
-            potential_step = 5;
+            potential_step = 4;
 
         }
         //for step number 8....... Select on any Roles Page
@@ -2427,16 +2431,16 @@ if (window._wfx_is_live()) {
                 }
 
                 /*jump steps */
-                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                if ((window.location.hash.includes("#action:timeadmin.timesheetBrowserRetur"))) {
                     potential_step = 2;
                 }
 
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+                if ((window.location.hash.includes("#action:timeadmin.editTimesheet&res"))) {
                     potential_step = 3;
                 }
 
-                if (window.location.hash.includes("#action:projmgr.roster&id")) {
-                    potential_step = 4;
+                if (window.location.hash.includes("#action:timeadmin.timesheetBrowser&sortColum")) {
+                    potential_step = 6;
                 }
 
                 if (potential_step && event.step <= potential_step) {
@@ -3303,7 +3307,7 @@ if (window._wfx_is_live()) {
         }
 
         // For step number 6
-        if (how_to_create_a_benefit_plan_step == 6 && !window.location.hash.includes('#action:revmgr.benefitplanLis')) {
+        if (how_to_create_a_benefit_plan_step == 6 && !window.location.hash.includes('#action:revmgr.benefitplanProperties&i')) {
             how_to_create_a_benefit_plan_step = 0;
             console.log('step 6');
             window._wfx_close_live();
@@ -3336,13 +3340,13 @@ if (window._wfx_is_live()) {
 
 
                 //hover on financial tab and click benefit plan
-                if ((event.step >= 4 && event.step < 5) && (window.location.hash.includes("#action:revmgr.costplanList.projec"))) {
-                    how_to_create_a_project_triggerReady = true;
+                if ((event.step == 4)) {
+                    how_to_create_a_benefit_plan_triggerReady = true;
                 }
 
 
                 //click on benefit plan
-                if ((event.step == 5) && window.location.hash.includes("#action:revmgr.costplanList.project")) {
+                if ((event.step == 5) ) {
                     how_to_create_a_benefit_plan_step = 5;
                     how_to_create_a_benefit_plan_triggerReady = false;
                 }
@@ -3355,8 +3359,8 @@ if (window._wfx_is_live()) {
                 }
 
                 //create benefit plan
-                if ((event.step >= 7 && event.step < 11) && (window.location.hash.includes("#action:revmgr.benefitplanProperties"))) {
-                    how_to_create_a_project_triggerReady = true;
+                if ((event.step >= 7 && event.step < 10) && (window.location.hash.includes("#action:revmgr.benefitplanProperties"))) {
+                    how_to_create_a_benefit_plan_triggerReady = true;
                 }
 
                 //save button
@@ -5212,7 +5216,7 @@ if (window._wfx_is_live()) {
                 }
                 //Participants Page
                 if ((window.location.hash.includes("#action:collab.projectParticipants"))) {
-                    potential_step = 6;
+                    potential_step = 5;
 
                 }
                 if (potential_step && event.step <= potential_step) {
@@ -5981,7 +5985,7 @@ if (window._wfx_is_live()) {
             window._wfx_settings['193c02f0-86fd-11e6-85ad-04013d24cd02'] = function (event) {
                 potential_step = 0;
                 //for step number 1....Click on Add Task button
-                if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+               /* if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     how_to_add_a_unplanned_task_row_step = 1;
                     how_to_add_a_unplanned_task_row_triggerReady = false;
                 }
@@ -6010,6 +6014,7 @@ if (window._wfx_is_live()) {
                     how_to_add_a_unplanned_task_row_step = 9;
                     how_to_add_a_unplanned_task_row_triggerReady = false;
                 }
+				*/
                 /*jump steps */
                 //for step number 1....Click on Add Task button page
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
@@ -6195,7 +6200,7 @@ if (window._wfx_is_live()) {
             window._wfx_settings['56c6e150-8967-11e6-b370-04013d24cc02'] = function (event) {
                 potential_step = 0;
 
-                if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+              /*  if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     project_task_row_step = 1;
                     project_task_row_triggerReady = false;
                 }
@@ -6237,7 +6242,7 @@ if (window._wfx_is_live()) {
                     project_task_row_step = 11;
                     project_task_row_triggerReady = false;
                 }
-
+*/
                 /*jump steps */
 
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
