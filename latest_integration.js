@@ -554,6 +554,11 @@ var how_to_add_links_and_notes_to_a_project_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/* variable for  How to synchronize Portfolio instantly?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_synchronize_portfolio_instantly_triggerReady = false;
+var how_to_synchronize_portfolio_instantly_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
 
@@ -1591,7 +1596,7 @@ $(window).hashchange(function () {
                 potential_step = 0;
 
                 //Timesheets page
-                if ((event.step >= 1 && event.step < 3) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+               /* if ((event.step >= 1 && event.step < 3) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
                     how_to_change_an_etc_value_triggerReady = true;
                 }
 
@@ -1605,7 +1610,7 @@ $(window).hashchange(function () {
                 if ((event.step >= 4 && event.step < 6) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
                     how_to_change_an_etc_value_triggerReady = true;
                 }
-
+	*/
                 /*jump steps */
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
                     potential_step = 1;
@@ -5507,6 +5512,84 @@ if (window._wfx_is_live()) {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a cost plan from the resource plan <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+		
+		
+						
+						/* ********************************************  How to synchronize Portfolio instantly? ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+				 if (how_to_synchronize_portfolio_instantly_triggerReady) {
+                window._wfx_close_live();
+                how_to_synchronize_portfolio_instantly_triggerReady = false;
+            }
+			
+			
+			 // For step number 2
+            if (how_to_synchronize_portfolio_instantly_step == 2 && !window.location.hash.includes('#action:pfm.portfolioDefaultTab')) {
+                how_to_synchronize_portfolio_instantly_step = 0;
+                window._wfx_close_live();
+            }
+			
+			 // For step number 3
+            if (how_to_synchronize_portfolio_instantly_step == 3 && !window.location.hash.includes('#action:pfm.portfolioContentsEditor')) {
+                how_to_synchronize_portfolio_instantly_step = 0;
+                window._wfx_close_live();
+            }
+			
+			 // For step number 4
+            if (how_to_synchronize_portfolio_instantly_step == 4 && !window.location.hash.includes('#action:pfm.portfolioContentsEdito')) {
+                how_to_synchronize_portfolio_instantly_step = 0;
+                window._wfx_close_live();
+            }
+			if (window._wfx_is_live()) {
+                        window._wfx_settings['b7efd2a0-a679-11e6-a0e0-04013d24cd02'] = function (event) {
+                            potential_step = 0;
+				
+					
+				if ((event.step == 2) && window.location.hash.includes("#action:pfm.portfolioLis")) {
+                            how_to_synchronize_portfolio_instantly_step = 2;
+                            how_to_synchronize_portfolio_instantly_triggerReady = false;
+                        }
+				
+					if ((event.step == 3) && window.location.hash.includes("#action:pfm.portfolioDefaultTab")) {
+                            how_to_synchronize_portfolio_instantly_step = 3;
+                            how_to_synchronize_portfolio_instantly_triggerReady = false;
+                        }
+						
+						if ((event.step == 4) && window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
+                            how_to_synchronize_portfolio_instantly_step = 4;
+                            how_to_synchronize_portfolio_instantly_triggerReady = false;
+                        }
+				
+				
+				 /*jump steps */
+                        if ((window.location.hash.includes("#action:pfm.portfolioLis"))) {
+                            potential_step = 2;
+                        }
+
+                        if ((window.location.hash.includes("#action:pfm.portfolioDefaultTab"))  ||(window.location.hash.includes("#action:pfm.portfolioProperties&odf_return_to=pfm.portfol"))) {
+                            potential_step = 3;
+                        }
+
+                        if (window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
+                            potential_step = 4;
+                        }
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+						
+						}
+			}
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to synchronize Portfolio instantly?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+  
+		
 
         /* ******************************************************How to change notification settings of a user ***************************************************/
 
