@@ -2134,7 +2134,7 @@ if (window._wfx_is_live()) {
 		}
         
 		//for step number 3....... Click on team tab 
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa"))) {
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa")) ||(window.location.hash.includes("action:SYSTEM"))) {
             potential_step = 3;
 
         }
@@ -4450,38 +4450,12 @@ if (window._wfx_is_live()) {
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 
-        if (how_to_add_a_note_for_a_time_entry_triggerReady) {
-            window._wfx_close_live();
-            how_to_add_a_note_for_a_time_entry_triggerReady = false;
-        }
-
-
-        // For step number 2
-        if (how_to_add_a_note_for_a_time_entry_step == 2 && !window.location.hash.includes('#action:timeadmin.editTimesheet&re')) {
-            how_to_add_a_note_for_a_time_entry_step = 0;
-            window._wfx_close_live();
-        }
-        // For step number 5
-        if (how_to_add_a_note_for_a_time_entry_step == 5 && !window.location.hash.includes('#action:timeadmin.editTimesheet&re')) {
-            how_to_add_a_note_for_a_time_entry_step = 0;
-            window._wfx_close_live();
-        }
-
+        
         if (window._wfx_is_live()) {
             window._wfx_settings['ce45b450-895c-11e6-85ad-04013d24cd02'] = function (event) {
                 potential_step = 0;
 
-                //add a note
-                if ((event.step == 1) && window.location.hash.includes("#action:timeadmin.editTimesheet&re")) {
-                    how_to_add_a_note_for_a_time_entry_step = 2;
-                    how_to_add_a_note_for_a_time_entry_triggerReady = false;
-                }
-
-                //save 
-                if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.editTimesheet&re")) {
-                    how_to_add_a_note_for_a_time_entry_step = 5;
-                    how_to_add_a_note_for_a_time_entry_triggerReady = false;
-                }
+               
 
                 /*jump steps */
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&re"))) {
@@ -5210,12 +5184,12 @@ if (window._wfx_is_live()) {
 
                 }
                 //project default page
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))|| (window.location.hash.includes('action:projmgr.projectPropertie')) ||(window.location.hash.includes('action:SYSTEM'))) {
                     potential_step = 3;
 
                 }
                 //Team staff page
-                if ((window.location.hash.includes("#action:projmgr.roster"))) {
+                if ((window.location.hash.includes("#action:projmgr.roster")) ) {
                     potential_step = 4;
 
                 }
@@ -5479,7 +5453,7 @@ if (window._wfx_is_live()) {
 
                 }
 
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes('action:SYSTEM'))) {
 
                     potential_step = 3;
                 }
@@ -6100,6 +6074,7 @@ if (window._wfx_is_live()) {
 				*/
                 /*jump steps */
                 //for step number 1....Click on Add Task button page
+				
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     potential_step = 1;
 
@@ -6110,7 +6085,7 @@ if (window._wfx_is_live()) {
                     potential_step = 2;
                 }
                 //for step number 3....Click on investment link page
-                if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid"))) {
+                if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid")) ||(window.location.hash.includes("action:timeadmin.createUnplannedTas"))) {
 
                     potential_step = 3;
                 }
