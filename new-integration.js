@@ -6,6 +6,25 @@
                 >>Authors:Amarish Mittapalli, Arpan Tolat, Arjun Pawar
         ---------------------------------------------------------------------------------------------------------------*/
 /*Default Code >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.*/
+
+$(document).ready(function () {
+    $.get("https://s3-us-west-2.amazonaws.com/helpdemoresources/test/obj.json", function (data, status) {
+        //data = JSON.parse(data);
+        window.tooltip1_url = data.tooltips.tooltip1_url;
+        //window.alert(data.tooltips.tooltip1_url);
+        window.tooltip2_url = data.tooltips.tooltip2_url;
+        window.tooltip3_url = data.tooltips.tooltip3_url;
+        window.tooltip4_url = data.tooltips.tooltip4_url;
+        //window.video_url = data.video.video1_url;
+        //window.pdf_url = data.pdf.pdf1_url;
+    });
+});
+
+
+
+
+
+
 //This code is for enabling Self Help Widget
 // Adding the self Help Widget.
 window._wfx_widget = {
@@ -58,58 +77,32 @@ window._wfx_settings.apply_page_settings = function () {
 
     window.setTimeout(function () {
         window._wfx_settings.apply_page_settings();
+        console.log("Tracking");
     }, 1000);
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<End*/
-
-    /*Common Code to resolve z-index for 2nd step balloon >>>>>>>>>>>>>>>>> Begin*/
-    $('[class="WFEMGM"]').css('z-index', '1000099');
-    $('[class="WFEMHL"]').css('z-index', '1000099');
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End*/
-
-    /*Default Code <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End*/
-
-    /*Below Code is for Portfolio flow "How to create Protfolio?". >>>>>>>>>>>>>>>>>>>>>>>>>>>> Begin*/
-
-    //Adding custom classes to elements...
-
-    //1.Custom class added to New button
-    if (window.location.hash.startsWith("#action:pfm.portfolioList")) {
-        $('[onclick=\"navigateToURL(\'nu?action=npt.setObjectUserPartitions\',\'navFromActionId=pfm.portfolioList\',\'navToActionId=pfm.portfolioCreate\',\'objectCode=pfm_portfolio\',\'ui.page.space=pfm.portfolios\');\"]').addClass("new_one");
-    }
-    //2.Custom class added to Save button
-    if ($('[title="Create Portfolio"]').length && window.location.hash.startsWith("#action:pfm.portfolioCreate")) {
-        $('[onclick=\"optionSelectAll(\'pagex\',\'owner\');optionSelectAll(\'pagex\',\'stakeholder\');submitForm(\'pagex\',\'pfm.portfolioCreateSave\',\'redirect_action=pfm.portfolioProperties\');\"]').addClass("portfolio_save");
-        //3.Custom class added to Save 7 Return button
-        $('[onclick*="pfm.portfolioCreateSubmit"]').addClass("portfolio_save_return");
-    }
-    //4.Custome class added to show the ballon for 2nd step only for Portfolio
-    //we don't need this anymore
-    //$('[title = "Portfolios"]').addClass('port').css('z-index', '1000099');
-
-    /*How to create Protfolio <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End*/
-
-    /*Below code is for "Change Request" flow >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //1. Adding custom class to Risks/Issues/Change tab to uniquely identify
-    if ((window.location.hash.includes("#action:projmgr.projectDefaultTab") && ($("label")[1].innerHTML) == 'Project ID') ||
-        (window.location.hash.includes("#action:projmgr.projectDefaultTab") && $('h2[title="Project Indicators"]').length > 0)) {
-        $('[title="Risks/Issues/Changes"]').addClass('proj_ric');
-    }
-    //2. Add custom class to Risks/Issues/Change for hover action
-    if (window.location.hash.startsWith("#action:itl.riskList") && $('h1[title*="Project"]').length) {
-        $('[title="Risks/Issues/Changes"]').addClass("project_ric_hover");
-    }
-    //3. Add custom class to New button under "Change Request" flow
-    if (window.location.hash.includes("changeList")) {
-        $('[onclick*="action=itl.changeObject"]').addClass("changereq_new");
-    }
-    /*"Change Request" flow <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 };
 
+window._wfx_settings.apply_page_settings();
 
-//-------------Normalize CSS, tooltip css---------------------------//
-var normalizeCSS = "<style>\/\/Strong\r\nb\r\n, strong {\r\n    font - weight: inherit;\r\n}\r\n\r\n\r\nb\r\n, strong {\r\n    font - weight: bolder;\r\n}\r\n\r\n\r\n\r\ndfn {\r\n    font - style: italic;\r\n}\r\n\r\n\/\/Headers\r\n\r\nh1 {\r\n\t    display: block;\r\n\t    font-size: 2em;\r\n\t    -webkit-margin-before: 0.67__qem;\r\n\t    -webkit-margin-after: 0.67em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\r\nstrong, b {\r\n    font-weight: bold;\r\n\t}\r\n\r\nh2 {\r\n\t    display: block;\r\n\t    font-size: 1.5em;\r\n\t    -webkit-margin-before: 0.83__qem;\r\n\t    -webkit-margin-after: 0.83em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th3 {\r\n\t    display: block;\r\n\t    font-size: 1.17em;\r\n\t    -webkit-margin-before: 1__qem;\r\n\t    -webkit-margin-after: 1em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th4 {\r\n\t    display: block;\r\n\t    -webkit-margin-before: 1.33__qem;\r\n\t    -webkit-margin-after: 1.33em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th5 {\r\n\t    display: block;\r\n\t    font-size: .83em;\r\n\t    -webkit-margin-before: 1.67__qem;\r\n\t    -webkit-margin-after: 1.67em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th6 {\r\n\t    display: block;\r\n\t    font-size: .67em;\r\n\t    -webkit-margin-before: 2.33__qem;\r\n\t    -webkit-margin-after: 2.33em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\r\n\r\n\/\/Lists\r\nul { \r\n   list-style-type: disc; \r\n   list-style-position: inside; \r\n}\r\nol { \r\n   list-style-type: decimal; \r\n   list-style-position: inside; \r\n}\r\nul ul, ol ul { \r\n   list-style-type: circle; \r\n   list-style-position: inside; \r\n   margin-left: 15px; \r\n}\r\nol ol, ul ol { \r\n   list-style-type: lower-latin; \r\n   list-style-position: inside; \r\n   margin-left: 15px; \r\n}\r\n\r\n\/\/Tables\r\ntable {\r\n\t    display: table;\r\n\t    border-collapse: separate;\r\n\t    border-spacing: 2px;\r\n\t    border-color: gray;\r\n\t}\r\n\t\r\n\tthead {\r\n\t    display: table-header-group;\r\n\t    vertical-align: middle;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\ttbody {\r\n\t    display: table-row-group;\r\n vertical-align: middle;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\ttfoot {\r\n\t    display: table-footer-group;\r\n\t    vertical-align: middle;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\t\/* for tables without table section elements (can happen with XHTML or dynamically created tables) *\/\r\n\ttable > tr {\r\n\t    vertical-align: middle;\r\n\t}\r\n\t\r\n\tcol {\r\n\t    display: table-column;\r\n}\r\n\t\r\n\tcolgroup {\r\n\t    display: table-column-group;\r\n\t}\r\n\t\r\n\ttr {\r\n\t    display: table-row;\r\n\t    vertical-align: inherit;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\ttd, th {\r\n\t    display: table-cell;\r\n\t    vertical-align: inherit;\r\n\t}\r\n\t\r\nth {\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\tcaption {\r\n\t    display: table-caption;\r\n\t    text-align: -webkit-center;\r\n\t}\r\n\r\n\/\/Button\r\nbutton {\r\n\t    -webkit-appearance: button;\r\n}<\/style>";
+//For flow segmentation
+window._wfx_settings.equals = function (one, two) {
+    if (!one) {
+        if (!two) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        if (!two) {
+            return false;
+        } else {
+            return one == two;
+        }
+    }
+}
 
+
+//---------------BUTTON JQUERY DEF------------------------//
 
 //CSS for the tooltips associated with the "?" icons/buttons.
 
@@ -119,9 +112,7 @@ var toolTipCss = '<style>\r\n.tooltip {\r\n    position: relative;\r\n    displa
 
 var buttonCss = '<style>\r\n.button-hov { \r\n display: inline-block;\r\n position: absolute;\r\n right: 20px; inline-block;\r\n border-radius: 84px;\r\n background-color: #1c9a1a;\r\n border: 1px solid #1c9a1a;\r\n color: #FFFFFF;\r\n text-align: center;\r\n font-size: 10px;\r\n padding: 4px 6px 4px 6px;\r\n cursor: pointer;\r\n margin: 4px 10px 0px 0px;\r\n}\r\n#check {position: relative;z-index: 10000;fill: none;stroke: green;stroke-width: 20;stroke-linecap: round;stroke-dasharray: 180;stroke-dashoffset: 180;  animation: draw 2s 1 ease;}@keyframes draw {  to {    stroke-dashoffset: 0;  }}<\/style>';
 
-//-----------------------------------------------------//
 
-//--------------------JQuery Button Defs---------------//
 
 // "Validate 1" button
 window._wfx_settings.add_button = function (name, button, parentSelector, action) {
@@ -137,6 +128,7 @@ window._wfx_settings.add_button = function (name, button, parentSelector, action
     });
     $(parentSelector).append(validate);
 };
+
 
 
 // "Report Status" Button/ "?" icon
@@ -211,7 +203,296 @@ window._wfx_settings.add_button_ce_status = function (name, img, parentSelector)
 };
 
 
-//-----------------------------------------------------//
+//---------------------------------------------------------//
+
+
+
+//--------------------------------------------------------//
+
+//Invokes functions to add buttons to pages
+
+window._wfx_settings.init_page = function (name, settings) {
+
+    // Validate button addition.
+    console.log("Tracking...");
+
+    if (settings.validate) {
+        window._wfx_settings.add_button(name, "Validate", settings.button_bar, settings.validate);
+    }
+
+    //Report Status button addition.
+
+    window._wfx_settings.add_button_report_status(name, window.tooltip1_url, settings.button_bar_one);
+
+    //Schedule Status button addition.
+
+    window._wfx_settings.add_button_schedule_status(name, window.tooltip2_url, settings.button_bar_two);
+
+    //Scope Status button addition.
+
+    window._wfx_settings.add_button_scope_status(name, window.tooltip3_url, settings.button_bar_three);
+
+    //Cost & Effect Status button addition.
+
+    window._wfx_settings.add_button_ce_status(name, window.tooltip4_url, settings.button_bar_four);
+
+    // Update self help widget if required.
+    if (settings.self_help && (!window._wfx_settings.equals(settings.self_help.tags, window._wfx_widget.tags) || !window._wfx_settings.equals(settings.self_help.color, window._wfx_widget.color))) {
+        window._wfx_widget.tags = settings.self_help.tags;
+        window._wfx_widget.filter_by_tag = settings.self_help.tags;
+        window._wfx_widget.color = settings.self_help.color;
+        window._wfx_refresh();
+    }
+};
+
+
+
+
+
+
+//Validate 1 button click action
+var status_report_validate = function () {
+
+    var str = document.querySelector('[maxlength="80"]').value;
+    var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+    var res = date_regex.test(str.substring(14)) && str.includes('Week Ending');
+    var valtip_one = $("<warn1/>", {
+        'class': 'tooltips'
+        , 'html': '&nbsp;&nbsp;&nbsp;&#9888<msg>Enter Report Name in Correct Format: "Week Ending - MM/DD/YYYY"</msg>'
+    }).append('<style>\r\nwarn1.tooltips {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\nwarn1.tooltips msg {\r\n  position: absolute;\r\n width: 235px;\r\n color: #ff0000;\r\n background: #ffffff;\r\n line-height: 30px;\r\n text-align: center;\r\n visibility: hidden;\r\n border-radius: 9px;\r\n font-weight: bold;\r\n border: 2px solid #ff0000;\r\n}\r\nwarn1:hover.tooltips msg {\r\n  visibility: visible;\r\n  opacity: 1;\r\n  left: 100%;\r\n  top: 50%;\r\n  margin-top: -15px;\r\n  margin-left: 15px;\r\n  z-index: 999;\r\n}\r\n}<\/style>');
+
+    var valtip_two = $("<warn2/>", {
+        'class': 'tooltips'
+        , 'html': '&nbsp;&nbsp;&nbsp;&#9888<msg>Schedule status is required.</msg>'
+    }).append('<style>\r\nwarn2.tooltips {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\nwarn2.tooltips msg {\r\n  position: absolute;\r\n width: 235px;\r\n color: #ff0000;\r\n background: #ffffff;\r\n line-height: 30px;\r\n text-align: center;\r\n visibility: hidden;\r\n border-radius: 9px;\r\n font-weight: bold;\r\n border: 2px solid #ff0000;\r\n}\r\nwarn2:hover.tooltips msg {\r\n  visibility: visible;\r\n  opacity: 1;\r\n  left: 100%;\r\n  top: 50%;\r\n  margin-top: -15px;\r\n  margin-left: 15px;\r\n  z-index: 999;\r\n}\r\n}<\/style>');
+
+    var valtip_three = $("<warn3/>", {
+        'class': 'tooltips'
+        , 'html': '&nbsp;&nbsp;&nbsp;&#9888<msg>Variance Explanation is required when status is not On-Track.</msg>'
+    }).append('<style>\r\nwarn3.tooltips {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\nwarn3.tooltips msg {\r\n  position: absolute;\r\n width: 235px;\r\n color: #ff0000;\r\n background: #ffffff;\r\n line-height: 30px;\r\n text-align: center;\r\n visibility: hidden;\r\n border-radius: 9px;\r\n font-weight: bold;\r\n border: 2px solid #ff0000;\r\n}\r\nwarn3:hover.tooltips msg {\r\n  visibility: visible;\r\n  opacity: 1;\r\n  left: 100%;\r\n  top: 50%;\r\n  margin-top: -15px;\r\n  margin-left: 15px;\r\n  z-index: 999;\r\n}\r\n}<\/style>');
+
+    var valtip_four = $("<warn4/>", {
+        'class': 'tooltips'
+        , 'html': '&nbsp;&nbsp;&nbsp;&#9888<msg>Scope Status is Required.</msg>'
+    }).append('<style>\r\nwarn4.tooltips {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\nwarn4.tooltips msg {\r\n  position: absolute;\r\n width: 235px;\r\n color: #ff0000;\r\n background: #ffffff;\r\n line-height: 30px;\r\n text-align: center;\r\n visibility: hidden;\r\n border-radius: 9px;\r\n font-weight: bold;\r\n border: 2px solid #ff0000;\r\n}\r\nwarn4:hover.tooltips msg {\r\n  visibility: visible;\r\n  opacity: 1;\r\n  left: 100%;\r\n  top: 50%;\r\n  margin-top: -15px;\r\n  margin-left: 15px;\r\n  z-index: 999;\r\n}\r\n}<\/style>');
+
+    var valtip_five = $("<warn5/>", {
+        'class': 'tooltips'
+        , 'html': '&nbsp;&nbsp;&nbsp;&#9888<msg>Variance Explanation is required when status is not On-Track.</msg>'
+    }).append('<style>\r\nwarn5.tooltips {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\nwarn5.tooltips msg {\r\n  position: absolute;\r\n width: 235px;\r\n color: #ff0000;\r\n background: #ffffff;\r\n line-height: 30px;\r\n text-align: center;\r\n visibility: hidden;\r\n border-radius: 9px;\r\n font-weight: bold;\r\n border: 2px solid #ff0000;\r\n}\r\nwarn5:hover.tooltips msg {\r\n  visibility: visible;\r\n  opacity: 1;\r\n  left: 100%;\r\n  top: 50%;\r\n  margin-top: -15px;\r\n  margin-left: 15px;\r\n  z-index: 999;\r\n}\r\n}<\/style>');
+
+    var valtip_six = $("<warn6/>", {
+        'class': 'tooltips'
+        , 'html': '&nbsp;&nbsp;&nbsp;&#9888<msg>Cost & Effort Status is Required.</msg>'
+    }).append('<style>\r\nwarn6.tooltips {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\nwarn6.tooltips msg {\r\n  position: absolute;\r\n width: 235px;\r\n color: #ff0000;\r\n background: #ffffff;\r\n line-height: 30px;\r\n text-align: center;\r\n visibility: hidden;\r\n border-radius: 9px;\r\n font-weight: bold;\r\n border: 2px solid #ff0000;\r\n}\r\nwarn6:hover.tooltips msg {\r\n  visibility: visible;\r\n  opacity: 1;\r\n  left: 100%;\r\n  top: 50%;\r\n  margin-top: -15px;\r\n  margin-left: 15px;\r\n  z-index: 999;\r\n}\r\n}<\/style>');
+
+    var valtip_seven = $("<warn7/>", {
+        'class': 'tooltips'
+        , 'html': '&nbsp;&nbsp;&nbsp;&#9888<msg>Variance Explanation is required when status is not On-Track.</msg>'
+    }).append('<style>\r\nwarn7.tooltips {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\nwarn7.tooltips msg {\r\n  position: absolute;\r\n width: 235px;\r\n color: #ff0000;\r\n background: #ffffff;\r\n line-height: 30px;\r\n text-align: center;\r\n visibility: hidden;\r\n border-radius: 9px;\r\n font-weight: bold;\r\n border: 2px solid #ff0000;\r\n}\r\nwarn7:hover.tooltips msg {\r\n  visibility: visible;\r\n  opacity: 1;\r\n  left: 100%;\r\n  top: 50%;\r\n  margin-top: -15px;\r\n  margin-left: 15px;\r\n  z-index: 999;\r\n}\r\n}<\/style>');
+
+    var repname = $('[maxlength="80"]');
+    var schedule_status = $('[name="cop_schedule_status"]');
+    var schedule_exp = $('[name="cop_schedule_exp"]');
+    var scope_status = $('[name="cop_scope_status"]');
+    var scope_exp = $('[name="cop_scope_exp"]');
+    var costeffort_status = $('[name="cop_cost_eft_status"]');
+    var costeffort_exp = $('[name="cop_effort_exp"]');
+
+
+    if (res == false) {
+        $('tick1').remove();
+        if (!($('warn1').length)) {
+            repname = repname.addClass('animation').append('<style>\r\n.animation{\r\n  animation: 0.5s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px red;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            repname = repname.after(valtip_one);
+        }
+
+    } else {
+        $('warn1').remove();
+        repname = repname.removeClass("animation");
+        if (!($('tick1').length)) {
+            //repname = repname.addClass('animation1').append('<style>\r\n.animation1{\r\n  animation: 1s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px blue;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            repname.after('<tick1><font color="blue">&nbsp;&nbsp;&nbsp;&#10004<font></tick1>');
+        }
+
+    }
+
+
+    if ((document.querySelector('[name="cop_schedule_status"]').selectedIndex == 0)) {
+        $('tick2').remove();
+        if (!($('warn2').length)) {
+            schedule_status = schedule_status.addClass('animation').append('<style>\r\n.animation{\r\n  animation: 0.5s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px red;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            schedule_status = schedule_status.after(valtip_two);
+        }
+    } else {
+        $('warn2').remove();
+        schedule_status = schedule_status.removeClass("animation");
+        if (!($('tick2').length)) {
+            //schedule_status = schedule_status.addClass('animation1').append('<style>\r\n.animation1{\r\n  animation: 1s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px blue;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            schedule_status.after('<tick2><font color="blue">&nbsp;&nbsp;&nbsp;&#10004</font></tick2>');
+        }
+    }
+
+    if ((document.querySelector('[name="cop_schedule_status"]').selectedIndex != 1) && document.querySelector('[name="cop_schedule_exp"]').value.length == 0) {
+        $('tick3').remove();
+        if (!($('warn3').length)) {
+            schedule_exp = schedule_exp.addClass('animation').append('<style>\r\n.animation{\r\n  animation: 0.5s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px red;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            schedule_exp = schedule_exp.after(valtip_three);
+        }
+    } else {
+        $('warn3').remove();
+        schedule_exp = schedule_exp.removeClass("animation");
+        if (!($('tick3').length)) {
+            //schedule_exp = schedule_exp.addClass('animation1').append('<style>\r\n.animation1{\r\n  animation: 1s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px blue;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            schedule_exp.after('<tick3><font color="blue">&nbsp;&nbsp;&nbsp;&#10004</font></tick3>');
+        }
+    }
+
+
+    if ((document.querySelector('[name="cop_scope_status"]').selectedIndex == 0)) {
+        $('tick4').remove();
+        if (!($('warn4').length)) {
+            scope_status = scope_status.addClass('animation').append('<style>\r\n.animation{\r\n  animation: 0.5s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px red;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            scope_status = scope_status.after(valtip_four);
+        }
+
+    } else {
+        $('warn4').remove();
+        scope_status = scope_status.removeClass("animation");
+        if (!($('tick4').length)) {
+            //scope_status = scope_status.addClass('animation1').append('<style>\r\n.animation1{\r\n  animation: 1s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px blue;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            scope_status.after('<tick4><font color="blue">&nbsp;&nbsp;&nbsp;&#10004</font></tick4>');
+        }
+    }
+
+
+    if ((document.querySelector('[name="cop_scope_status"]').selectedIndex != 1) && document.querySelector('[name="cop_scope_exp"]').value.length == 0) {
+        $('tick5').remove();
+        if (!($('warn5').length)) {
+            scope_exp = scope_exp.addClass('animation').append('<style>\r\n.animation{\r\n  animation: 0.5s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px red;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            scope_exp = scope_exp.after(valtip_five);
+        }
+    } else {
+        $('warn5').remove();
+        scope_exp = scope_exp.removeClass("animation");
+        if (!($('tick5').length)) {
+            //scope_exp = scope_exp.addClass('animation1').append('<style>\r\n.animation1{\r\n  animation: 1s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px blue;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            scope_exp.after('<tick5><font color="blue">&nbsp;&nbsp;&nbsp;&#10004</font></tick5>');
+        }
+    }
+
+    if ((document.querySelector('[name="cop_cost_eft_status"]').selectedIndex == 0)) {
+        $('tick6').remove();
+        if (!($('warn6').length)) {
+            costeffort_status = costeffort_status.addClass('animation').append('<style>\r\n.animation{\r\n  animation: 0.5s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px red;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            costeffort_status = costeffort_status.after(valtip_six);
+        }
+
+    } else {
+        $('warn6').remove();
+        costeffort_status = costeffort_status.removeClass("animation");
+        if (!($('tick6').length)) {
+            //costeffort_status = costeffort_status.addClass('animation1').append('<style>\r\n.animation1{\r\n  animation: 1s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px blue;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            costeffort_status.after('<tick6><font color="blue">&nbsp;&nbsp;&nbsp;&#10004<font></tick6>');
+        }
+    }
+
+
+    if ((document.querySelector('[name="cop_cost_eft_status"]').selectedIndex != 1) && document.querySelector('[name="cop_effort_exp"]').value.length == 0) {
+        $('tick7').remove();
+        if (!($('warn7').length)) {
+            costeffort_exp = costeffort_exp.addClass('animation').append('<style>\r\n.animation{\r\n  animation: 0.5s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px red;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            costeffort_exp = costeffort_exp.after(valtip_seven);
+        }
+
+    } else {
+        $('warn7').remove();
+        costeffort_exp = costeffort_exp.removeClass("animation");
+        if (!($('tick7').length)) {
+            //costeffort_exp = costeffort_exp.addClass('animation1').append('<style>\r\n.animation1{\r\n  animation: 1s animateBorderOne ease 3;\r\n outline: 2px; box-shadow: 0 0 0 2px blue;}\r\n\r\n@keyframes animateBorderOne {\r\n  to {\r\n  box-shadow: 0 0 0 2px white;\r\n  }\r\n}<\/style>');
+            costeffort_exp.after('<tick7><font color="blue">&nbsp;&nbsp;&nbsp;&#10004</font></tick7>');
+        }
+    }
+
+};
+
+// Validate one button for New status report.
+window._wfx_settings['page_settings']['create_status_report'] = {
+    "hash": "#action:odf.subObjectProperties"
+    , "button_bar": "#ppm_workspace_bb .ppm_button_bar,form .ppm_button_bar"
+    , "validate": status_report_validate
+};
+
+
+// Validate two button for Existing status report.
+window._wfx_settings['page_settings']['update_status_report'] = {
+    "hash": "#action:odf.cop_prj_statusrptProperties"
+    , "button_bar": "#ppm_workspace_bb .ppm_button_bar,form .ppm_button_bar"
+    , "validate": status_report_validate
+};
+
+// Report Status button for New Status Report.
+window._wfx_settings['page_settings']['report_status_one'] = {
+    "hash": "#action:odf.subObjectProperties"
+    , "button_bar_one": "[title = 'Status Report']"
+};
+
+// Report Status button for Existing Status Report.
+window._wfx_settings['page_settings']['report_status_two'] = {
+    "hash": "#action:odf.cop_prj_statusrptProperties"
+    , "button_bar_one": "[title = 'Status Report']"
+};
+
+
+// Schedule Status button for New Status Report.
+window._wfx_settings['page_settings']['schedule_status_one'] = {
+    "hash": "#action:odf.subObjectProperties"
+    , "button_bar_two": "[title = 'Schedule']"
+
+};
+
+// Schedule Status button for Existing Status Report.
+window._wfx_settings['page_settings']['schedule_status_two'] = {
+    "hash": "#action:odf.cop_prj_statusrptProperties"
+    , "button_bar_two": "[title = 'Schedule']"
+
+};
+
+
+// Scope Status button for New Status Report.
+window._wfx_settings['page_settings']['scope_status_one'] = {
+    "hash": "#action:odf.subObjectProperties"
+    , "button_bar_three": "[title = 'Scope']"
+
+};
+
+
+// Scope Status button for Existing Status Report.
+window._wfx_settings['page_settings']['scope_status_two'] = {
+    "hash": "#action:odf.cop_prj_statusrptProperties"
+    , "button_bar_three": "[title = 'Scope']"
+
+};
+
+
+// Cost & Effort Status button for New Status Report.
+window._wfx_settings['page_settings']['cost_and_effort_status_one'] = {
+    "hash": "#action:odf.subObjectProperties"
+    , "button_bar_four": "[title = 'Cost and Effort']"
+
+};
+
+// Cost & Effort Status button for Existing Status Report.
+window._wfx_settings['page_settings']['cost_and_effort_status_two'] = {
+    "hash": "#action:odf.cop_prj_statusrptProperties"
+    , "button_bar_four": "[title = 'Cost and Effort']"
+
+};
+
+
+
+
+//--------------------------------------------------------//
 
 
 /* Below code is for killing the flow by when user go out of the flow >>>>>>>>>>>>>>>>>>>>>>>>>>>> Begin >>>>>>>>>>>>>>>>>>>>>>>..*/
@@ -813,8 +1094,8 @@ $(window).hashchange(function () {
             how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
             window._wfx_close_live();
         }
-		
-		 // For step number 3
+
+        // For step number 3
         if (how_to_set_a_portfolio_plan_as_the_plan_of_record_step == 3 && !window.location.hash.includes('#action:pfm.planList&odf_return')) {
             how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 0;
             window._wfx_close_live();
@@ -844,17 +1125,17 @@ $(window).hashchange(function () {
                 }
 
 
-				
-					
+
+
                 //click on icon
                 if ((event.step == 3) && window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm.")) {
                     how_to_set_a_portfolio_plan_as_the_plan_of_record_step = 3;
                     how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
                 }
 
-				
+
                 //select any plan and click set plan of record button
-				if ((event.step >=3 && event.step < 4) && (window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm."))) {
+                if ((event.step >= 3 && event.step < 4) && (window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm."))) {
                     how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = true;
                 }
 
@@ -895,29 +1176,29 @@ $(window).hashchange(function () {
                     how_to_set_a_portfolio_plan_as_the_plan_of_record_triggerReady = false;
                 }
 
-				
-				 /*jump steps */
-                        if ((window.location.hash.includes("#action:pfm.portfolioList"))) {
-                            potential_step = 2;
-                        }
 
-                        if ((window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm."))) {
-                            potential_step = 3;
-                        }
+                /*jump steps */
+                if ((window.location.hash.includes("#action:pfm.portfolioList"))) {
+                    potential_step = 2;
+                }
 
-                        if (window.location.hash.includes("#action:pfm.planList&i")) {
-                            potential_step = 5;
-                        }
+                if ((window.location.hash.includes("#action:pfm.planList&odf_return_to=pfm."))) {
+                    potential_step = 3;
+                }
 
-                        if (potential_step && event.step <= potential_step) {
-                            return {
-                                "position": potential_step
-                            };
-                        }
-						
-						
-				
-				
+                if (window.location.hash.includes("#action:pfm.planList&i")) {
+                    potential_step = 5;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+
+
+
 
             }
 
@@ -1342,11 +1623,11 @@ $(window).hashchange(function () {
             window._wfx_close_live();
         }
 
-//        //for step number 4
-//        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_od')) {
-//            how_to_create_a_role_step = 0;
-//            window._wfx_close_live();
-//        }
+        //        //for step number 4
+        //        if (how_to_create_a_role_step == 4 && !window.location.hash.includes('#action:projmgr.resourceNewOptions_od')) {
+        //            how_to_create_a_role_step = 0;
+        //            window._wfx_close_live();
+        //        }
 
         //for step number 8
         if (how_to_create_a_role_step == 7 && !window.location.hash.includes('#action:projmgr.editResource&reso')) {
@@ -1374,7 +1655,7 @@ $(window).hashchange(function () {
                 //Next button on Select reource type page
                 if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.resourceNewOptions_od"))) {
                     how_to_create_a_role_step = 4;
-//                    how_to_create_a_role_triggerReady = false;
+                    //                    how_to_create_a_role_triggerReady = false;
                 }
 
 
@@ -1646,7 +1927,7 @@ $(window).hashchange(function () {
                 if ((window.location.hash.includes("#action:timeadmin.confirmAction&ts_"))) {
                     potential_step = 2;
                 }
-				//Added jump Step
+                //Added jump Step
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&id"))) {
                     potential_step = 3;
                 }
@@ -1703,7 +1984,7 @@ $(window).hashchange(function () {
                 potential_step = 0;
 
                 //Timesheets page
-               /* if ((event.step >= 1 && event.step < 3) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+                /* if ((event.step >= 1 && event.step < 3) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
                     how_to_change_an_etc_value_triggerReady = true;
                 }
 
@@ -1745,7 +2026,7 @@ $(window).hashchange(function () {
                 potential_step = 0;
 
                 //Timesheets page
-               /* if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
+                /* if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
                     how_to_how_to_modify_a_submitted_timesheet_step = 2;
                     how_to_modify_a_submitted_timesheet_triggerReady = false;
                 }
@@ -1848,8 +2129,8 @@ $(window).hashchange(function () {
                 if ((event.step >= 3 && event.step < 12) && window.location.hash.includes('#action:pma.ideaCreate&partition_code')) {
                     how_to_create_idea_triggerReady = true;
                 }
-				
-				
+
+
                 if ((event.step == 12) && window.location.hash.includes('#action:pma.ideaCreate&partition_code')) {
                     how_to_create_idea_step = 12;
                     how_to_create_idea_triggerReady = false;
@@ -1879,428 +2160,428 @@ $(window).hashchange(function () {
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of how to create an Idea <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
-		//gtc code begin
-		
-		
-/*<<<<<How to close an Action Item assigned to you >>>>*/
-/* @Author : Venu */
-/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
-
-if (close_action_item_assigned_triggerReady) {
-    window._wfx_close_live();
-    close_action_item_assigned_triggerReady = false;
-}
-
-//click on go button page
-if (close_action_item_assigned_step == 2 && !window.location.hash.includes('#action:calendar.actionItemList&uitk.navigation.parent.location')) {
-    close_action_item_assigned_step = 0;
-    window._wfx_close_live();
-}
-
-//click on go button page
-if (close_action_item_assigned_step == 3 && !window.location.hash.includes('#action:calendar.actionItemList&uitk.navigation.parent.location')) {
-    close_action_item_assigned_step = 0;
-    window._wfx_close_live();
-}
+        //gtc code begin
 
 
+        /*<<<<<How to close an Action Item assigned to you >>>>*/
+        /* @Author : Venu */
+        /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
 
-//select the action item from the page... action item page
-if (close_action_item_assigned_step == 4 && !window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk")) {
-    close_action_item_assigned_step = 0;
-    window._wfx_close_live();
-}
-//select the action item from the page... action item page
-if (close_action_item_assigned_step == 5 && !window.location.hash.includes("#action:calendar.actionItemList")) {
-    close_action_item_assigned_step = 0;
-    window._wfx_close_live();
-}
-
-//select the action item from the page... action item page
-if (close_action_item_assigned_step == 6 && !window.location.hash.includes("#action:calendar.actionItemList")) {
-    close_action_item_assigned_step = 0;
-    window._wfx_close_live();
-}
-
-if (window._wfx_is_live()) {
-    window._wfx_settings['d77800f0-9b4a-11e6-a426-04013d24cc02'] = function(event) {
-        potential_step = 0;
-
-        //for step number 2...click on add task button 
-        if ((event.step >= 2 && event.step < 4) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
-            close_action_item_assigned_step = 2;
-            close_action_item_assigned_triggerReady = false;
-        }
-        //click on go button 
-
-        if ((event.step == 3) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
-            close_action_item_assigned_step = 3;
+        if (close_action_item_assigned_triggerReady) {
+            window._wfx_close_live();
             close_action_item_assigned_triggerReady = false;
         }
 
-        if ((event.step == 4) && (window.location.hash.includes("#action:calendar.actionItemList&uitk.navigation.parent.location=Workspace"))) {
-            close_action_item_assigned_step = 4;
-            close_action_item_assigned_triggerReady = false;
-        }
-        //
-        if ((event.step >= 5 && event.step < 7) && (window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk"))) {
-            close_action_item_assigned_triggerReady = false;
-        }
-        if ((event.step == 6) && (window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk"))) {
-            close_action_item_assigned_step = 6;
-            close_action_item_assigned_triggerReady = false;
+        //click on go button page
+        if (close_action_item_assigned_step == 2 && !window.location.hash.includes('#action:calendar.actionItemList&uitk.navigation.parent.location')) {
+            close_action_item_assigned_step = 0;
+            window._wfx_close_live();
         }
 
-        /*jump steps */
-        if ((window.location.hash.includes("#action:calendar.organizerHome"))) {
-            potential_step = 2;
-
-        }
-        //click on add task button page
-        if ((window.location.hash.includes("#action:calendar.actionItemList&uitk.navigation.parent.location"))) {
-            potential_step = 4;
-        }
-        //click on add task button page
-        if ((window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk"))) {
-            potential_step = 5;
+        //click on go button page
+        if (close_action_item_assigned_step == 3 && !window.location.hash.includes('#action:calendar.actionItemList&uitk.navigation.parent.location')) {
+            close_action_item_assigned_step = 0;
+            window._wfx_close_live();
         }
 
-        if (potential_step && event.step <= potential_step) {
-            return {
-                "position": potential_step
-            };
+
+
+        //select the action item from the page... action item page
+        if (close_action_item_assigned_step == 4 && !window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk")) {
+            close_action_item_assigned_step = 0;
+            window._wfx_close_live();
         }
-    }
-}
-/*<<<<<End of How to close an Action Item assigned to you >>>>*********************************/
+        //select the action item from the page... action item page
+        if (close_action_item_assigned_step == 5 && !window.location.hash.includes("#action:calendar.actionItemList")) {
+            close_action_item_assigned_step = 0;
+            window._wfx_close_live();
+        }
 
-/* ******************************************************how to Create a Action Item to a Resource ***************************************************/
+        //select the action item from the page... action item page
+        if (close_action_item_assigned_step == 6 && !window.location.hash.includes("#action:calendar.actionItemList")) {
+            close_action_item_assigned_step = 0;
+            window._wfx_close_live();
+        }
 
-//Arun
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        if (window._wfx_is_live()) {
+            window._wfx_settings['d77800f0-9b4a-11e6-a426-04013d24cc02'] = function (event) {
+                potential_step = 0;
 
-if (how_to_create_a_action_item_to_a_resource_triggerReady) {
-    window._wfx_close_live();
-    how_to_create_a_action_item_to_a_resource_triggerReady = false;
-}
-//for step number 2
-if (how_to_create_a_action_item_to_a_resource_step == 2 && !window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT")) {
-    how_to_create_a_action_item_to_a_resource_step = 0;
-    window._wfx_close_live();
-}
-//for step number 3
-if (how_to_create_a_action_item_to_a_resource_step == 3 && !window.location.hash.includes("#action:calendar.actionItemList&odf_pk")) {
-    how_to_create_a_action_item_to_a_resource_step = 0;
-    window._wfx_close_live();
-}
-//for step number 18
-if (how_to_create_a_action_item_to_a_resource_step == 18 && !window.location.hash.includes("#action:calendar.actionItemList&odf_pk")) {
-    how_to_create_a_action_item_to_a_resource_step = 0;
-    window._wfx_close_live();
-}
+                //for step number 2...click on add task button 
+                if ((event.step >= 2 && event.step < 4) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
+                    close_action_item_assigned_step = 2;
+                    close_action_item_assigned_triggerReady = false;
+                }
+                //click on go button 
 
-if (window._wfx_is_live()) {
-    window._wfx_settings['84b840a0-9b77-11e6-93e6-04013d24cc02'] = function(event) {
-        potential_step = 0;
+                if ((event.step == 3) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
+                    close_action_item_assigned_step = 3;
+                    close_action_item_assigned_triggerReady = false;
+                }
 
-        if ((event.step == 2) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
-            how_to_create_a_action_item_to_a_resource_step = 2;
+                if ((event.step == 4) && (window.location.hash.includes("#action:calendar.actionItemList&uitk.navigation.parent.location=Workspace"))) {
+                    close_action_item_assigned_step = 4;
+                    close_action_item_assigned_triggerReady = false;
+                }
+                //
+                if ((event.step >= 5 && event.step < 7) && (window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk"))) {
+                    close_action_item_assigned_triggerReady = false;
+                }
+                if ((event.step == 6) && (window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk"))) {
+                    close_action_item_assigned_step = 6;
+                    close_action_item_assigned_triggerReady = false;
+                }
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:calendar.organizerHome"))) {
+                    potential_step = 2;
+
+                }
+                //click on add task button page
+                if ((window.location.hash.includes("#action:calendar.actionItemList&uitk.navigation.parent.location"))) {
+                    potential_step = 4;
+                }
+                //click on add task button page
+                if ((window.location.hash.includes("#action:calendar.actionitemDetails&odf_pk"))) {
+                    potential_step = 5;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+            }
+        }
+        /*<<<<<End of How to close an Action Item assigned to you >>>>*********************************/
+
+        /* ******************************************************how to Create a Action Item to a Resource ***************************************************/
+
+        //Arun
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+        if (how_to_create_a_action_item_to_a_resource_triggerReady) {
+            window._wfx_close_live();
             how_to_create_a_action_item_to_a_resource_triggerReady = false;
         }
-
-        if ((event.step >= 3 && event.step < 19) && (window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
-          
-            how_to_create_a_action_item_to_a_resource_triggerReady = true;
+        //for step number 2
+        if (how_to_create_a_action_item_to_a_resource_step == 2 && !window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT")) {
+            how_to_create_a_action_item_to_a_resource_step = 0;
+            window._wfx_close_live();
         }
-        if ((event.step == 18) && (window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
-            how_to_create_a_action_item_to_a_resource_step = 18;
-            how_to_create_a_action_item_to_a_resource_triggerReady = false;
+        //for step number 3
+        if (how_to_create_a_action_item_to_a_resource_step == 3 && !window.location.hash.includes("#action:calendar.actionItemList&odf_pk")) {
+            how_to_create_a_action_item_to_a_resource_step = 0;
+            window._wfx_close_live();
+        }
+        //for step number 18
+        if (how_to_create_a_action_item_to_a_resource_step == 18 && !window.location.hash.includes("#action:calendar.actionItemList&odf_pk")) {
+            how_to_create_a_action_item_to_a_resource_step = 0;
+            window._wfx_close_live();
         }
 
-        /*jump steps */
-        if ((window.location.hash.includes("#action:calendar.organizerHome"))) {
-            potential_step = 2;
+        if (window._wfx_is_live()) {
+            window._wfx_settings['84b840a0-9b77-11e6-93e6-04013d24cc02'] = function (event) {
+                potential_step = 0;
 
+                if ((event.step == 2) && (window.location.hash.includes("#action:calendar.organizerHome"))) {
+                    how_to_create_a_action_item_to_a_resource_step = 2;
+                    how_to_create_a_action_item_to_a_resource_triggerReady = false;
+                }
+
+                if ((event.step >= 3 && event.step < 19) && (window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
+
+                    how_to_create_a_action_item_to_a_resource_triggerReady = true;
+                }
+                if ((event.step == 18) && (window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
+                    how_to_create_a_action_item_to_a_resource_step = 18;
+                    how_to_create_a_action_item_to_a_resource_triggerReady = false;
+                }
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:calendar.organizerHome"))) {
+                    potential_step = 2;
+
+                }
+
+                if ((window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
+
+                    potential_step = 3;
+                }
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+            }
         }
 
-        if ((window.location.hash.includes("#action:calendar.actionitemProperties&partition_code=NIKU.ROOT"))) {
-
-            potential_step = 3;
-        }
-        if (potential_step && event.step <= potential_step) {
-            return {
-                "position": potential_step
-            };
-        }
-    }
-}
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< how to Create a Action Item to a Resource <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< how to Create a Action Item to a Resource <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
 
-/*START <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to Shift a Resource Allocation in a Project <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/* @Author : Venu */
-/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
-if (shift_resource_allocation_triggerReady) {
-    window._wfx_close_live();
-    shift_resource_allocation_triggerReady = false;
-}
-//project default page
-if (shift_resource_allocation_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
-    shift_resource_allocation_step = 0;
-    window._wfx_close_live();
-}
-//project team page
-if (shift_resource_allocation_step == 3 && !window.location.hash.includes("#action:projmgr.roster&id")) {
-    shift_resource_allocation_step = 0;
-    window._wfx_close_live();
-}
-//project team page
-if (shift_resource_allocation_step == 4 && !window.location.hash.includes("#action:projmgr.roster&id")) {
-    shift_resource_allocation_step = 0;
-    window._wfx_close_live();
-}
-
-
-if (window._wfx_is_live()) {
-    window._wfx_settings['4cf6fa90-9b67-11e6-9bb3-04013d24cf02'] = function(event) {
-        potential_step = 0;
-        //project list page
-        if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-            shift_resource_allocation_step = 2;
+        /*START <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to Shift a Resource Allocation in a Project <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        /* @Author : Venu */
+        /*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+        if (shift_resource_allocation_triggerReady) {
+            window._wfx_close_live();
             shift_resource_allocation_triggerReady = false;
         }
         //project default page
-        if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
-            shift_resource_allocation_step = 3;
-            shift_resource_allocation_triggerReady = false;
-        }
-        //project default page
-        if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
-            shift_resource_allocation_step = 4;
-            shift_resource_allocation_triggerReady = false;
+        if (shift_resource_allocation_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+            shift_resource_allocation_step = 0;
+            window._wfx_close_live();
         }
         //project team page
-        if ((event.step >= 4 && event.step < 13) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
-            shift_resource_allocation_step = 4;
-            shift_resource_allocation_triggerReady = false;
-        }
-
-        /*jump steps */
-        //project list page
-        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-            potential_step = 2;
-
-        }
-        //project default page
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))  ||(window.location.hash.includes("#action:projmgr.projectDashboard"))) {
-
-            potential_step = 3;
+        if (shift_resource_allocation_step == 3 && !window.location.hash.includes("#action:projmgr.roster&id")) {
+            shift_resource_allocation_step = 0;
+            window._wfx_close_live();
         }
         //project team page
-        if ((window.location.hash.includes("#action:projmgr.roster&id"))  || (window.location.hash.includes("#action:projmgr.teamList&i"))  ) {
-
-            potential_step = 4;
+        if (shift_resource_allocation_step == 4 && !window.location.hash.includes("#action:projmgr.roster&id")) {
+            shift_resource_allocation_step = 0;
+            window._wfx_close_live();
         }
 
-        if (potential_step && event.step <= potential_step) {
-            return {
-                "position": potential_step
-            };
+
+        if (window._wfx_is_live()) {
+            window._wfx_settings['4cf6fa90-9b67-11e6-9bb3-04013d24cf02'] = function (event) {
+                potential_step = 0;
+                //project list page
+                if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    shift_resource_allocation_step = 2;
+                    shift_resource_allocation_triggerReady = false;
+                }
+                //project default page
+                if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+                    shift_resource_allocation_step = 3;
+                    shift_resource_allocation_triggerReady = false;
+                }
+                //project default page
+                if ((event.step == 4) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
+                    shift_resource_allocation_step = 4;
+                    shift_resource_allocation_triggerReady = false;
+                }
+                //project team page
+                if ((event.step >= 4 && event.step < 13) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
+                    shift_resource_allocation_step = 4;
+                    shift_resource_allocation_triggerReady = false;
+                }
+
+                /*jump steps */
+                //project list page
+                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    potential_step = 2;
+
+                }
+                //project default page
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab")) || (window.location.hash.includes("#action:projmgr.projectDashboard"))) {
+
+                    potential_step = 3;
+                }
+                //project team page
+                if ((window.location.hash.includes("#action:projmgr.roster&id")) || (window.location.hash.includes("#action:projmgr.teamList&i"))) {
+
+                    potential_step = 4;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+            }
         }
-    }
-}
 
-/*END <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to Shift a Resource Allocation in a Project <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        /*END <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to Shift a Resource Allocation in a Project <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
-/* ******************************************************<<<How to create a requisition for a Role >>>***************************************************/
-//Author : Arun
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-if (how_to_create_a_requisition_for_a_role_triggerReady) {
-    window._wfx_close_live();
-    how_to_create_a_requisition_for_a_role_triggerReady = false;
-    console.log('closed' + how_to_create_a_requisition_for_a_role_step);
-}
-//for step number 2.......Click on any project link
-if (how_to_create_a_requisition_for_a_role_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab&id')) {
-    how_to_create_a_requisition_for_a_role_step = 0;
-    window._wfx_close_live();
-}
-
-//for step number 3....... Click on team tab
-if (how_to_create_a_requisition_for_a_role_step == 3 && !window.location.hash.includes("#action:projmgr.roster&id")) {
-    how_to_create_a_requisition_for_a_role_step = 0;
-    window._wfx_close_live();
-}
-//for step number 4....... Click on filter + button/click on unstaffed list
-if (how_to_create_a_requisition_for_a_role_step == 4 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
-    how_to_create_a_requisition_for_a_role_step = 0;
-    window._wfx_close_live();
-}
-//for step number 7....... Click on filter button
-if (how_to_create_a_requisition_for_a_role_step == 7 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
-    how_to_create_a_requisition_for_a_role_step = 0;
-    window._wfx_close_live();
-}
-
-//for step number 8....... Select on any Roles Page
-if (how_to_create_a_requisition_for_a_role_step == 8 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
-    how_to_create_a_requisition_for_a_role_step = 0;
-    window._wfx_close_live();
-}
-//for step number 15....... Click on create and ope tab
-if (how_to_create_a_requisition_for_a_role_step == 15 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
-    how_to_create_a_requisition_for_a_role_step = 0;
-    window._wfx_close_live();
-}
-if (window._wfx_is_live()) {
-    window._wfx_settings['b3856630-9b4d-11e6-9b3b-04013d24cd02'] = function(event) {
-        potential_step = 0;
+        /* ******************************************************<<<How to create a requisition for a Role >>>***************************************************/
+        //Author : Arun
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        if (how_to_create_a_requisition_for_a_role_triggerReady) {
+            window._wfx_close_live();
+            how_to_create_a_requisition_for_a_role_triggerReady = false;
+            console.log('closed' + how_to_create_a_requisition_for_a_role_step);
+        }
         //for step number 2.......Click on any project link
-        if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-            how_to_create_a_requisition_for_a_role_step = 2;
-            how_to_create_a_requisition_for_a_role_triggerReady = false;
-        }
-        
-		//for step number 3....... Click on team tab 
-        if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
-            how_to_create_a_requisition_for_a_role_triggerReady = false;
-            how_to_create_a_requisition_for_a_role_step = 3;
-        }
-        
-		//for step number 4....... Click on filter + button/click on unstaffed list
-        if ((event.step >= 4 && event.step < 8) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
-
-            how_to_create_a_requisition_for_a_role_triggerReady = false;
-            how_to_create_a_requisition_for_a_role_step = 4;
-        }
-        
-		//for step number 7....... Click on filter button
-        if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
-
-            how_to_create_a_requisition_for_a_role_triggerReady = false;
-            how_to_create_a_requisition_for_a_role_step = 7;
-        }
-        
-		//for step number 8....... Select on any Roles Page
-        if ((event.step >= 8 && event.step < 16) && (window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode"))) {
-
-            how_to_create_a_requisition_for_a_role_triggerReady = false;
-            how_to_create_a_requisition_for_a_role_step = 8;
-        }
-        
-		//for step number 15....... Click on create and ope tab
-        if ((event.step == 15) && (window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode"))) {
-
-            how_to_create_a_requisition_for_a_role_triggerReady = false;
-            how_to_create_a_requisition_for_a_role_step = 10;
+        if (how_to_create_a_requisition_for_a_role_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab&id')) {
+            how_to_create_a_requisition_for_a_role_step = 0;
+            window._wfx_close_live();
         }
 
-
-        /*jump steps */
-
-        //for step number 2.......Click on any project link
-        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-            potential_step = 2;
-		}
-        
-		//for step number 3....... Click on team tab 
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa")) ||(window.location.hash.includes("action:SYSTEM"))) {
-            potential_step = 3;
-
+        //for step number 3....... Click on team tab
+        if (how_to_create_a_requisition_for_a_role_step == 3 && !window.location.hash.includes("#action:projmgr.roster&id")) {
+            how_to_create_a_requisition_for_a_role_step = 0;
+            window._wfx_close_live();
         }
-        //for step number 5....... Click on unstaffed list
-        if ((window.location.hash.includes("#action:projmgr.roster&id")) || (window.location.hash.includes('#action:projmgr.teamLis'))  ) {
-            potential_step = 4;
-
+        //for step number 4....... Click on filter + button/click on unstaffed list
+        if (how_to_create_a_requisition_for_a_role_step == 4 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
+            how_to_create_a_requisition_for_a_role_step = 0;
+            window._wfx_close_live();
         }
+        //for step number 7....... Click on filter button
+        if (how_to_create_a_requisition_for_a_role_step == 7 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
+            how_to_create_a_requisition_for_a_role_step = 0;
+            window._wfx_close_live();
+        }
+
         //for step number 8....... Select on any Roles Page
-        if ((window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode"))) {
-            potential_step = 8;
-
+        if (how_to_create_a_requisition_for_a_role_step == 8 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
+            how_to_create_a_requisition_for_a_role_step = 0;
+            window._wfx_close_live();
         }
-        if (potential_step && event.step <= potential_step) {
-            return {
-                "position": potential_step
-            };
+        //for step number 15....... Click on create and ope tab
+        if (how_to_create_a_requisition_for_a_role_step == 15 && !window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode")) {
+            how_to_create_a_requisition_for_a_role_step = 0;
+            window._wfx_close_live();
         }
-    }
-}
+        if (window._wfx_is_live()) {
+            window._wfx_settings['b3856630-9b4d-11e6-9b3b-04013d24cd02'] = function (event) {
+                potential_step = 0;
+                //for step number 2.......Click on any project link
+                if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    how_to_create_a_requisition_for_a_role_step = 2;
+                    how_to_create_a_requisition_for_a_role_triggerReady = false;
+                }
 
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to create a requisition for a Role <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+                //for step number 3....... Click on team tab 
+                if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+                    how_to_create_a_requisition_for_a_role_triggerReady = false;
+                    how_to_create_a_requisition_for_a_role_step = 3;
+                }
+
+                //for step number 4....... Click on filter + button/click on unstaffed list
+                if ((event.step >= 4 && event.step < 8) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
+
+                    how_to_create_a_requisition_for_a_role_triggerReady = false;
+                    how_to_create_a_requisition_for_a_role_step = 4;
+                }
+
+                //for step number 7....... Click on filter button
+                if ((event.step == 7) && (window.location.hash.includes("#action:projmgr.roster&id"))) {
+
+                    how_to_create_a_requisition_for_a_role_triggerReady = false;
+                    how_to_create_a_requisition_for_a_role_step = 7;
+                }
+
+                //for step number 8....... Select on any Roles Page
+                if ((event.step >= 8 && event.step < 16) && (window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode"))) {
+
+                    how_to_create_a_requisition_for_a_role_triggerReady = false;
+                    how_to_create_a_requisition_for_a_role_step = 8;
+                }
+
+                //for step number 15....... Click on create and ope tab
+                if ((event.step == 15) && (window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode"))) {
+
+                    how_to_create_a_requisition_for_a_role_triggerReady = false;
+                    how_to_create_a_requisition_for_a_role_step = 10;
+                }
 
 
-/* ******************************************************How to Add Links and Notes to a Project***************************************************/
-//Pranavi 
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-if (how_to_add_links_and_notes_to_a_project_triggerReady) {
-    window._wfx_close_live();
-    how_to_add_links_and_notes_to_a_project_triggerReady = false;
-}
-//for step number 2
-if (how_to_add_links_and_notes_to_a_project_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab&id')) {
-    how_to_add_links_and_notes_to_a_project_step = 0;
-    window._wfx_close_live();
-}
+                /*jump steps */
 
-//for step number 3
-if (how_to_add_links_and_notes_to_a_project_step == 3 && !window.location.hash.includes('#action:projmgr.projectProperties&id')) {
-    how_to_add_links_and_notes_to_a_project_step = 0;
-    window._wfx_close_live();
-}
-//for step number 4
-if (how_to_add_links_and_notes_to_a_project_step == 4 && !window.location.hash.includes('#action:projmgr.projectProperties&id')) {
-    how_to_add_links_and_notes_to_a_project_step = 0;
-    window._wfx_close_live();
-}
-if (how_to_add_links_and_notes_to_a_project_step == 17 && !window.location.hash.includes('#action:projmgr.projectProperties&id')) {
-    how_to_add_links_and_notes_to_a_project_step = 0;
-    window._wfx_close_live();
-}
-if (window._wfx_is_live()) {
-    window._wfx_settings['1cf893b0-9b5f-11e6-a426-04013d24cc02'] = function(event) {
-        potential_step = 0;
+                //for step number 2.......Click on any project link
+                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    potential_step = 2;
+                }
 
-        if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-            how_to_add_links_and_notes_to_a_project_step = 2;
+                //for step number 3....... Click on team tab 
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa")) || (window.location.hash.includes("action:SYSTEM"))) {
+                    potential_step = 3;
+
+                }
+                //for step number 5....... Click on unstaffed list
+                if ((window.location.hash.includes("#action:projmgr.roster&id")) || (window.location.hash.includes('#action:projmgr.teamLis'))) {
+                    potential_step = 4;
+
+                }
+                //for step number 8....... Select on any Roles Page
+                if ((window.location.hash.includes("#action:projmgr.teamList&view_code=projectTeamStaff&instanceCode"))) {
+                    potential_step = 8;
+
+                }
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+            }
+        }
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to create a requisition for a Role <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+        /* ******************************************************How to Add Links and Notes to a Project***************************************************/
+        //Pranavi 
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        if (how_to_add_links_and_notes_to_a_project_triggerReady) {
+            window._wfx_close_live();
             how_to_add_links_and_notes_to_a_project_triggerReady = false;
         }
-        if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
-            how_to_add_links_and_notes_to_a_project_step = 3;
-            how_to_add_links_and_notes_to_a_project_triggerReady = false;
+        //for step number 2
+        if (how_to_add_links_and_notes_to_a_project_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab&id')) {
+            how_to_add_links_and_notes_to_a_project_step = 0;
+            window._wfx_close_live();
         }
 
-        if ((event.step >= 4 && event.step < 18) && (window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
-            how_to_add_links_and_notes_to_a_project_triggerReady = true;
+        //for step number 3
+        if (how_to_add_links_and_notes_to_a_project_step == 3 && !window.location.hash.includes('#action:projmgr.projectProperties&id')) {
+            how_to_add_links_and_notes_to_a_project_step = 0;
+            window._wfx_close_live();
+        }
+        //for step number 4
+        if (how_to_add_links_and_notes_to_a_project_step == 4 && !window.location.hash.includes('#action:projmgr.projectProperties&id')) {
+            how_to_add_links_and_notes_to_a_project_step = 0;
+            window._wfx_close_live();
+        }
+        if (how_to_add_links_and_notes_to_a_project_step == 17 && !window.location.hash.includes('#action:projmgr.projectProperties&id')) {
+            how_to_add_links_and_notes_to_a_project_step = 0;
+            window._wfx_close_live();
+        }
+        if (window._wfx_is_live()) {
+            window._wfx_settings['1cf893b0-9b5f-11e6-a426-04013d24cc02'] = function (event) {
+                potential_step = 0;
+
+                if ((event.step == 2) && (window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    how_to_add_links_and_notes_to_a_project_step = 2;
+                    how_to_add_links_and_notes_to_a_project_triggerReady = false;
+                }
+                if ((event.step == 3) && (window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+                    how_to_add_links_and_notes_to_a_project_step = 3;
+                    how_to_add_links_and_notes_to_a_project_triggerReady = false;
+                }
+
+                if ((event.step >= 4 && event.step < 18) && (window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
+                    how_to_add_links_and_notes_to_a_project_triggerReady = true;
+                }
+
+                if ((event.step == 17) && (window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
+                    how_to_add_links_and_notes_to_a_project_step = 17;
+                    how_to_add_links_and_notes_to_a_project_triggerReady = false;
+                }
+                /*jump steps */
+                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                    potential_step = 2;
+                }
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa"))) {
+                    potential_step = 3;
+                }
+                if ((window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
+                    potential_step = 4;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+            }
         }
 
-        if ((event.step == 17) && (window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
-            how_to_add_links_and_notes_to_a_project_step = 17;
-            how_to_add_links_and_notes_to_a_project_triggerReady = false;
-        }
-        /*jump steps */
-        if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-            potential_step = 2;
-        }
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa"))) {
-            potential_step = 3;
-        }
-        if ((window.location.hash.includes("#action:projmgr.projectProperties&id"))) {
-            potential_step = 4;
-        }
-
-        if (potential_step && event.step <= potential_step) {
-            return {
-                "position": potential_step
-            };
-        }
-    }
-}
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to Add Links and Notes to a Project<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-		//gtc code end
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< How to Add Links and Notes to a Project<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        //gtc code end
 
 
         /* *********************************************Idea for Approval?****************************************** */
@@ -3247,106 +3528,106 @@ if (window._wfx_is_live()) {
         /* ******************************************** How to create a copy of cost plan ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-//
-//
-//
-//
-//        if (how_to_create_a_copy_of_cost_plan_triggerReady) {
-//            window._wfx_close_live();
-//            how_to_create_a_copy_of_cost_plan_triggerReady = false;
-//        }
-//
-//
-//        // For step number 2
-//        if (how_to_create_a_copy_of_cost_plan_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
-//            how_to_create_a_copy_of_cost_plan_step = 0;
-//            window._wfx_close_live();
-//        }
-//
-//        // For step number 3
-//        if (how_to_create_a_copy_of_cost_plan_step == 3 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
-//            how_to_create_a_copy_of_cost_plan_step = 0;
-//            window._wfx_close_live();
-//        }
-//
-//        // For step number 6
-//        if (how_to_create_a_copy_of_cost_plan_step == 6 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
-//            how_to_create_a_copy_of_cost_plan_step = 0;
-//            window._wfx_close_live();
-//        }
-//
-//        // For step number 9
-//        if (how_to_create_a_copy_of_cost_plan_step == 9 && !window.location.hash.includes('#action:revmgr.costplanList&i')) {
-//            how_to_create_a_copy_of_cost_plan_step = 0;
-//            window._wfx_close_live();
-//        }
-//
-//        if (window._wfx_is_live()) {
-//            window._wfx_settings['73182fd0-8494-11e6-ae8d-04013d24cf02'] = function (event) {
-//                potential_step = 0;
-//
-//                //click on any project
-//                if ((event.step == 2) && window.location.hash.includes("#action:mainnav.work&classCode=project")) {
-//                    how_to_create_a_copy_of_cost_plan_step = 2;
-//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-//                }
-//                //click on financial plans
-//                if ((event.step == 3) && window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
-//                    how_to_create_a_copy_of_cost_plan_step = 3;
-//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-//                }
-//
-//                if ((event.step >= 4 && event.step < 6) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-//                    how_to_create_a_project_triggerReady = true;
-//                }
-//
-//                //click on copy cost plan
-//                if ((event.step == 6) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
-//                    how_to_create_a_copy_of_cost_plan_step = 6;
-//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-//                }
-//
-//                if ((event.step >= 7 && event.step < 9) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-//                    how_to_create_a_project_triggerReady = true;
-//                }
-//
-//                //click on save and return
-//                if ((event.step == 9) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
-//                    how_to_create_a_copy_of_cost_plan_step = 9;
-//                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
-//                }
-//
-//
-//                /*jump steps */
-//                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
-//                    potential_step = 2;
-//                }
-//
-//
-//                if (window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
-//                    potential_step = 3;
-//                }
-//
-//                if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-//                    potential_step = 4;
-//                }
-//				if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
-//                    potential_step = 7;
-//                }
-//
-//
-//
-//                if (potential_step && event.step <= potential_step) {
-//                    return {
-//                        "position": potential_step
-//                    };
-//                }
-//
-//
-//
-//
-//            }
-//        }
+        //
+        //
+        //
+        //
+        //        if (how_to_create_a_copy_of_cost_plan_triggerReady) {
+        //            window._wfx_close_live();
+        //            how_to_create_a_copy_of_cost_plan_triggerReady = false;
+        //        }
+        //
+        //
+        //        // For step number 2
+        //        if (how_to_create_a_copy_of_cost_plan_step == 2 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+        //            how_to_create_a_copy_of_cost_plan_step = 0;
+        //            window._wfx_close_live();
+        //        }
+        //
+        //        // For step number 3
+        //        if (how_to_create_a_copy_of_cost_plan_step == 3 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
+        //            how_to_create_a_copy_of_cost_plan_step = 0;
+        //            window._wfx_close_live();
+        //        }
+        //
+        //        // For step number 6
+        //        if (how_to_create_a_copy_of_cost_plan_step == 6 && !window.location.hash.includes('#action:revmgr.costplanList.project&')) {
+        //            how_to_create_a_copy_of_cost_plan_step = 0;
+        //            window._wfx_close_live();
+        //        }
+        //
+        //        // For step number 9
+        //        if (how_to_create_a_copy_of_cost_plan_step == 9 && !window.location.hash.includes('#action:revmgr.costplanList&i')) {
+        //            how_to_create_a_copy_of_cost_plan_step = 0;
+        //            window._wfx_close_live();
+        //        }
+        //
+        //        if (window._wfx_is_live()) {
+        //            window._wfx_settings['73182fd0-8494-11e6-ae8d-04013d24cf02'] = function (event) {
+        //                potential_step = 0;
+        //
+        //                //click on any project
+        //                if ((event.step == 2) && window.location.hash.includes("#action:mainnav.work&classCode=project")) {
+        //                    how_to_create_a_copy_of_cost_plan_step = 2;
+        //                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+        //                }
+        //                //click on financial plans
+        //                if ((event.step == 3) && window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
+        //                    how_to_create_a_copy_of_cost_plan_step = 3;
+        //                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+        //                }
+        //
+        //                if ((event.step >= 4 && event.step < 6) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+        //                    how_to_create_a_project_triggerReady = true;
+        //                }
+        //
+        //                //click on copy cost plan
+        //                if ((event.step == 6) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
+        //                    how_to_create_a_copy_of_cost_plan_step = 6;
+        //                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+        //                }
+        //
+        //                if ((event.step >= 7 && event.step < 9) && (window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+        //                    how_to_create_a_project_triggerReady = true;
+        //                }
+        //
+        //                //click on save and return
+        //                if ((event.step == 9) && window.location.hash.includes("#action:revmgr.costplanList.project&")) {
+        //                    how_to_create_a_copy_of_cost_plan_step = 9;
+        //                    how_to_create_a_copy_of_cost_plan_triggerReady = false;
+        //                }
+        //
+        //
+        //                /*jump steps */
+        //                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+        //                    potential_step = 2;
+        //                }
+        //
+        //
+        //                if (window.location.hash.includes("#action:projmgr.projectDefaultTab")) {
+        //                    potential_step = 3;
+        //                }
+        //
+        //                if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+        //                    potential_step = 4;
+        //                }
+        //				if ((window.location.hash.includes("#action:revmgr.costplanList.project&"))) {
+        //                    potential_step = 7;
+        //                }
+        //
+        //
+        //
+        //                if (potential_step && event.step <= potential_step) {
+        //                    return {
+        //                        "position": potential_step
+        //                    };
+        //                }
+        //
+        //
+        //
+        //
+        //            }
+        //        }
 
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to create a copy of cost plan<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -3424,7 +3705,7 @@ if (window._wfx_is_live()) {
 
 
                 //click on benefit plan
-                if ((event.step == 5) ) {
+                if ((event.step == 5)) {
                     how_to_create_a_benefit_plan_step = 5;
                     how_to_create_a_benefit_plan_triggerReady = false;
                 }
@@ -3719,11 +4000,11 @@ if (window._wfx_is_live()) {
             window._wfx_close_live();
         }
 
-//        // For step number 6
-//        if (how_to_reject_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaList')) {
-//            how_to_reject_an_idea_step = 0;
-//            window._wfx_close_live();
-//        }
+        //        // For step number 6
+        //        if (how_to_reject_an_idea_step == 6 && !window.location.hash.includes('#action:pma.ideaList')) {
+        //            how_to_reject_an_idea_step = 0;
+        //            window._wfx_close_live();
+        //        }
 
         if (window._wfx_is_live()) {
             window._wfx_settings['2ff9dbb0-855f-11e6-ba2f-04013d24cd02'] = function (event) {
@@ -3737,9 +4018,9 @@ if (window._wfx_is_live()) {
 
 
 
-//                if ((event.step >= 3 && event.step < 6) && (window.location.hash.includes("#action:pma.ideaProperties&return"))) {
-//                    how_to_create_a_project_triggerReady = true;
-//                }
+                //                if ((event.step >= 3 && event.step < 6) && (window.location.hash.includes("#action:pma.ideaProperties&return"))) {
+                //                    how_to_create_a_project_triggerReady = true;
+                //                }
 
                 if ((event.step == 6) && window.location.hash.includes("#action:pma.ideaProperties&return")) {
                     how_to_reject_an_idea_step = 6;
@@ -3790,8 +4071,8 @@ if (window._wfx_is_live()) {
             how_to_request_more_information_for_an_idea_step = 0;
             window._wfx_close_live();
         }
-		
-		
+
+
         // For step number 5
         if (how_to_request_more_information_for_an_idea_step == 5 && !window.location.hash.includes('#action:pma.ideaProperties')) {
             how_to_request_more_information_for_an_idea_step = 0;
@@ -3823,15 +4104,15 @@ if (window._wfx_is_live()) {
                     how_to_request_more_information_for_an_idea_triggerReady = true;
                 }
 
-				
+
                 //save button
                 if ((event.step == 5) && window.location.hash.includes("#action:pma.ideaProperties")) {
                     how_to_request_more_information_for_an_idea_step = 5;
                     how_to_request_more_information_for_an_idea_triggerReady = false;
                 }
-				
-				
-				
+
+
+
                 //return button
                 if ((event.step == 6) && window.location.hash.includes("#action:pma.ideaProperties")) {
                     how_to_request_more_information_for_an_idea_step = 6;
@@ -3865,145 +4146,124 @@ if (window._wfx_is_live()) {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to Request More Information for an Idea?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-    
-/* ******************************************************how_to_manage_allocations_of_staff_member***************************************************/
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-	if (how_to_manage_allocations_of_staff_member_triggerReady)
-	{
-		window._wfx_close_live();
-		how_to_manage_allocations_of_staff_member_triggerReady = false;
-	}
 
-	// For step number 2
-	if (how_to_manage_allocations_of_staff_member_step == 2 && !window.location.hash.includes('#action:mainnav.work&classCode=project')) 
-	{
-		how_to_manage_allocations_of_staff_member_step = 0;
-		window._wfx_close_live();
-	}
+        /* ******************************************************how_to_manage_allocations_of_staff_member***************************************************/
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        if (how_to_manage_allocations_of_staff_member_triggerReady) {
+            window._wfx_close_live();
+            how_to_manage_allocations_of_staff_member_triggerReady = false;
+        }
 
-	// For step number 3
-	if (how_to_manage_allocations_of_staff_member_step == 3 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) 
-	{
-		how_to_manage_allocations_of_staff_member_step = 0;
-		window._wfx_close_live();
-	}
+        // For step number 2
+        if (how_to_manage_allocations_of_staff_member_step == 2 && !window.location.hash.includes('#action:mainnav.work&classCode=project')) {
+            how_to_manage_allocations_of_staff_member_step = 0;
+            window._wfx_close_live();
+        }
 
-	// For step number 4
-	if (how_to_manage_allocations_of_staff_member_step == 4 && !window.location.hash.includes('#action:projmgr.roster&id')) 
-	{
-		how_to_manage_allocations_of_staff_member_step = 0;
-		window._wfx_close_live();
-	}
+        // For step number 3
+        if (how_to_manage_allocations_of_staff_member_step == 3 && !window.location.hash.includes('#action:projmgr.projectDefaultTab')) {
+            how_to_manage_allocations_of_staff_member_step = 0;
+            window._wfx_close_live();
+        }
 
-	// For step number 6
-	if (how_to_manage_allocations_of_staff_member_step == 6 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id=')) 
-	{
-		how_to_manage_allocations_of_staff_member_step = 0;
-		window._wfx_close_live();
-	}
+        // For step number 4
+        if (how_to_manage_allocations_of_staff_member_step == 4 && !window.location.hash.includes('#action:projmgr.roster&id')) {
+            how_to_manage_allocations_of_staff_member_step = 0;
+            window._wfx_close_live();
+        }
 
-	// For step number 15
-	if (how_to_manage_allocations_of_staff_member_step == 15 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id=')) 
-	{
-		how_to_manage_allocations_of_staff_member_step = 0;
-		window._wfx_close_live();
-	}
+        // For step number 6
+        if (how_to_manage_allocations_of_staff_member_step == 6 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id=')) {
+            how_to_manage_allocations_of_staff_member_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 15
+        if (how_to_manage_allocations_of_staff_member_step == 15 && !window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id=')) {
+            how_to_manage_allocations_of_staff_member_step = 0;
+            window._wfx_close_live();
+        }
 
 
 
-//Set the Key for the Flow
-	if (window._wfx_is_live()) 
-	{
-		window._wfx_settings['23bc09d0-80c4-11e6-90aa-04013d24cf02'] = function (event) 
-	{
-		potential_step = 0;
+        //Set the Key for the Flow
+        if (window._wfx_is_live()) {
+            window._wfx_settings['23bc09d0-80c4-11e6-90aa-04013d24cf02'] = function (event) {
+                potential_step = 0;
 
 
-//Set _Step and _triggerReady for step 2
-			if ((event.step==2) && (window.location.hash.includes('#action:mainnav.work&classCode=project'))) 
-			{
-				how_to_manage_allocations_of_staff_member_step = 2
-				how_to_manage_allocations_of_staff_member_triggerReady = false;
-			}
+                //Set _Step and _triggerReady for step 2
+                if ((event.step == 2) && (window.location.hash.includes('#action:mainnav.work&classCode=project'))) {
+                    how_to_manage_allocations_of_staff_member_step = 2
+                    how_to_manage_allocations_of_staff_member_triggerReady = false;
+                }
 
-//Set _Step and _triggerReady for step 3
-			if ((event.step==3) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				how_to_manage_allocations_of_staff_member_step = 3
-				how_to_manage_allocations_of_staff_member_triggerReady = false;
-			}
+                //Set _Step and _triggerReady for step 3
+                if ((event.step == 3) && (window.location.hash.includes('#action:projmgr.projectDefaultTab'))) {
+                    how_to_manage_allocations_of_staff_member_step = 3
+                    how_to_manage_allocations_of_staff_member_triggerReady = false;
+                }
 
-//Set _Step and _triggerReady for step 4
-			if ((event.step==4) && (window.location.hash.includes('#action:projmgr.roster&id'))) 
-			{
-				how_to_manage_allocations_of_staff_member_step = 4
-				how_to_manage_allocations_of_staff_member_triggerReady = false;
-			}
+                //Set _Step and _triggerReady for step 4
+                if ((event.step == 4) && (window.location.hash.includes('#action:projmgr.roster&id'))) {
+                    how_to_manage_allocations_of_staff_member_step = 4
+                    how_to_manage_allocations_of_staff_member_triggerReady = false;
+                }
 
-//Set _triggerReady for step 5
-			if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) 
-			{
-				how_to_manage_allocations_of_staff_member_triggerReady = true;
-			}
+                //Set _triggerReady for step 5
+                if ((event.step >= 5 && event.step < 6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) {
+                    how_to_manage_allocations_of_staff_member_triggerReady = true;
+                }
 
-//Set _Step and _triggerReady for step 6
-			if ((event.step==6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) 
-			{
-				how_to_manage_allocations_of_staff_member_step = 6
-				how_to_manage_allocations_of_staff_member_triggerReady = false;
-			}
+                //Set _Step and _triggerReady for step 6
+                if ((event.step == 6) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) {
+                    how_to_manage_allocations_of_staff_member_step = 6
+                    how_to_manage_allocations_of_staff_member_triggerReady = false;
+                }
 
-//Set _triggerReady for step 7
-			if ((event.step >= 7 && event.step < 15) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) 
-			{
-				how_to_manage_allocations_of_staff_member_triggerReady = true;
-			}
+                //Set _triggerReady for step 7
+                if ((event.step >= 7 && event.step < 15) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) {
+                    how_to_manage_allocations_of_staff_member_triggerReady = true;
+                }
 
-//Set _Step and _triggerReady for step 15
-			if ((event.step==15) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) 
-			{
-				how_to_manage_allocations_of_staff_member_step = 15
-				how_to_manage_allocations_of_staff_member_triggerReady = false;
-			}
+                //Set _Step and _triggerReady for step 15
+                if ((event.step == 15) && (window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) {
+                    how_to_manage_allocations_of_staff_member_step = 15
+                    how_to_manage_allocations_of_staff_member_triggerReady = false;
+                }
 
 
-/*jump steps */
-			if ((window.location.hash.includes('#action:mainnav.work&classCode=project'))) 
-			{
-				potential_step = 2;
-			}
+                /*jump steps */
+                if ((window.location.hash.includes('#action:mainnav.work&classCode=project'))) {
+                    potential_step = 2;
+                }
 
-			if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) 
-			{
-				potential_step = 3;
-			}
+                if ((window.location.hash.includes('#action:projmgr.projectDefaultTab'))) {
+                    potential_step = 3;
+                }
 
-			if ((window.location.hash.includes('#action:projmgr.roster&id'))) 
-			{
-				potential_step = 4;
-			}
+                if ((window.location.hash.includes('#action:projmgr.roster&id'))) {
+                    potential_step = 4;
+                }
 
-			if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) 
-			{
-				potential_step = 5;
-			}
+                if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&view_code=resourceProjectsAllocations&odf_return_to=projmgr.teamList'))) {
+                    potential_step = 5;
+                }
 
-			if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) 
-			{
-				potential_step = 7;
-			}
+                if ((window.location.hash.includes('#action:projmgr.getResourceProjectObjectList&id='))) {
+                    potential_step = 7;
+                }
 
 
-			if (potential_step && event.step <= potential_step) 
-			{
-				return {
-				"position": potential_step
-				};
-			}
-		}
-	}
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+            }
+        }
 
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_manage_allocations_of_staff_member<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of how_to_manage_allocations_of_staff_member<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         /* ******************************************** How to add a team to an idea? ****************************************** */
 
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
@@ -4523,12 +4783,12 @@ if (window._wfx_is_live()) {
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 
-        
+
         if (window._wfx_is_live()) {
             window._wfx_settings['ce45b450-895c-11e6-85ad-04013d24cd02'] = function (event) {
                 potential_step = 0;
 
-               
+
 
                 /*jump steps */
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&re"))) {
@@ -4813,7 +5073,7 @@ if (window._wfx_is_live()) {
             window._wfx_close_live();
         }
 
-        
+
 
         if (window._wfx_is_live()) {
             window._wfx_settings['d1ab2ee0-8afb-11e6-a787-04013d24cf02'] = function (event) {
@@ -4899,7 +5159,7 @@ if (window._wfx_is_live()) {
                 if ((window.location.hash.includes('#action:pfm.portfolioList'))) {
                     potential_step = 2;
                 }
-                                
+
                 if ((window.location.hash.includes('#action:pfm.portfolioDefaultTab'))) {
                     potential_step = 3;
                 }
@@ -5028,23 +5288,23 @@ if (window._wfx_is_live()) {
                 if ((event.step >= 4 && event.step < 9) && (window.location.hash.includes("#action:itl.incidentObject"))) {
                     how_to_flag_an_incident_for_conversion_triggerReady = true;
                 }
-	
-	
-			//Click on save
+
+
+                //Click on save
                 if ((event.step == 8) && window.location.hash.includes("#action:itl.incidentObject")) {
                     how_to_flag_an_incident_for_conversion_step = 8;
                     how_to_flag_an_incident_for_conversion_triggerReady = false;
                 }
 
-				
-				
+
+
                 //Incident is now flagged for conversion
                 if ((event.step == 9) && window.location.hash.includes("#action:itl.incidentObject&odf_")) {
                     how_to_flag_an_incident_for_conversion_step = 9;
                     how_to_flag_an_incident_for_conversion_triggerReady = false;
                 }
-				
-				 //Incident is now flagged for conversion
+
+                //Incident is now flagged for conversion
                 if ((event.step == 10) && window.location.hash.includes("#action:itl.incidentList")) {
                     how_to_flag_an_incident_for_conversion_step = 10;
                     how_to_flag_an_incident_for_conversion_triggerReady = false;
@@ -5059,7 +5319,7 @@ if (window._wfx_is_live()) {
                     potential_step = 3;
                 }
                 if (window.location.hash.includes("#action:itl.incidentObject")) {
-                   potential_step = 4;
+                    potential_step = 4;
                 }
                 if (window.location.hash.includes("#action:itl.incidentList&id=&id=&id=&incidentListType=reportedBy")) {
                     potential_step = 10;
@@ -5257,12 +5517,12 @@ if (window._wfx_is_live()) {
 
                 }
                 //project default page
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))|| (window.location.hash.includes('action:projmgr.projectPropertie')) ||(window.location.hash.includes('action:SYSTEM'))) {
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab")) || (window.location.hash.includes('action:projmgr.projectPropertie')) || (window.location.hash.includes('action:SYSTEM'))) {
                     potential_step = 3;
 
                 }
                 //Team staff page
-                if ((window.location.hash.includes("#action:projmgr.roster")) ) {
+                if ((window.location.hash.includes("#action:projmgr.roster"))) {
                     potential_step = 4;
 
                 }
@@ -5413,7 +5673,7 @@ if (window._wfx_is_live()) {
                 if ((window.location.hash.includes("#action:itl.riskObject&odf_pk"))) {
                     potential_step = 11;
                 }
-                
+
 
                 if (potential_step && event.step <= potential_step) {
                     return {
@@ -5559,84 +5819,84 @@ if (window._wfx_is_live()) {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a cost plan from the resource plan <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-		
-		
-						
-						/* ********************************************  How to synchronize Portfolio instantly? ****************************************** */
 
-                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-				
-				 if (how_to_synchronize_portfolio_instantly_triggerReady) {
-                window._wfx_close_live();
-                how_to_synchronize_portfolio_instantly_triggerReady = false;
-            }
-			
-			
-			 // For step number 2
-            if (how_to_synchronize_portfolio_instantly_step == 2 && !window.location.hash.includes('#action:pfm.portfolioDefaultTab')) {
-                how_to_synchronize_portfolio_instantly_step = 0;
-                window._wfx_close_live();
-            }
-			
-			 // For step number 3
-            if (how_to_synchronize_portfolio_instantly_step == 3 && !window.location.hash.includes('#action:pfm.portfolioContentsEditor')) {
-                how_to_synchronize_portfolio_instantly_step = 0;
-                window._wfx_close_live();
-            }
-			
-			 // For step number 4
-            if (how_to_synchronize_portfolio_instantly_step == 4 && !window.location.hash.includes('#action:pfm.portfolioContentsEdito')) {
-                how_to_synchronize_portfolio_instantly_step = 0;
-                window._wfx_close_live();
-            }
-			if (window._wfx_is_live()) {
-                        window._wfx_settings['b7efd2a0-a679-11e6-a0e0-04013d24cd02'] = function (event) {
-                            potential_step = 0;
-				
-					
-				if ((event.step == 2) && window.location.hash.includes("#action:pfm.portfolioLis")) {
-                            how_to_synchronize_portfolio_instantly_step = 2;
-                            how_to_synchronize_portfolio_instantly_triggerReady = false;
-                        }
-				
-					if ((event.step == 3) && window.location.hash.includes("#action:pfm.portfolioDefaultTab")) {
-                            how_to_synchronize_portfolio_instantly_step = 3;
-                            how_to_synchronize_portfolio_instantly_triggerReady = false;
-                        }
-						
-						if ((event.step == 4) && window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
-                            how_to_synchronize_portfolio_instantly_step = 4;
-                            how_to_synchronize_portfolio_instantly_triggerReady = false;
-                        }
-				
-				
-				 /*jump steps */
-                        if ((window.location.hash.includes("#action:pfm.portfolioLis"))) {
-                            potential_step = 2;
-                        }
 
-                        if ((window.location.hash.includes("#action:pfm.portfolioDefaultTab"))  ||(window.location.hash.includes("#action:pfm.portfolioProperties&odf_return_to=pfm.portfol"))) {
-                            potential_step = 3;
-                        }
 
-                        if (window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
-                            potential_step = 4;
-                        }
+        /* ********************************************  How to synchronize Portfolio instantly? ****************************************** */
 
-                        if (potential_step && event.step <= potential_step) {
-                            return {
-                                "position": potential_step
-                            };
-                        }
-						
-						}
-			}
-				
-				
-  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to synchronize Portfolio instantly?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  
-  
-		
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+        if (how_to_synchronize_portfolio_instantly_triggerReady) {
+            window._wfx_close_live();
+            how_to_synchronize_portfolio_instantly_triggerReady = false;
+        }
+
+
+        // For step number 2
+        if (how_to_synchronize_portfolio_instantly_step == 2 && !window.location.hash.includes('#action:pfm.portfolioDefaultTab')) {
+            how_to_synchronize_portfolio_instantly_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 3
+        if (how_to_synchronize_portfolio_instantly_step == 3 && !window.location.hash.includes('#action:pfm.portfolioContentsEditor')) {
+            how_to_synchronize_portfolio_instantly_step = 0;
+            window._wfx_close_live();
+        }
+
+        // For step number 4
+        if (how_to_synchronize_portfolio_instantly_step == 4 && !window.location.hash.includes('#action:pfm.portfolioContentsEdito')) {
+            how_to_synchronize_portfolio_instantly_step = 0;
+            window._wfx_close_live();
+        }
+        if (window._wfx_is_live()) {
+            window._wfx_settings['b7efd2a0-a679-11e6-a0e0-04013d24cd02'] = function (event) {
+                potential_step = 0;
+
+
+                if ((event.step == 2) && window.location.hash.includes("#action:pfm.portfolioLis")) {
+                    how_to_synchronize_portfolio_instantly_step = 2;
+                    how_to_synchronize_portfolio_instantly_triggerReady = false;
+                }
+
+                if ((event.step == 3) && window.location.hash.includes("#action:pfm.portfolioDefaultTab")) {
+                    how_to_synchronize_portfolio_instantly_step = 3;
+                    how_to_synchronize_portfolio_instantly_triggerReady = false;
+                }
+
+                if ((event.step == 4) && window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
+                    how_to_synchronize_portfolio_instantly_step = 4;
+                    how_to_synchronize_portfolio_instantly_triggerReady = false;
+                }
+
+
+                /*jump steps */
+                if ((window.location.hash.includes("#action:pfm.portfolioLis"))) {
+                    potential_step = 2;
+                }
+
+                if ((window.location.hash.includes("#action:pfm.portfolioDefaultTab")) || (window.location.hash.includes("#action:pfm.portfolioProperties&odf_return_to=pfm.portfol"))) {
+                    potential_step = 3;
+                }
+
+                if (window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
+                    potential_step = 4;
+                }
+
+                if (potential_step && event.step <= potential_step) {
+                    return {
+                        "position": potential_step
+                    };
+                }
+
+            }
+        }
+
+
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to synchronize Portfolio instantly?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
 
         /* ******************************************************How to change notification settings of a user ***************************************************/
 
@@ -6115,7 +6375,7 @@ if (window._wfx_is_live()) {
             window._wfx_settings['193c02f0-86fd-11e6-85ad-04013d24cd02'] = function (event) {
                 potential_step = 0;
                 //for step number 1....Click on Add Task button
-               /* if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+                /* if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     how_to_add_a_unplanned_task_row_step = 1;
                     how_to_add_a_unplanned_task_row_triggerReady = false;
                 }
@@ -6147,7 +6407,7 @@ if (window._wfx_is_live()) {
 				*/
                 /*jump steps */
                 //for step number 1....Click on Add Task button page
-				
+
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     potential_step = 1;
 
@@ -6158,7 +6418,7 @@ if (window._wfx_is_live()) {
                     potential_step = 2;
                 }
                 //for step number 3....Click on investment link page
-                if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid")) ||(window.location.hash.includes("action:timeadmin.createUnplannedTas"))) {
+                if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid")) || (window.location.hash.includes("action:timeadmin.createUnplannedTas"))) {
 
                     potential_step = 3;
                 }
@@ -6331,7 +6591,7 @@ if (window._wfx_is_live()) {
             window._wfx_settings['56c6e150-8967-11e6-b370-04013d24cc02'] = function (event) {
                 potential_step = 0;
 
-              /*  if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+                /*  if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     project_task_row_step = 1;
                     project_task_row_triggerReady = false;
                 }
@@ -6525,9 +6785,9 @@ if (window._wfx_is_live()) {
                     potential_step = 6;
                 }
 
-//                if ((window.location.hash.includes('#action:resource.skillsAssociationSelect'))) {
-//                    potential_step = 7;
-//                }
+                //                if ((window.location.hash.includes('#action:resource.skillsAssociationSelect'))) {
+                //                    potential_step = 7;
+                //                }
 
                 if ((window.location.hash.includes('#action:resource.openSkillsAssociationReturn'))) {
                     potential_step = 8;
