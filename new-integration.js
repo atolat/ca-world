@@ -107,6 +107,113 @@ window._wfx_settings.apply_page_settings = function () {
 };
 
 
+//-------------Normalize CSS, tooltip css---------------------------//
+var normalizeCSS = "<style>\/\/Strong\r\nb\r\n, strong {\r\n    font - weight: inherit;\r\n}\r\n\r\n\r\nb\r\n, strong {\r\n    font - weight: bolder;\r\n}\r\n\r\n\r\n\r\ndfn {\r\n    font - style: italic;\r\n}\r\n\r\n\/\/Headers\r\n\r\nh1 {\r\n\t    display: block;\r\n\t    font-size: 2em;\r\n\t    -webkit-margin-before: 0.67__qem;\r\n\t    -webkit-margin-after: 0.67em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\r\nstrong, b {\r\n    font-weight: bold;\r\n\t}\r\n\r\nh2 {\r\n\t    display: block;\r\n\t    font-size: 1.5em;\r\n\t    -webkit-margin-before: 0.83__qem;\r\n\t    -webkit-margin-after: 0.83em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th3 {\r\n\t    display: block;\r\n\t    font-size: 1.17em;\r\n\t    -webkit-margin-before: 1__qem;\r\n\t    -webkit-margin-after: 1em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th4 {\r\n\t    display: block;\r\n\t    -webkit-margin-before: 1.33__qem;\r\n\t    -webkit-margin-after: 1.33em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th5 {\r\n\t    display: block;\r\n\t    font-size: .83em;\r\n\t    -webkit-margin-before: 1.67__qem;\r\n\t    -webkit-margin-after: 1.67em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\th6 {\r\n\t    display: block;\r\n\t    font-size: .67em;\r\n\t    -webkit-margin-before: 2.33__qem;\r\n\t    -webkit-margin-after: 2.33em;\r\n\t    -webkit-margin-start: 0;\r\n\t    -webkit-margin-end: 0;\r\n\t    font-weight: bold;\r\n\t}\r\n\r\n\r\n\/\/Lists\r\nul { \r\n   list-style-type: disc; \r\n   list-style-position: inside; \r\n}\r\nol { \r\n   list-style-type: decimal; \r\n   list-style-position: inside; \r\n}\r\nul ul, ol ul { \r\n   list-style-type: circle; \r\n   list-style-position: inside; \r\n   margin-left: 15px; \r\n}\r\nol ol, ul ol { \r\n   list-style-type: lower-latin; \r\n   list-style-position: inside; \r\n   margin-left: 15px; \r\n}\r\n\r\n\/\/Tables\r\ntable {\r\n\t    display: table;\r\n\t    border-collapse: separate;\r\n\t    border-spacing: 2px;\r\n\t    border-color: gray;\r\n\t}\r\n\t\r\n\tthead {\r\n\t    display: table-header-group;\r\n\t    vertical-align: middle;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\ttbody {\r\n\t    display: table-row-group;\r\n vertical-align: middle;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\ttfoot {\r\n\t    display: table-footer-group;\r\n\t    vertical-align: middle;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\t\/* for tables without table section elements (can happen with XHTML or dynamically created tables) *\/\r\n\ttable > tr {\r\n\t    vertical-align: middle;\r\n\t}\r\n\t\r\n\tcol {\r\n\t    display: table-column;\r\n}\r\n\t\r\n\tcolgroup {\r\n\t    display: table-column-group;\r\n\t}\r\n\t\r\n\ttr {\r\n\t    display: table-row;\r\n\t    vertical-align: inherit;\r\n\t    border-color: inherit;\r\n\t}\r\n\t\r\n\ttd, th {\r\n\t    display: table-cell;\r\n\t    vertical-align: inherit;\r\n\t}\r\n\t\r\nth {\r\n\t    font-weight: bold;\r\n\t}\r\n\t\r\n\tcaption {\r\n\t    display: table-caption;\r\n\t    text-align: -webkit-center;\r\n\t}\r\n\r\n\/\/Button\r\nbutton {\r\n\t    -webkit-appearance: button;\r\n}<\/style>";
+
+
+//CSS for the tooltips associated with the "?" icons/buttons.
+
+var toolTipCss = '<style>\r\n.tooltip {\r\n    position: relative;\r\n    display: inline-block;\r\n    border-bottom: 1px dotted black;\r\n}\r\n\r\n.tooltip .tooltiptext {\r\n    visibility: hidden;\r\n    background-color: black;\r\n    color: #fff;\r\n    text-align: center;\r\n    border-radius: 6px;\r\n    padding: 5px 0;\r\n    \r\n    \/* Position the tooltip *\/\r\n    position: absolute;\r\n    z-index: 1;\r\n    top: -5px;\r\n    right: 105%;\r\n}\r\n\r\n.tooltip:hover .tooltiptext {\r\n    visibility: visible;\r\n}\r\n<\/style>';
+
+//CSS for "?" button, includes some animations, hover function definitions.
+
+var buttonCss = '<style>\r\n.button-hov { \r\n display: inline-block;\r\n position: absolute;\r\n right: 20px; inline-block;\r\n border-radius: 84px;\r\n background-color: #1c9a1a;\r\n border: 1px solid #1c9a1a;\r\n color: #FFFFFF;\r\n text-align: center;\r\n font-size: 10px;\r\n padding: 4px 6px 4px 6px;\r\n cursor: pointer;\r\n margin: 4px 10px 0px 0px;\r\n}\r\n#check {position: relative;z-index: 10000;fill: none;stroke: green;stroke-width: 20;stroke-linecap: round;stroke-dasharray: 180;stroke-dashoffset: 180;  animation: draw 2s 1 ease;}@keyframes draw {  to {    stroke-dashoffset: 0;  }}<\/style>';
+
+//-----------------------------------------------------//
+
+//--------------------JQuery Button Defs---------------//
+
+// "Validate 1" button
+window._wfx_settings.add_button = function (name, button, parentSelector, action) {
+    var validate_id = "wfx_" + name + "_validate";
+    if (document.getElementById(validate_id)) {
+        return;
+    }
+    var validate = $('<button/>', {
+        html: button
+        , class: 'ppm_button button'
+        , click: action
+        , id: validate_id
+    });
+    $(parentSelector).append(validate);
+};
+
+
+// "Report Status" Button/ "?" icon
+window._wfx_settings.add_button_report_status = function (name, img, parentSelector) {
+    var report_status_id = "wfx_" + name + "_report_status";
+    if (document.getElementById(report_status_id)) {
+        return;
+    }
+    var report_status = $('<button/>', {
+        text: "?"
+        , style: "vertical-align:middle"
+        , class: 'button-hov'
+        , id: report_status_id
+    });
+    $(report_status).append(toolTipCss).append(buttonCss).addClass("tooltip").append(' <span class="tooltiptext"><img src="' + img + '" /></span>');
+
+    $(parentSelector).append(report_status);
+};
+
+
+// "Schedule Status" Button
+window._wfx_settings.add_button_schedule_status = function (name, img, parentSelector) {
+    var schedule_status_id = "wfx_" + name + "_schedule_status";
+    if (document.getElementById(schedule_status_id)) {
+        return;
+    }
+    var schedule_status = $('<button/>', {
+        text: "?"
+        , style: "vertical-align:middle"
+        , class: 'button-hov'
+        , id: schedule_status_id
+    });
+    $(schedule_status).append(toolTipCss).append(buttonCss).addClass("tooltip").append(' <span class="tooltiptext"><img src="' + img + '" /></span>');
+
+    $(parentSelector).append(schedule_status);
+};
+
+
+// Scope Status Button
+window._wfx_settings.add_button_scope_status = function (name, img, parentSelector) {
+    var scope_status_id = "wfx_" + name + "_scope_status";
+    if (document.getElementById(scope_status_id)) {
+        return;
+    }
+    var scope_status = $('<button/>', {
+        text: "?"
+        , style: "vertical-align:middle"
+        , class: 'button-hov'
+        , id: scope_status_id
+    });
+    $(scope_status).append(toolTipCss).append(buttonCss).addClass("tooltip").append(' <span class="tooltiptext"><img src="' + img + '" /></span>');
+
+    $(parentSelector).append(scope_status);
+};
+
+
+// "Cost & Effort" Button
+window._wfx_settings.add_button_ce_status = function (name, img, parentSelector) {
+    var ce_status_id = "wfx_" + name + "_ce_status";
+    if (document.getElementById(ce_status_id)) {
+        return;
+    }
+    var ce_status = $('<button/>', {
+        text: "?"
+        , style: "vertical-align:middle"
+        , class: 'button-hov'
+        , id: ce_status_id
+    });
+    $(ce_status).append(toolTipCss).append(buttonCss).addClass("tooltip").append(' <span class="tooltiptext"><img src="' + img + '" /></span>');
+
+    $(parentSelector).append(ce_status);
+};
+
+
+//-----------------------------------------------------//
+
+
 /* Below code is for killing the flow by when user go out of the flow >>>>>>>>>>>>>>>>>>>>>>>>>>>> Begin >>>>>>>>>>>>>>>>>>>>>>>..*/
 
 //To close the balloon on url change
@@ -554,6 +661,11 @@ var how_to_add_links_and_notes_to_a_project_step = 0;
 /*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
+/* variable for  How to synchronize Portfolio instantly?*/
+/*<<<<<<<<<<<<< Begin <<<<<<<<<<<<<<<<*/
+var how_to_synchronize_portfolio_instantly_triggerReady = false;
+var how_to_synchronize_portfolio_instantly_step = 0;
+/*>>>>>>>>>> End >>>>>>>>>>>>>>>>>>>>>> */
 
 
 
@@ -1591,7 +1703,7 @@ $(window).hashchange(function () {
                 potential_step = 0;
 
                 //Timesheets page
-                if ((event.step >= 1 && event.step < 3) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
+               /* if ((event.step >= 1 && event.step < 3) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
                     how_to_change_an_etc_value_triggerReady = true;
                 }
 
@@ -1605,7 +1717,7 @@ $(window).hashchange(function () {
                 if ((event.step >= 4 && event.step < 6) && (window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
                     how_to_change_an_etc_value_triggerReady = true;
                 }
-
+	*/
                 /*jump steps */
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet"))) {
                     potential_step = 1;
@@ -1626,48 +1738,14 @@ $(window).hashchange(function () {
 
         //CHECK AGAIN NOT WORKING
 
-        if (how_to_modify_a_submitted_timesheet_triggerReady) {
-            window._wfx_close_live();
-            how_to_modify_a_submitted_timesheet_triggerReady = false;
-        }
 
-
-        // For step number 2
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 2 && !window.location.hash.includes('#action:timeadmin.editTimesheet')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 3
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 3 && !window.location.hash.includes('#action:timeadmin.timesheetBrowserReturn')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 4
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 5
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 4 && !window.location.hash.includes('#action:timeadmin.editTimesheet&')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
-
-        // For step number 6
-        if (how_to_how_to_modify_a_submitted_timesheet_step == 6 && !window.location.hash.includes('#action:timeadmin.timesheetBrowserReturn')) {
-            how_to_how_to_modify_a_submitted_timesheet_step = 0;
-            window._wfx_close_live();
-        }
 
         if (window._wfx_is_live()) {
             window._wfx_settings['7af89700-895b-11e6-a787-04013d24cf02'] = function (event) {
                 potential_step = 0;
 
                 //Timesheets page
-                if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
+               /* if ((event.step == 2) && (window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
                     how_to_how_to_modify_a_submitted_timesheet_step = 2;
                     how_to_modify_a_submitted_timesheet_triggerReady = false;
                 }
@@ -1696,7 +1774,7 @@ $(window).hashchange(function () {
                     how_to_modify_a_submitted_timesheet_triggerReady = false;
                 }
 
-
+				*/
 
                 /*jump steps */
                 if ((window.location.hash.includes("#action:timeadmin.timesheetBrowserReturn"))) {
@@ -2129,7 +2207,7 @@ if (window._wfx_is_live()) {
 		}
         
 		//for step number 3....... Click on team tab 
-        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa"))) {
+        if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes("#action:projmgr.projectDashboa")) ||(window.location.hash.includes("action:SYSTEM"))) {
             potential_step = 3;
 
         }
@@ -2431,16 +2509,16 @@ if (window._wfx_is_live()) {
                 }
 
                 /*jump steps */
-                if ((window.location.hash.includes("#action:mainnav.work&classCode=project"))) {
+                if ((window.location.hash.includes("#action:timeadmin.timesheetBrowserRetur"))) {
                     potential_step = 2;
                 }
 
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+                if ((window.location.hash.includes("#action:timeadmin.editTimesheet&res"))) {
                     potential_step = 3;
                 }
 
-                if (window.location.hash.includes("#action:projmgr.roster&id")) {
-                    potential_step = 4;
+                if (window.location.hash.includes("#action:timeadmin.timesheetBrowser&sortColum")) {
+                    potential_step = 6;
                 }
 
                 if (potential_step && event.step <= potential_step) {
@@ -4445,38 +4523,12 @@ if (window._wfx_is_live()) {
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 
-        if (how_to_add_a_note_for_a_time_entry_triggerReady) {
-            window._wfx_close_live();
-            how_to_add_a_note_for_a_time_entry_triggerReady = false;
-        }
-
-
-        // For step number 2
-        if (how_to_add_a_note_for_a_time_entry_step == 2 && !window.location.hash.includes('#action:timeadmin.editTimesheet&re')) {
-            how_to_add_a_note_for_a_time_entry_step = 0;
-            window._wfx_close_live();
-        }
-        // For step number 5
-        if (how_to_add_a_note_for_a_time_entry_step == 5 && !window.location.hash.includes('#action:timeadmin.editTimesheet&re')) {
-            how_to_add_a_note_for_a_time_entry_step = 0;
-            window._wfx_close_live();
-        }
-
+        
         if (window._wfx_is_live()) {
             window._wfx_settings['ce45b450-895c-11e6-85ad-04013d24cd02'] = function (event) {
                 potential_step = 0;
 
-                //add a note
-                if ((event.step == 1) && window.location.hash.includes("#action:timeadmin.editTimesheet&re")) {
-                    how_to_add_a_note_for_a_time_entry_step = 2;
-                    how_to_add_a_note_for_a_time_entry_triggerReady = false;
-                }
-
-                //save 
-                if ((event.step == 5) && window.location.hash.includes("#action:timeadmin.editTimesheet&re")) {
-                    how_to_add_a_note_for_a_time_entry_step = 5;
-                    how_to_add_a_note_for_a_time_entry_triggerReady = false;
-                }
+               
 
                 /*jump steps */
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&re"))) {
@@ -5205,12 +5257,12 @@ if (window._wfx_is_live()) {
 
                 }
                 //project default page
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))) {
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab"))|| (window.location.hash.includes('action:projmgr.projectPropertie')) ||(window.location.hash.includes('action:SYSTEM'))) {
                     potential_step = 3;
 
                 }
                 //Team staff page
-                if ((window.location.hash.includes("#action:projmgr.roster"))) {
+                if ((window.location.hash.includes("#action:projmgr.roster")) ) {
                     potential_step = 4;
 
                 }
@@ -5474,7 +5526,7 @@ if (window._wfx_is_live()) {
 
                 }
 
-                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id"))) {
+                if ((window.location.hash.includes("#action:projmgr.projectDefaultTab&id")) || (window.location.hash.includes('action:SYSTEM'))) {
 
                     potential_step = 3;
                 }
@@ -5507,6 +5559,84 @@ if (window._wfx_is_live()) {
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of How to create a cost plan from the resource plan <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
+		
+		
+						
+						/* ********************************************  How to synchronize Portfolio instantly? ****************************************** */
+
+                /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+				
+				 if (how_to_synchronize_portfolio_instantly_triggerReady) {
+                window._wfx_close_live();
+                how_to_synchronize_portfolio_instantly_triggerReady = false;
+            }
+			
+			
+			 // For step number 2
+            if (how_to_synchronize_portfolio_instantly_step == 2 && !window.location.hash.includes('#action:pfm.portfolioDefaultTab')) {
+                how_to_synchronize_portfolio_instantly_step = 0;
+                window._wfx_close_live();
+            }
+			
+			 // For step number 3
+            if (how_to_synchronize_portfolio_instantly_step == 3 && !window.location.hash.includes('#action:pfm.portfolioContentsEditor')) {
+                how_to_synchronize_portfolio_instantly_step = 0;
+                window._wfx_close_live();
+            }
+			
+			 // For step number 4
+            if (how_to_synchronize_portfolio_instantly_step == 4 && !window.location.hash.includes('#action:pfm.portfolioContentsEdito')) {
+                how_to_synchronize_portfolio_instantly_step = 0;
+                window._wfx_close_live();
+            }
+			if (window._wfx_is_live()) {
+                        window._wfx_settings['b7efd2a0-a679-11e6-a0e0-04013d24cd02'] = function (event) {
+                            potential_step = 0;
+				
+					
+				if ((event.step == 2) && window.location.hash.includes("#action:pfm.portfolioLis")) {
+                            how_to_synchronize_portfolio_instantly_step = 2;
+                            how_to_synchronize_portfolio_instantly_triggerReady = false;
+                        }
+				
+					if ((event.step == 3) && window.location.hash.includes("#action:pfm.portfolioDefaultTab")) {
+                            how_to_synchronize_portfolio_instantly_step = 3;
+                            how_to_synchronize_portfolio_instantly_triggerReady = false;
+                        }
+						
+						if ((event.step == 4) && window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
+                            how_to_synchronize_portfolio_instantly_step = 4;
+                            how_to_synchronize_portfolio_instantly_triggerReady = false;
+                        }
+				
+				
+				 /*jump steps */
+                        if ((window.location.hash.includes("#action:pfm.portfolioLis"))) {
+                            potential_step = 2;
+                        }
+
+                        if ((window.location.hash.includes("#action:pfm.portfolioDefaultTab"))  ||(window.location.hash.includes("#action:pfm.portfolioProperties&odf_return_to=pfm.portfol"))) {
+                            potential_step = 3;
+                        }
+
+                        if (window.location.hash.includes("#action:pfm.portfolioContentsEditor")) {
+                            potential_step = 4;
+                        }
+
+                        if (potential_step && event.step <= potential_step) {
+                            return {
+                                "position": potential_step
+                            };
+                        }
+						
+						}
+			}
+				
+				
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end of How to synchronize Portfolio instantly?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+  
+		
 
         /* ******************************************************How to change notification settings of a user ***************************************************/
 
@@ -5985,7 +6115,7 @@ if (window._wfx_is_live()) {
             window._wfx_settings['193c02f0-86fd-11e6-85ad-04013d24cd02'] = function (event) {
                 potential_step = 0;
                 //for step number 1....Click on Add Task button
-                if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+               /* if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     how_to_add_a_unplanned_task_row_step = 1;
                     how_to_add_a_unplanned_task_row_triggerReady = false;
                 }
@@ -6014,8 +6144,10 @@ if (window._wfx_is_live()) {
                     how_to_add_a_unplanned_task_row_step = 9;
                     how_to_add_a_unplanned_task_row_triggerReady = false;
                 }
+				*/
                 /*jump steps */
                 //for step number 1....Click on Add Task button page
+				
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     potential_step = 1;
 
@@ -6026,7 +6158,7 @@ if (window._wfx_is_live()) {
                     potential_step = 2;
                 }
                 //for step number 3....Click on investment link page
-                if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid"))) {
+                if ((window.location.hash.includes("#action:timeadmin.createUnplannedTask&tsid")) ||(window.location.hash.includes("action:timeadmin.createUnplannedTas"))) {
 
                     potential_step = 3;
                 }
@@ -6199,7 +6331,7 @@ if (window._wfx_is_live()) {
             window._wfx_settings['56c6e150-8967-11e6-b370-04013d24cc02'] = function (event) {
                 potential_step = 0;
 
-                if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
+              /*  if ((event.step == 1) && (window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
                     project_task_row_step = 1;
                     project_task_row_triggerReady = false;
                 }
@@ -6241,7 +6373,7 @@ if (window._wfx_is_live()) {
                     project_task_row_step = 11;
                     project_task_row_triggerReady = false;
                 }
-
+*/
                 /*jump steps */
 
                 if ((window.location.hash.includes("#action:timeadmin.editTimesheet&resid"))) {
