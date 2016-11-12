@@ -699,11 +699,69 @@ window._wfx_settings['84b840a0-9b77-11e6-93e6-04013d24cc02'] = [
   ["#action:calendar.actionitemProperties"]               //18
 ];
 
+
+
+
+
+//<<<<<<<<<<<<<<<Timesheets
+
+//How to Add a Note for a Time Entry?
+
+window._wfx_settings['ce45b450-895c-11e6-85ad-04013d24cd02'] = [
+  [],														//0
+  ["#action:timeadmin.editTimesheet"],														//1
+  ["#action:timeadmin.editTimesheet"],							//2
+   ["#action:timeadmin.editTimesheet"],			                    //3
+    ["#action:timeadmin.editTimesheet"],	//4
+   ["#action:timeadmin.editTimesheet"]	    //5
+];
+
+
+
+
+//How to add an indirect row?
+
+
+window._wfx_settings['f5afd310-912f-11e6-85ad-04013d24cd02'] = [
+  [],														//0
+  ["#action:timeadmin.editTimesheet"],														//1
+  ["#action:timeadmin.editTimesheet"],							//2
+   ["#action:timeadmin.editTimesheet"]		                    //3
+    
+    
+    ];
+
+    //How to Populate your Timesheet ?
+
+
+window._wfx_settings['0b9bf480-895e-11e6-85ad-04013d24cd02'] = [
+  [],														//0
+  ["#action:timeadmin.editTimesheet"],														//1
+  ["#action:timeadmin.confirmAction"],							//2
+   ["#action:timeadmin.editTimesheet"]		                    //3
+    
+    
+    ];
+    
+//How to Return your Submitted Timesheet?
+
+window._wfx_settings['f5530a50-895e-11e6-b370-04013d24cc02cx'] = [
+  [],														//0
+  [],														//1
+  ["#action:timeadmin.timesheetBrowserReturn"],							//2
+  ["#action:timeadmin.timesheetBrowserReturn"],		//3
+  ["#action:timeadmin.timesheetBrowser"],				//4
+  ["#action:timeadmin.timesheetBrowser"],			//5
+  ["#action:timeadmin.timesheetBrowserReturn"],				//6
+  ["#action:timeadmin.timesheetBrowserReturn"],			//7
+  ["#action:timeadmin.timesheetBrowser"]				
+];
+
+
+
+
+
 //<<<<<<<<<<<<<<<<<HashEnd
-
-
-
-
 
 
 var current_flow_id=0;
