@@ -126,6 +126,31 @@ window._wfx_settings['b7efd2a0-a679-11e6-a0e0-04013d24cd02'] = [
   ["#action:pfm.portfolioContentsEditor"]				//4
 ];
 
+//Change the Synchronization Schedule for Portfolio  #4
+window._wfx_settings['d1ab2ee0-8afb-11e6-a787-04013d24cf02'] = [
+  [],
+  [],
+/*02*/["#action:pfm.portfolioList"],
+/*03*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
+/*04*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
+/*05*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
+/*06*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
+/*07*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
+/*08*/["#action:pfm.portfolioInvestments"],
+/*09*/["#action:pfm.portfolioWorksheet"],
+/*10*/["#action:pfm.portfolioContentsEditor"],
+/*11*/["#action:pfm.portfolioContentsEditor"],
+/*12*/["#action:pfm.portfolioContentsEditor"],
+/*13*/["#action:pfm.portfolioInvestments"],
+/*14*/["#action:pfm.portfolioContentsEditor"],
+/*15*/["#action:pfm.portfolioProperties"],
+/*16*/["#action:pfm.portfolioProperties"],
+/*17*/["#action:nmc.reportAccess"],
+/*18*/["#action:nmc.reportAccess"],
+/*19*/["#action:nmc.reportAccess"],
+/*20*/["#action:nmc.reportAccess"]
+]
+
 //>>>>>>>>>>>>>>>>>DEMAND
 //How to add a team to an idea
 
@@ -476,12 +501,106 @@ window._wfx_settings['fd7d9a20-99bb-11e6-9bb3-04013d24cf02'] = [
   [],														//0
   [],														//1
   ["#action:mainnav.work"],							//2
-  ["#action:projmgr.projectDefaultTab","#action:dashboardProjectStatus"],		                    //3
+["#action:projmgr.projectDefaultTab","#action:dashboardProjectStatus","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],		                    //3
   ["#action:projmgr.roster"],				//4
   ["#action:collab.projectParticipants"],			    //5
   ["#action:collab.projectParticipants"],			//6
   ["#action:collab.projectParticipants"]			//7
 ];
+
+//Create a Program  #31
+window._wfx_settings['bd1dfc60-8965-11e6-a787-04013d24cf02'] = [
+  [],
+  [],
+/*02*/["#action:projmgr.programs"],
+/*03*/["#action:projmgr.programNew"],
+/*04*/["#action:projmgr.programNew"],
+/*05*/["#action:projmgr.programNew"],
+/*06*/["#action:projmgr.programNew"]
+]
+
+//Manage Allocations for a Staff Member  #37
+window._wfx_settings['23bc09d0-80c4-11e6-90aa-04013d24cf02'] = [
+  [],
+  [],
+/*02*/["#action:mainnav.work"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*04*/["#action:projmgr.roster"],
+/*05*/["#action:projmgr.getResourceProjectObjectList"],
+/*06*/["#action:projmgr.getResourceProjectObjectList"],
+/*07*/["#action:projmgr.getResourceProjectObjectList"],
+/*08*/["#action:projmgr.getResourceProjectObjectList"],
+/*09*/["#action:projmgr.getResourceProjectObjectList"],
+/*10*/["#action:projmgr.getResourceProjectObjectList"],
+/*11*/["#action:projmgr.getResourceProjectObjectList"],
+/*12*/["#action:projmgr.getResourceProjectObjectList"],
+/*13*/["#action:projmgr.getResourceProjectObjectList"],
+/*14*/["#action:projmgr.getResourceProjectObjectList"]
+]
+
+
+//How to financially enable a Project  #46
+window._wfx_settings['dad54b20-9778-11e6-914c-04013d24cd02'] = [
+
+  [],
+  [],
+/*02*/["#action:mainnav.work"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*04*/["#action:projmgr.projectProperties"],
+/*05*/["#action:projmgr.projectProperties"],
+/*06*/["#action:projmgr.projectProperties"],
+/*07*/["#action:projmgr.projectProperties"],
+/*08*/["#action:projmgr.projectProperties"],
+/*09*/["#action:projmgr.projectProperties"],
+/*10*/["#action:projmgr.projectProperties"],
+/*11*/["#action:projmgr.projectProperties"],
+/*12*/["#action:projmgr.projectProperties"]
+]
+
+
+//Create a cost plan from the task assignments  #47
+window._wfx_settings['b3a59dd0-84a3-11e6-a247-04013d24cc02'] = [
+
+  [],
+  [],
+/*02*/["#action:mainnav.work"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*04*/["#action:revmgr.costplanList.project"],
+/*05*/["#action:revmgr.costplanProperties"],
+/*06*/["#action:revmgr.costplanProperties"],
+/*07*/["#action:revmgr.costplanProperties"],
+/*08*/["#action:revmgr.costplanProperties"],
+/*09*/["#action:revmgr.costplanProperties"],
+/*10*/["#action:revmgr.costplandetailList"],
+/*11*/["#action:revmgr.costplandetailList"],
+/*12*/["#action:revmgr.populateFromResourcePlan"],
+/*13*/["#action:revmgr.costplanProperties"],
+/*14*/["#action:revmgr.costplanProperties"]
+]
+
+
+//How to Add Links and Notes to a Project  #60
+window._wfx_settings['1cf893b0-9b5f-11e6-a426-04013d24cc02'] = [
+  [],
+  [],
+/*02*/["#action:mainnav.work"],
+/*03*/["###"],
+/*04*/["#action:projmgr.projectProperties"],
+/*05*/["#action:projmgr.projectProperties"],
+/*06*/["#action:projmgr.projectProperties"],
+/*07*/["#action:projmgr.projectProperties"],
+/*08*/["#action:projmgr.projectProperties"],
+/*09*/["#action:projmgr.projectProperties"],
+/*10*/["#action:projmgr.projectProperties"],
+/*11*/["#action:projmgr.projectProperties"],
+/*12*/["#action:projmgr.projectProperties"],
+/*13*/["#action:projmgr.projectProperties"],
+/*14*/["#action:projmgr.projectProperties"],
+/*15*/["#action:projmgr.projectProperties"],
+/*16*/["#action:projmgr.projectProperties"],
+/*17*/["#action:projmgr.projectProperties"]
+]
+
 
 //>>>>>>>>>>>>>>>>>FINANCIAL
 
@@ -636,7 +755,7 @@ window._wfx_settings['4cf6fa90-9b67-11e6-9bb3-04013d24cf02'] = [
   [],														//0
   [],														//1
   ["#action:mainnav.work"],							//2
-  ["#action:projmgr.projectDefaultTab","#action:dashboardProjectStatus"],		                    //3
+ ["#action:projmgr.projectDefaultTab","#action:dashboardProjectStatus","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],		                    //3
   ["#action:projmgr.roster","#action:projmgr.teamList"],				//4
   ["#action:projmgr.roster"],			    //5
   ["#action:projmgr.roster"],			//6
