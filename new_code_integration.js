@@ -88,7 +88,7 @@ window._wfx_settings['caa38560-863d-11e6-a787-04013d24cf02'] = [
   ["#action:pfm.portfolioList","#action:pfm.planList"],		//3
   ["#action:pfm.planList"],				//4
   ["#action:pfm.planList"],									//5
-  ["#action:pfm.portfolioList"],							//6
+  ["#action:pfm.portfolioList", "#action:pfm.planList"],							//6
   ["#action:pfm.portfolioList"],							//7
   ["#action:pfm.portfolioList"],							//8
   ["#action:pfm.portfolioList"],							//9
@@ -325,6 +325,35 @@ window._wfx_settings['751c3b40-99df-11e6-a426-04013d24cc02'] = [
 
 //>>>>>>>>>>>>>>>>>PROJECT
 
+//How to create a Change Request?
+
+window._wfx_settings['c0dd8dc0-8154-11e6-9479-04013d24cd02'] = [
+
+  [],
+  [],
+  /*02*/["#action:mainnav.work&classCode=project"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*04*/["#action:itl.riskList"],
+/*05*/["#action:itl.riskList"],
+/*06*/["#action:itl.changeList"],
+/*07*/["#action:itl.changeObject"],
+/*08*/["#action:itl.changeObject"],
+/*09*/["#action:itl.changeObject"],
+/*10*/["#action:itl.changeObject"],
+  
+/*11*/["#action:itl.changeObject"],
+  
+/*12*/["#action:itl.changeObject"],
+  
+/*13*/["#action:itl.changeObject"],
+  
+/*14*/["#action:itl.changeObject"],
+  
+/*15*/["#action:itl.changeObject"],
+  /*16*/["#action:itl.changeObject"]
+  
+  ];
+
 //How to Allocate Resource from Estimates?
 
 window._wfx_settings['35c8a770-8153-11e6-9479-04013d24cd02'] = [
@@ -437,7 +466,7 @@ window._wfx_settings['3e5a4420-99cc-11e6-a426-04013d24cc02'] = [
 /*05*/["#action:collab.projectParticipants"],
 /*06*/["#action:collab.projectParticipants"],
 /*07*/["#action:collab.makeManagerConfirmation"],
-/*08*/["#action:collab.projectParticipants"]
+/*08*/["#action:collab.projectParticipants","#action:collab.makeManagerConfirmation"]
 
 ];
 
@@ -449,7 +478,7 @@ window._wfx_settings['9748f410-80b7-11e6-a47d-04013d24cc02'] = [
   [],
   [],
 /*02*/["#action:mainnav.work&classCode=project"],
-/*03*/["#action:projmgr.projectProperties","#action:projmgr.projectDefaultTab"],
+/*03*/["#action:projmgr.projectProperties","#action:projmgr.projectDefaultTab","#action:projmgr.projectDashboard"],
 /*04*/["#action:projmgr.projectProperties"],
 /*05*/["#action:projmgr.baselineRevisionList"],
 /*06*/["#action:projmgr.baselineRevisionProperties"],
@@ -612,7 +641,7 @@ window._wfx_settings['5dac4a20-83cf-11e6-ba2f-04013d24cd02'] = [
   [],
   [],
 /*02*/["#action:mainnav.work&classCode=project"],
-/*03*/["#action:projmgr.projectDefaultTab"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
 /*04*/["#action:revmgr.costplanList.project"],
 /*05*/["#action:revmgr.costplanList.project"],
 /*06*/["#action:revmgr.benefitplanList"],
@@ -629,7 +658,7 @@ window._wfx_settings['73182fd0-8494-11e6-ae8d-04013d24cf02'] = [
 [],                 //0
 [],                 //1
 ["#action:mainnav.work&classCode=project"],    //2
-["#action:projmgr.projectDefaultTab"],               //3
+["#action:projmgr.projectDefaultTab",,"#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],               //3
 ["#action:revmgr.costplanList.project&"],            //4
 ["#action:revmgr.costplanList.project&"],           //5
 ["#action:revmgr.costplanList.project&"],          //6
@@ -827,6 +856,7 @@ window._wfx_settings['84b840a0-9b77-11e6-93e6-04013d24cc02'] = [
 //How to Add a Note for a Time Entry?
 
 window._wfx_settings['ce45b450-895c-11e6-85ad-04013d24cd02'] = [
+
   [],														//0
   ["#action:timeadmin.editTimesheet"],														//1
   ["#action:timeadmin.editTimesheet"],							//2
@@ -856,8 +886,8 @@ window._wfx_settings['f5afd310-912f-11e6-85ad-04013d24cd02'] = [
 window._wfx_settings['0b9bf480-895e-11e6-85ad-04013d24cd02'] = [
   [],														//0
   ["#action:timeadmin.editTimesheet"],														//1
-  ["#action:timeadmin.confirmAction"],							//2
-   ["#action:timeadmin.editTimesheet"]		                    //3
+  ["#action:timeadmin.confirmAction","#action:timeadmin.editTimesheet"],							//2
+   ["#action:timeadmin.editTimesheet","#action:timeadmin.confirmAction"]		                    //3
     
     
     ];
@@ -924,7 +954,7 @@ $(window).hashchange(function () {
 			console.log('Last Step');
 		}
 		
-		if(current_step>1){
+		if(current_step>=1){
 			for(hashIndex = 0; hashIndex <= window._wfx_settings[current_flow_id][current_step].length; hashIndex ++) {
 				console.log('Hash from Hashmap=>>['+hashIndex+']'+window._wfx_settings[current_flow_id][current_step+1][hashIndex]);
 				if(window.location.hash.includes(window._wfx_settings[current_flow_id][current_step+1][hashIndex])) {
