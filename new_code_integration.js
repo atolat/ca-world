@@ -839,8 +839,8 @@ window._wfx_settings['12f0f050-847c-11e6-ae8d-04013d24cf02'] = [
   [],
   [],
 /*02*/["#action:mainnav.work&classCode=project"],
-/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
-/*04*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard","#action:dashboardProjectStatus"],
+/*04*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard","#action:dashboardProjectStatus"],
 /*05*/["#action:projmgr.projectProperties&odf_view"],
 /*06*/["#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt"],
 /*07*/["#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt"]
