@@ -1,4 +1,4 @@
-/*--------------------------------------------------------------------------------------------------------------
+'/*--------------------------------------------------------------------------------------------------------------
                 ##Integration Script for "letzNav" by Excers.## 
                 >>Description: This script is developed for CAPPM's sandbox instance for ppmcontent.
                 >>Git Repository:: https://github.com/atolat/ca-world.git
@@ -839,11 +839,21 @@ window._wfx_settings['12f0f050-847c-11e6-ae8d-04013d24cf02'] = [
   [],
   [],
 /*02*/["#action:mainnav.work&classCode=project"],
-/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard","#action:dashboardProjectStatus"],
-/*04*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard","#action:dashboardProjectStatus"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties&odf_view=projectGeneral","#action:projmgr.projectDashboard","#action:dashboardProjectStatus","#action:projmgr.projectProperties&id"],
+/*04*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties&odf_view=projectGeneral","#action:projmgr.projectDashboard","#action:projmgr.projectProperties&id"],
 /*05*/["#action:projmgr.projectProperties&odf_view"],
-/*06*/["#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt"],
-/*07*/["#action:odf.subObjectProperties&odf_code=cop_prj_statusrpt"]
+/*06*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*07*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*08*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*09*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*10*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*11*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*12*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*13*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*14*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*15*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*16*/["odf_code=cop_prj_statusrpt", "#action:odf.cop_prj_statusrptProperties"],
+/*17*/["odf_code=cop_prj_statusrpt"]
 
 ];
 
