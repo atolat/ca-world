@@ -1,4 +1,4 @@
-'/*--------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------
                 ##Integration Script for "letzNav" by Excers.## 
                 >>Description: This script is developed for CAPPM's sandbox instance for ppmcontent.
                 >>Git Repository:: https://github.com/atolat/ca-world.git
