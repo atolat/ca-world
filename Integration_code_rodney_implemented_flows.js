@@ -564,7 +564,7 @@ window._wfx_settings['d1ab2ee0-8afb-11e6-a787-04013d24cf02d1ab2ee0-8afb-11e6-a78
 /*04*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
 /*05*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
 /*06*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
-/*07*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties"],
+/*07*/["#action:pfm.portfolioDefaultTab", "#action:pfm.portfolioProperties","#action:pfm.portfolioInvestment"],
 /*08*/["#action:pfm.portfolioInvestments"],
 /*09*/["#action:pfm.portfolioWorksheet"],
 /*10*/["#action:pfm.portfolioContentsEditor"],
@@ -807,7 +807,7 @@ window._wfx_settings['a9ff4050-8495-11e6-a247-04013d24cc02'] = [
   [],
   [],
 /*02*/["#action:mainnav.work&classCode=project"],
-/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard","#action:dashboardProjectStatus&id"],
 /*04*/["#action:revmgr.costplanList.project&id"],
 /*05*/["#action:revmgr.budgetList&id"],
 
@@ -1037,7 +1037,7 @@ window._wfx_settings['33c53fe0-815f-11e6-90aa-04013d24cf02'] = [
 /*11*/["#action:itl.riskObject&odf_pk"],
 /*12*/["#action:itl.riskObject&odf_pk"],
 /*13*/["#action:itl.riskObject&odf_pk"],
-/*14*/["#action:projmgr.projectProperties","#action:itl.riskList"],
+/*14*/["#action:projmgr.projectProperties","#action:itl.riskList","#action:itl.riskObject&odf_pk"],
 /*15*/["#action:projmgr.projectProperties"]
 
 ];
@@ -1105,8 +1105,8 @@ window._wfx_settings['dad54b20-9778-11e6-914c-04013d24cd02'] = [
 
   [],
   [],
-/*02*/["#action:mainnav.work"],
-/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*02*/["#action:mainnav.work","#action:projmgr.projectList&classCode"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard","#action:dashboardProjectStatus&id"],
 /*04*/["#action:projmgr.projectProperties"],
 /*05*/["#action:projmgr.projectProperties"],
 /*06*/["#action:projmgr.projectProperties"],
@@ -1125,7 +1125,7 @@ window._wfx_settings['b3a59dd0-84a3-11e6-a247-04013d24cc02'] = [
   [],
   [],
 /*02*/["#action:mainnav.work"],
-/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard"],
+/*03*/["#action:projmgr.projectDefaultTab","#action:projmgr.projectProperties","#action:projmgr.projectDashboard","#action:dashboardProjectStatus&id"],
 /*04*/["#action:revmgr.costplanList.project"],
 /*05*/["#action:revmgr.costplanList.project"],
 /*06*/["#action:revmgr.costplanProperties&object_code=project&superSecretTokenKey=superSecretTokenValue&id"],
